@@ -1103,6 +1103,94 @@ nav{
   border-bottom-color:rgba(100,116,139,.18) !important;
 }
 
+
+/* ==================================================
+   白色背景文字配色最终校正
+   统一降低高亮色亮度，保证白底可读性
+================================================== */
+.subtitle,
+.basic-info-label,
+.project-overview,
+.research-block p,
+.research-summary,
+.project-intro,
+.research-background-card,
+.project-date{
+  color:#526174;
+}
+
+.paper-title,
+.project-name,
+.research-block-title,
+.basic-info-value,
+.project-overview strong,
+.research-block strong,
+.research-summary strong,
+.project-intro strong,
+.research-background-card strong,
+.advisor{
+  color:#172033;
+}
+
+.section > h2,
+.my-name,
+.paper a,
+.summary-key,
+.intro-key,
+.background-highlight,
+.basic-info-value.highlight{
+  color:#075f93;
+}
+
+.research-summary .summary-number,
+.project-intro .intro-number{
+  color:#b42318;
+}
+
+.project-cyan .project-index,
+.text-cyan{
+  color:#087f8c;
+}
+
+.project-purple .project-index,
+.text-purple{
+  color:#6d28d9;
+}
+
+.project-blue .project-index,
+.text-blue{
+  color:#1d4ed8;
+}
+
+.project-cyan .project-index{
+  background:rgba(8,127,140,.08);
+  border-color:rgba(8,127,140,.24);
+}
+
+.project-purple .project-index{
+  background:rgba(109,40,217,.07);
+  border-color:rgba(109,40,217,.22);
+}
+
+.project-blue .project-index{
+  background:rgba(29,78,216,.07);
+  border-color:rgba(29,78,216,.22);
+}
+
+.research-background-card a,
+.card a{
+  color:#1d4ed8 !important;
+}
+
+.research-background-card a:hover,
+.card a:hover{
+  color:#075f93 !important;
+}
+
+nav > div:first-child b{
+  color:#172033;
+}
+
 </style>
 </head>
 <body>
@@ -1153,7 +1241,7 @@ nav{
 <div class="section" id="about">
 <h2>个人简介</h2>
 <div class="card">
-      吕志贤，男，中共党员，西安交通大学博士研究生，师从<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" style="color:#60a5fa; text-decoration:none;" target="_blank">李义宝</a></strong>教授，研究方向为复杂多物理场建模与智能计算，聚焦神经算子方法、物理约束学习与降阶建模方法。已在J. Comput. Phys.等期刊发表10篇SCI论文，其中一作/学生一作7篇，高被引1篇。主持并参与多项科研项目，获得国家奖学金等荣誉。
+      吕志贤，男，中共党员，西安交通大学博士研究生，师从<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" target="_blank">李义宝教授</a></strong>，研究方向为复杂多物理场建模与智能计算，聚焦神经算子方法、物理约束学习与降阶建模方法。已在J. Comput. Phys.等期刊发表10篇SCI论文，其中一作/学生一作7篇，高被引1篇。主持并参与多项科研项目，获得国家奖学金等荣誉。
     </div>
 </div>
 <!-- 论文成果 -->
@@ -1161,14 +1249,7 @@ nav{
 <h2>科研成果</h2>
 <div class="research-summary">
       基于<strong>神经算子与物理约束降阶方法</strong>，围绕复杂多物理场耦合的高性能求解问题，
-      构建<strong>数据驱动与物理模型融合的高效数值预测框架</strong>，实现了流体–固体–燃烧耦合系统的
-      <span class="summary-key">稳定求解与快速预测</span>。在
-      <strong>Journal of Computational Physics、Physics of Fluids</strong>
-      等国际期刊发表 SCI 论文
-      <span class="summary-number">10篇</span>，其中一作/学生一作
-      <span class="summary-number">7篇</span>，西安交通大学最具影响力期刊
-      <span class="summary-number">6篇</span>，高被引论文
-      <span class="summary-number">1篇</span>。
+      构建<strong>数据驱动与物理模型融合的高效数值预测框架</strong>，实现了流体–固体–燃烧耦合系统的<span class="summary-key">稳定求解与快速预测</span>。在<strong>Journal of Computational Physics、Physics of Fluids</strong>等国际期刊发表 SCI 论文<span class="summary-number">10篇</span>，其中一作/学生一作<span class="summary-number">7篇</span>，西安交通大学最具影响力期刊<span class="summary-number">6篇</span>，高被引论文<span class="summary-number">1篇</span>。
     </div>
 <div class="paper"><span class="paper-title">
       Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion</span><br/>
@@ -1286,15 +1367,9 @@ nav{
 <h2>项目经历</h2>
 <!-- 项目总体情况 -->
 <div class="project-intro">
-    担任科研项目负责人
-    <span class="intro-number">1项</span>，
-    作为项目骨干参与
-    <span class="intro-number">5项</span>
-    纵向与横向科研项目。熟悉
-    <strong>项目申报书撰写、任务拆解、技术路线设计、阶段汇报、成果验收及交付材料撰写</strong>
-    等全流程工作；了解纵向科研、校际合作、特殊任务和企业合作等项目组织模式，
-    具备
-    <span class="intro-key">独立申报、协同推进和成果交付能力</span>。
+    担任科研项目负责人<span class="intro-number">1项</span>，
+    作为项目骨干参与<span class="intro-number">5项</span>纵向与横向科研项目。熟悉<strong>项目申报书撰写、任务拆解、技术路线设计、阶段汇报、成果验收及交付材料撰写</strong>等全流程工作；了解纵向科研、校际合作、特殊任务和企业合作等项目组织模式，
+    具备<span class="intro-key">独立申报、协同推进和成果交付能力</span>。
   </div>
 <div class="project-list">
 <!-- ================= 项目一 ================= -->
@@ -1313,11 +1388,8 @@ nav{
 </div>
 <div class="project-body">
 <p class="project-overview">
-          针对氢气超声速燃烧中
-          <strong>多物理场强耦合、非线性演化及高保真模拟成本高</strong>
-          等问题，构建融合降阶表征、长时间预测与生成模型的数据驱动计算框架，
-          实现压力、温度和速度等复杂燃烧流场的
-          <span class="text-cyan">快速预测、细节重构与信息重建</span>。
+          针对氢气超声速燃烧中<strong>多物理场强耦合、非线性演化及高保真模拟成本高</strong>等问题，构建融合降阶表征、长时间预测与生成模型的数据驱动计算框架，
+          实现压力、温度和速度等复杂燃烧流场的<span class="text-cyan">快速预测、细节重构与信息重建</span>。
         </p>
 <div class="project-research-grid">
 <div class="research-block">
@@ -1337,8 +1409,7 @@ nav{
 <div class="research-block">
 <div class="research-block-title">生成式重构</div>
 <p>
-              融合物理约束与生成模型，实现高分辨率流场的
-              <strong>细节恢复、缺失补全和信息重建</strong>。
+              融合物理约束与生成模型，实现高分辨率流场的<strong>细节恢复、缺失补全和信息重建</strong>。
             </p>
 </div>
 </div>
@@ -1360,34 +1431,28 @@ nav{
 </div>
 <div class="project-body">
 <p class="project-overview">
-          针对复杂多物理场强耦合条件下
-          <strong>高保真模拟代价高、观测数据稀疏以及局部信息缺失</strong>
-          等问题，开发复杂物理场孪生计算软件，构建模型与数据融合的数字孪生框架，
-          提升复杂流动与燃烧场景下的
-          <span class="text-purple">计算效率、预测精度与长期稳定性</span>。
+          针对复杂多物理场强耦合条件下<strong>高保真模拟代价高、观测数据稀疏以及局部信息缺失</strong>等问题，开发复杂物理场孪生计算软件，构建模型与数据融合的数字孪生框架，
+          提升复杂流动与燃烧场景下的<span class="text-purple">计算效率、预测精度与长期稳定性</span>。
         </p>
 <div class="project-research-grid">
 <div class="research-block">
 <div class="research-block-title">多物理场建模</div>
 <p>
-              建立复杂流动、传热与燃烧过程的
-              <strong>多物理场耦合模型</strong>，
+              建立复杂流动、传热与燃烧过程的<strong>多物理场耦合模型</strong>，
               描述不同物理变量之间的相互作用。
             </p>
 </div>
 <div class="research-block">
 <div class="research-block-title">孪生计算</div>
 <p>
-              开发复杂物理场
-              <strong>数字孪生计算软件</strong>，
+              开发复杂物理场<strong>数字孪生计算软件</strong>，
               实现高保真模型、观测数据与快速预测模型之间的协同。
             </p>
 </div>
 <div class="research-block">
 <div class="research-block-title">信息融合</div>
 <p>
-              面向稀疏观测与数据缺失问题，研究
-              <strong>状态重构、数据修复与动态预测</strong>，
+              面向稀疏观测与数据缺失问题，研究<strong>状态重构、数据修复与动态预测</strong>，
               提升系统状态感知能力。
             </p>
 </div>
@@ -1410,18 +1475,15 @@ nav{
 </div>
 <div class="project-body">
 <p class="project-overview">
-          面向微型液冷流道结构优化与高效散热需求，结合
-          <strong>拓扑优化、相场模型、流阻建模与混合整数优化方法</strong>，
-          开展液冷流道结构设计与性能优化，实现
-          <span class="text-blue">流阻降低、流量性能提升与传热能力增强</span>，
+          面向微型液冷流道结构优化与高效散热需求，结合<strong>拓扑优化、相场模型、流阻建模与混合整数优化方法</strong>，
+          开展液冷流道结构设计与性能优化，实现<span class="text-blue">流阻降低、流量性能提升与传热能力增强</span>，
           为高效散热结构设计提供理论与计算支撑。
         </p>
 <div class="project-research-grid">
 <div class="research-block">
 <div class="research-block-title">流热耦合建模</div>
 <p>
-              建立微型液冷流道中的
-              <strong>流动与传热耦合模型</strong>，
+              建立微型液冷流道中的<strong>流动与传热耦合模型</strong>，
               分析结构参数对流阻与散热性能的影响。
             </p>
 </div>
@@ -1429,16 +1491,14 @@ nav{
 <div class="research-block-title">拓扑优化</div>
 <p>
               结合相场方法与拓扑优化技术，
-              实现复杂流道结构的
-              <strong>连续演化与自动设计</strong>。
+              实现复杂流道结构的<strong>连续演化与自动设计</strong>。
             </p>
 </div>
 <div class="research-block">
 <div class="research-block-title">性能提升</div>
 <p>
               构建流阻模型与混合整数优化方法，
-              协同优化
-              <strong>流阻、流量分配和传热效率</strong>。
+              协同优化<strong>流阻、流量分配和传热效率</strong>。
             </p>
 </div>
 </div>
@@ -1450,7 +1510,7 @@ nav{
 <div class="section" id="background">
 <h2>科研背景</h2>
 <div class="research-background-card">
-      导师<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" target="_blank">李义宝教授</a></strong>，<span class="background-highlight">国家级青年人才</span>，课题组隶属于<strong>徐宗本院士团队</strong>，现任学院党委副书记，CSIAM 大数据与人工智能专委会秘书长，现代计算科学与工程应用中心主任。在 <strong>CMAME、JCP</strong> 等国际高水平期刊发表论文 <strong>130 余篇</strong>，主持 <strong>20 余项</strong>纵向与横向科研项目。
+      导师<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" target="_blank">李义宝教授</a></strong>，<span class="background-highlight">国家级青年人才</span>，课题组隶属于<strong>徐宗本院士团队</strong>，现任学院党委副书记，CSIAM 大数据与人工智能专委会秘书长，现代计算科学与工程应用中心主任。在<strong>CMAME、JCP</strong>等国际高水平期刊发表论文<strong>130 余篇</strong>，主持<strong>20 余项</strong>纵向与横向科研项目。
     </div>
 </div>
 <!-- 联系方式 -->
