@@ -1191,6 +1191,157 @@ nav > div:first-child b{
   color:#172033;
 }
 
+/* ==================================================
+   教育经历
+================================================== */
+.education-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* 单条教育经历 */
+.education-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:
+    minmax(150px,.95fr)
+    minmax(150px,1fr)
+    minmax(135px,.85fr)
+    minmax(220px,1.35fr)
+    minmax(110px,.7fr);
+  align-items:center;
+  gap:20px;
+
+  padding:18px 20px 18px 24px;
+
+  background:transparent;
+  border:1px solid rgba(148,163,184,.28);
+  border-radius:12px;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+/* 左侧蓝紫渐变装饰线 */
+.education-item::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:14px;
+  bottom:14px;
+  width:4px;
+  border-radius:0 4px 4px 0;
+  background:linear-gradient(
+    to bottom,
+    var(--accent),
+    var(--accent2)
+  );
+}
+
+.education-item:hover{
+  transform:translateY(-2px);
+  border-color:rgba(11,118,183,.48);
+  background:rgba(255,255,255,.18);
+}
+
+/* 时间 */
+.education-time{
+  color:var(--accent);
+  font-size:.92rem;
+  font-weight:750;
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+
+/* 学校 */
+.education-school{
+  color:var(--text);
+  font-size:1rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+/* 学历 */
+.education-degree{
+  color:var(--text);
+  font-size:.94rem;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* 专业 */
+.education-major{
+  color:var(--dim);
+  font-size:.94rem;
+  white-space:nowrap;
+}
+
+/* 学生工作 */
+.education-position{
+  justify-self:end;
+  padding:4px 10px;
+
+  color:#0b76b7;
+  font-size:.82rem;
+  font-weight:700;
+  white-space:nowrap;
+
+  background:rgba(14,116,183,.07);
+  border:1px solid rgba(14,116,183,.18);
+  border-radius:999px;
+}
+
+/* 平板 */
+@media(max-width:900px){
+  .education-item{
+    grid-template-columns:
+      minmax(145px,.9fr)
+      minmax(150px,1fr)
+      minmax(135px,.85fr)
+      minmax(190px,1.2fr);
+  }
+
+  .education-position{
+    grid-column:2 / 5;
+    justify-self:start;
+  }
+}
+
+/* 手机 */
+@media(max-width:650px){
+  .education-list{
+    gap:12px;
+  }
+
+  .education-item{
+    grid-template-columns:1fr;
+    gap:5px;
+    padding:17px 17px 17px 21px;
+  }
+
+  .education-time{
+    margin-bottom:2px;
+  }
+
+  .education-school{
+    font-size:1.02rem;
+  }
+
+  .education-degree,
+  .education-major{
+    font-size:.9rem;
+  }
+
+  .education-position{
+    grid-column:auto;
+    justify-self:start;
+    margin-top:5px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1199,6 +1350,7 @@ nav > div:first-child b{
 <div><b>吕志贤</b></div>
 <div>
 <a href="#about">个人简介</a>
+<a href="#education">教育经历</a>
 <a href="#papers">科研成果</a>
 <a href="#projects">项目经历</a>
 <a href="#background">科研背景</a>
@@ -1244,6 +1396,40 @@ nav > div:first-child b{
       吕志贤，男，中共党员，西安交通大学博士研究生，师从<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" target="_blank">李义宝教授</a></strong>，研究方向为复杂多物理场建模与智能计算，聚焦神经算子方法、物理约束学习与降阶建模方法。已在J. Comput. Phys.等期刊发表10篇SCI论文，其中一作/学生一作7篇，高被引1篇。主持并参与多项科研项目，获得国家奖学金等荣誉。
     </div>
 </div>
+
+<!-- 教育经历 -->
+<div class="section" id="education">
+  <h2>教育经历</h2>
+
+  <div class="education-list">
+
+    <div class="education-item">
+      <div class="education-time">2018.09–2022.06</div>
+      <div class="education-school">中南大学</div>
+      <div class="education-degree">本科（保研）</div>
+      <div class="education-major">数学与应用数学</div>
+      <div class="education-position">团支部书记</div>
+    </div>
+
+    <div class="education-item">
+      <div class="education-time">2022.09–2024.03</div>
+      <div class="education-school">西安交通大学</div>
+      <div class="education-degree">硕士研究生</div>
+      <div class="education-major">计算数学（A类学科）</div>
+      <div class="education-position">党支部书记</div>
+    </div>
+
+    <div class="education-item">
+      <div class="education-time">2024.03–至今</div>
+      <div class="education-school">西安交通大学</div>
+      <div class="education-degree">博士研究生</div>
+      <div class="education-major">计算数学（A类学科）</div>
+      <div class="education-position">党支部书记</div>
+    </div>
+
+  </div>
+</div>
+
 
 <!-- 论文成果 -->
 <div class="section" id="papers">
