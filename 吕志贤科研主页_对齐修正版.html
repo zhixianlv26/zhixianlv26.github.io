@@ -675,66 +675,6 @@ nav a:hover{
     font-size:1rem;
   }
 }
-
-
-/* ==================================================
-   科研背景
-================================================== */
-.research-background-card{
-  position:relative;
-  overflow:hidden;
-  padding:24px 26px 24px 30px;
-  background:
-    linear-gradient(135deg, rgba(0,229,255,.07), rgba(139,92,246,.05));
-  border:1px solid rgba(0,229,255,.18);
-  border-radius:14px;
-  color:var(--dim);
-  line-height:2;
-  text-align:justify;
-  box-shadow:0 10px 28px rgba(0,0,0,.13);
-}
-
-.research-background-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:18px;
-  bottom:18px;
-  width:4px;
-  border-radius:4px;
-  background:linear-gradient(to bottom, var(--accent), var(--accent2));
-}
-
-.research-background-card strong{
-  color:var(--text);
-  font-weight:800;
-}
-
-.research-background-card .background-highlight{
-  color:var(--accent);
-  font-weight:800;
-}
-
-.research-background-card a{
-  color:#60a5fa;
-  font-weight:700;
-  text-decoration:none;
-  border-bottom:1px solid rgba(96,165,250,.35);
-  transition:.2s;
-}
-
-.research-background-card a:hover{
-  color:var(--accent);
-  border-bottom-color:var(--accent);
-}
-
-@media(max-width:520px){
-  .research-background-card{
-    padding:20px 17px 20px 22px;
-    line-height:1.85;
-  }
-}
-
 </style>
 </head>
 
@@ -749,7 +689,6 @@ nav a:hover{
     <a href="#research">研究方向</a>
     <a href="#papers">论文</a>
     <a href="#projects">项目</a>
-    <a href="#background">科研背景</a>
     <a href="#contact">联系</a>
   </div>
 </nav>
@@ -801,7 +740,8 @@ nav a:hover{
     <h2>个人简介</h2>
 
     <div class="card">
-      吕志贤，男，中共党员，西安交通大学博士研究生，研究方向为复杂多物理场建模与智能计算，聚焦神经算子方法、物理约束学习与降阶建模方法。
+      西安交通大学博士研究生，研究方向为复杂多物理场建模与智能计算，
+      聚焦神经算子方法、物理约束学习与降阶建模方法。
     </div>
   </div>
 
@@ -1158,16 +1098,6 @@ nav a:hover{
 
   </div>
 </div>
-
-
-  <!-- 科研背景 -->
-  <div id="background" class="section">
-    <h2>科研背景</h2>
-
-    <div class="research-background-card">
-      导师<strong>李义宝教授</strong>(<a href="https://gr.xjtu.edu.cn/web/yibaoli" target="_blank" rel="noopener noreferrer">https://gr.xjtu.edu.cn/web/yibaoli</a>)，<span class="background-highlight">国家级青年人才</span>，课题组隶属于<strong>徐宗本院士团队</strong>，现任学院党委副书记，CSIAM 大数据与人工智能专委会秘书长，现代计算科学与工程应用中心主任。在 <strong>CMAME、JCP</strong> 等国际高水平期刊发表论文 <strong>130 余篇</strong>，主持 <strong>20 余项</strong>纵向与横向科研项目。
-    </div>
-  </div>
 
   <!-- 联系方式 -->
   <div id="contact" class="section">

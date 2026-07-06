@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>吕志贤 | 科研主页</title>
+
+<style>
+:root{
+  --bg:#070A12;
+  --card:#111827;
+  --line:#1f2937;
+  --accent:#00e5ff;
+  --accent2:#8b5cf6;
+  --text:#e5e7eb;
+  --dim:#94a3b8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Segoe UI,system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* 背景 */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,229,255,.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(139,92,246,.08), transparent 45%);
+  z-index:-1;
+}
+
+/* 导航 */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  backdrop-filter:blur(10px);
+  background:rgba(7,10,18,.6);
+  border-bottom:1px solid var(--line);
+  padding:14px 30px;
+  display:flex;
+  justify-content:space-between;
+  z-index:1000;
+}
+
+nav a{
+  color:var(--dim);
+  margin:0 12px;
+  text-decoration:none;
+  font-size:14px;
+}
+nav a:hover{color:var(--accent);}
+
+/* 布局 */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:110px 24px 80px;
+}
+
+/* HERO */
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:60px;
+}
+
+.hero h1{
+  font-size:2.6rem;
+}
+
+.hero h1 span{color:var(--accent);}
+
+.subtitle{
+  color:var(--dim);
+  margin-top:10px;
+}
+
+.avatar{
+  width:140px;height:140px;
+  border-radius:50%;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 0 40px rgba(0,229,255,.15);
+}
+
+.avatar img{
+  width:100%;height:100%;
+  object-fit:cover;
+}
+
+/* stats */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin:40px 0;
+}
+
+.stat{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+}
+.stat h2{color:var(--accent);}
+
+/* section */
+.section{margin-top:60px;}
+
+.section h2{
+  font-size:1rem;
+  color:var(--accent);
+  letter-spacing:.2em;
+  margin-bottom:18px;
+}
+
+/* grid */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:18px;
+  border-radius:12px;
+  transition:.2s;
+}
+
+.card:hover{
+  border-color:var(--accent);
+  transform:translateY(-2px);
+}
+
+/* papers */
+.paper{
+  margin-bottom:14px;
+  padding:14px;
+  border-left:3px solid var(--accent);
+  background:rgba(255,255,255,0.02);
+  line-height:1.6;
+}
+
+.paper a{
+  color:var(--accent);
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div><b>吕志贤</b></div>
+  <div>
+    <a href="#about">简介</a>
+    <a href="#research">研究方向</a>
+    <a href="#papers">论文</a>
+    <a href="#projects">项目</a>
+    <a href="#contact">联系</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>吕志贤 <span>博士</span></h1>
+    <div class="subtitle">
+      计算数学 · 多物理场建模 · 神经算子 · 降阶建模 · 数字孪生
+    </div>
+  </div>
+
+  <div class="avatar">
+    <img src="pi头像.jpg"/>
+  </div>
+</div>
+
+
+<!-- ABOUT -->
+<div id="about" class="section">
+  <h2>个人简介</h2>
+  <div class="card">
+    西安交通大学博士研究生，研究方向为复杂多物理场建模与智能计算，
+    聚焦神经算子方法、物理约束学习与降阶建模方法。
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div id="research" class="section">
+  <h2>研究方向</h2>
+
+  <div class="grid">
+    <div class="card">多物理场建模与数值模拟</div>
+    <div class="card">神经算子与机器学习方法</div>
+    <div class="card">物理约束扩散模型</div>
+    <div class="card">数字孪生系统</div>
+  </div>
+</div>
+
+
+<!-- PUBLICATIONS -->
+<div id="papers" class="section">
+  <h2>PUBLICATIONS</h2>
+  <!-- STATS -->
+<div class="stats">
+  <div class="stat"><h2>10</h2><div>SCI论文</div></div>
+  <div class="stat"><h2>7</h2><div>一作/学生一作论文</div></div>
+  <div class="stat"><h2>1</h2><div>高被引论文</div></div>
+</div>
+
+  <!-- 1 -->
+  <div class="paper">
+    <b>Physics of Fluids (2025)</b><br/>
+    <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Jiachen Feng; Qing Xia; Jiahao Huang; Xing Sun; Junseok Kim; <b>Yibao Li（导师）</b><br/>
+    Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion<br/>
+    Volume 37(7): 077110<br/>
+    DOI: <a href="https://doi.org/10.1063/5.0268665" target="_blank">10.1063/5.0268665</a>
+  </div>
+
+  <!-- 2 -->
+  <div class="paper">
+    <b>Communications in Nonlinear Science and Numerical Simulation (2025)</b><br/>
+    <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Yuhong Li; Qing Xia; Junseok Kim; <b>Yibao Li（导师）</b><br/>
+    Simulation of the coupled Navier–Stokes–Cahn–Hilliard–Heat Transfer System via a U-shaped Spatial-Channel Attention Neural Operator<br/>
+    Volume 154: 109537<br/>
+    DOI: <a href="https://doi.org/10.1016/j.cnsns.2025.109537" target="_blank">10.1016/j.cnsns.2025.109537</a>
+  </div>
+
+  <!-- 3 -->
+  <div class="paper">
+    <b>Physics of Fluids (2026)</b><br/>
+    <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Chen Li; Yating Wang; <b>Yibao Li（导师）</b><br/>
+    Derivative neural operators with physics-guided diffusion refinement for predicting two-phase flow dynamics<br/>
+  </div>
+
+  <!-- 4 -->
+  <div class="paper">
+    <b>Computers & Mathematics with Applications (2026)</b><br/>
+    <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Jiahao Huang; Chengyang Yue; Wenxuan Xie; Junseok Kim; <b>Yibao Li（导师）</b><br/>
+    Efficient prediction of phase-field crystal dynamics via β-variational autoencoders and time-series transformers on coupled physical fields<br/>
+    Volume 204: 198–215<br/>
+    DOI: <a href="https://doi.org/10.1016/j.camwa.2025.12.024" target="_blank">10.1016/j.camwa.2025.12.024</a>
+  </div>
+
+  <!-- 5 -->
+  <div class="paper">
+    <b>Engineering Analysis with Boundary Elements (2025)</b><br/>
+    <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Xin Song; Jiachen Feng; Qing Xia; Bing Xia; <b>Yibao Li（导师）</b><br/>
+    Reduced-order prediction model for the Cahn–Hilliard equation based on deep learning<br/>
+    Volume 172: 106118<br/>
+    DOI: <a href="https://doi.org/10.1016/j.enganabound.2025.106118" target="_blank">10.1016/j.enganabound.2025.106118</a>
+  </div>
+
+  <!-- 6 -->
+  <div class="paper">
+    <b>Journal of Computational Physics (2025)</b><br/>
+    <b>Yibao Li（导师）</b>; <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Qing Xia<br/>
+    On the unconditionally stable phase field model of ternary components system considering liquid–solid phase transition<br/>
+    Volume 543: 114404<br/>
+    DOI: <a href="https://doi.org/10.1016/j.jcp.2025.114404" target="_blank">10.1016/j.jcp.2025.114404</a>
+  </div>
+
+  <!-- 7 -->
+  <div class="paper">
+    <b>Physics of Fluids (2024)</b><br/>
+    <b>Yibao Li（导师）</b>; <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Qing Xia<br/>
+    On the adaption of biological transport networks affected by complex domains<br/>
+    Volume 36(10): 107101<br/>
+    DOI: <a href="https://doi.org/10.1063/5.0231079" target="_blank">10.1063/5.0231079</a>
+  </div>
+
+  <!-- 8 -->
+  <div class="paper">
+    <b>Computer Methods in Applied Mechanics and Engineering (2025)</b><br/>
+    Sijing Lai; Jiachen Feng; <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Junseok Kim; <b>Yibao Li（导师）</b><br/>
+    A dual-energy physics-informed multi-material topology optimization method within the phase-field framework<br/>
+    Volume 447: 118338<br/>
+    DOI: <a href="https://doi.org/10.1016/j.cma.2025.118338" target="_blank">10.1016/j.cma.2025.118338</a>
+  </div>
+
+    <!-- 9 -->
+  <div class="paper">
+    <b>Communications in Nonlinear Science and Numerical Simulation (2026)</b><br/>
+    Xiaochuan Hu; <b>Yibao Li（导师）</b>; Sijing Lai; <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Wenxuan Xie; Junseok Kim<br/>
+    A third-order temporal accurate and unconditionally stable Runge-Kutta scalar auxiliary variable method for the modified phase field crystal model<br/>
+    Volume 162: 110255<br/>
+    DOI: <a href="https://doi.org/10.1016/j.cma.2025.118338" target="_blank">10.1016/j.cma.2025.118338</a>
+  </div>
+
+    <!-- 10 -->
+  <div class="paper">
+    <b>Communications in Nonlinear Science and Numerical Simulation (2026)</b><br/>
+    Jiachen Feng; Wenxuan Xie; <span style="color:#00e5ff;font-weight:bold;">Zhixian Lv</span>; Qing Xia; Junseok Kim; <b>Yibao Li（导师）</b><br/>
+    Microstructural evolution prediction in the phase field crystal model with VAE-LSTM and ensemble Kalman filtering<br/>
+  </div>
+
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="section">
+  <h2>科研项目</h2>
+
+  <div class="grid">
+    <div class="card">氢气超声速燃烧快速预测与降阶建模</div>
+    <div class="card">多物理场数字孪生系统</div>
+    <div class="card">神经算子框架开发</div>
+    <div class="card">工业流体与优化项目</div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+  <h2>联系方式</h2>
+
+  <div class="card">
+    邮箱：zhixianlv@stu.xjtu.edu.cn<br/>
+    单位：西安交通大学<br/>
+    导师：李义宝 教授
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
