@@ -235,6 +235,63 @@ nav a:hover{
   transform:translateY(-2px);
 }
 
+
+/* ==================================================
+   科研成果简介
+================================================== */
+.research-summary{
+  position:relative;
+  margin-bottom:24px;
+  padding:20px 22px 20px 26px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,229,255,.08),
+      rgba(139,92,246,.05)
+    );
+  border:1px solid rgba(0,229,255,.18);
+  border-radius:14px;
+  color:var(--dim);
+  line-height:1.95;
+}
+
+.research-summary::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:16px;
+  bottom:16px;
+  width:4px;
+  border-radius:4px;
+  background:linear-gradient(
+    to bottom,
+    var(--accent),
+    var(--accent2)
+  );
+}
+
+.research-summary strong{
+  color:var(--text);
+  font-weight:700;
+}
+
+.research-summary .summary-number{
+  color:#ff6b6b;
+  font-size:1.08rem;
+  font-weight:800;
+}
+
+.research-summary .summary-key{
+  color:var(--accent);
+  font-weight:700;
+}
+
+@media(max-width:520px){
+  .research-summary{
+    padding:18px 16px 18px 21px;
+  }
+}
+
 /* 论文列表自动编号 */
 #papers{
   counter-reset:publication;
@@ -808,22 +865,18 @@ nav a:hover{
   <div id="papers" class="section">
     <h2>科研成果</h2>
 
-    <div class="stats">
-      <div class="stat">
-        <h2>10</h2>
-        <div>SCI论文</div>
-      </div>
-
-      <div class="stat">
-        <h2>7</h2>
-        <div>一作/学生一作论文</div>
-      </div>
-
-      <div class="stat">
-        <h2>1</h2>
-        <div>高被引论文</div>
-      </div>
+    <div class="research-summary">
+      基于<strong>神经算子与物理约束降阶方法</strong>，围绕复杂多物理场耦合的高性能求解问题，
+      构建<strong>数据驱动与物理模型融合的高效数值预测框架</strong>，实现了流体–固体–燃烧耦合系统的
+      <span class="summary-key">稳定求解与快速预测</span>。在
+      <strong>Journal of Computational Physics、Physics of Fluids</strong>
+      等国际期刊发表 SCI 论文
+      <span class="summary-number">10篇</span>，其中一作/学生一作
+      <span class="summary-number">7篇</span>，西安交通大学最具影响力期刊
+      <span class="summary-number">6篇</span>，高被引论文
+      <span class="summary-number">1篇</span>。
     </div>
+
 
     <div class="paper">
       <b>Physics of Fluids (2025)</b><br/>
