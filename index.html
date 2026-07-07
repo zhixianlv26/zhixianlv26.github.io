@@ -1711,6 +1711,138 @@ nav > div:first-child b{
     display:flex;
 }
 
+
+/* ==================================================
+   活动与学术服务
+================================================== */
+.service-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  counter-reset:service;
+}
+
+.service-item{
+  counter-increment:service;
+  position:relative;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr) 118px;
+  align-items:center;
+  gap:18px;
+  padding:18px 20px 18px 24px;
+  background:transparent;
+  border:1px solid rgba(148,163,184,.28);
+  border-radius:12px;
+  transition:transform .2s ease, border-color .2s ease;
+}
+
+.service-item::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:13px;
+  bottom:13px;
+  width:4px;
+  border-radius:0 4px 4px 0;
+  background:linear-gradient(to bottom,var(--accent),var(--accent2));
+}
+
+.service-item:hover{
+  transform:translateX(3px);
+  border-color:rgba(11,118,183,.45);
+}
+
+.service-index{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:9px;
+  font-size:.78rem;
+  font-weight:800;
+  box-shadow:0 5px 14px rgba(11,118,183,.16);
+}
+
+.service-index::before{
+  content:counter(service, decimal-leading-zero);
+}
+
+.service-content{
+  min-width:0;
+}
+
+.service-title{
+  color:#172033;
+  font-size:.97rem;
+  font-weight:750;
+  line-height:1.7;
+}
+
+.service-meta{
+  margin-top:4px;
+  color:#526174;
+  font-size:.88rem;
+  line-height:1.6;
+}
+
+.service-tag{
+  justify-self:end;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:92px;
+  padding:5px 11px;
+  color:#075f93;
+  background:rgba(11,118,183,.07);
+  border:1px solid rgba(11,118,183,.18);
+  border-radius:999px;
+  font-size:.82rem;
+  font-weight:750;
+  white-space:nowrap;
+}
+
+.service-tag.review{
+  color:#6d28d9;
+  background:rgba(109,40,217,.07);
+  border-color:rgba(109,40,217,.20);
+}
+
+.certificate-link{
+  color:#1d4ed8;
+  font-weight:750;
+  text-decoration:none;
+  border-bottom:1px solid rgba(29,78,216,.28);
+}
+
+.certificate-link:hover{
+  color:#075f93;
+  border-bottom-color:#075f93;
+}
+
+@media(max-width:650px){
+  .service-item{
+    grid-template-columns:38px minmax(0,1fr);
+    gap:8px 12px;
+    padding:16px 16px 16px 20px;
+  }
+
+  .service-index{
+    grid-row:1 / 3;
+    align-self:start;
+    width:32px;
+    height:32px;
+  }
+
+  .service-tag{
+    grid-column:2;
+    justify-self:start;
+    margin-top:4px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1724,6 +1856,7 @@ nav > div:first-child b{
 <a href="#projects">项目经历</a>
 <a href="#teaching">教学指导</a>
 <a href="#honors">奖励荣誉</a>
+<a href="#services">活动与学术服务</a>
 <a href="#background">科研背景</a>
 <a href="#contact">联系方式</a>
 </div>
@@ -2180,6 +2313,43 @@ nav > div:first-child b{
     </div>
 
 
+  </div>
+</div>
+
+
+<!-- 活动与学术服务 -->
+<div class="section" id="services">
+  <h2>活动与学术服务</h2>
+
+  <div class="service-list">
+    <div class="service-item">
+      <div class="service-index"></div>
+      <div class="service-content">
+        <div class="service-title">CSIAM第六届大数据与人工智能科学大会——“AI for Science中的算法与应用”主题研讨会</div>
+        <div class="service-meta">中国·桂林&nbsp;&nbsp;|&nbsp;&nbsp;2025年7月</div>
+      </div>
+      <div class="service-tag">学术活动</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-index"></div>
+      <div class="service-content">
+        <div class="service-title">CSIAM第七届大数据与人工智能科学大会——“科学计算与机器学习的融合创新及前沿趋势”主题研讨会</div>
+        <div class="service-meta">中国·厦门&nbsp;&nbsp;|&nbsp;&nbsp;2026年7月</div>
+      </div>
+      <div class="service-tag">学术活动</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-index"></div>
+      <div class="service-content">
+        <div class="service-title">受邀担任 <em>Physics of Fluids</em> 审稿人</div>
+        <div class="service-meta">
+          <a class="certificate-link" href="AIPP_Reviewer%20Certificate.pdf" target="_blank" rel="noopener noreferrer">点击查看审稿证书</a>
+        </div>
+      </div>
+      <div class="service-tag review">学术服务</div>
+    </div>
   </div>
 </div>
 
