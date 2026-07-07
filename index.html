@@ -1457,7 +1457,7 @@ nav > div:first-child b{
   counter-increment:honor;
   position:relative;
   display:grid;
-  grid-template-columns:46px minmax(0,1fr) 96px minmax(150px,210px) 120px;
+  grid-template-columns:46px minmax(0,1fr) minmax(150px,210px) 96px 120px;
   align-items:center;
   gap:18px;
   padding:17px 20px 17px 24px;
@@ -1562,6 +1562,24 @@ nav > div:first-child b{
 }
 
 
+.honor-proof{
+  margin-top:4px;
+  font-size:.84rem;
+}
+
+.honor-proof a{
+  color:#1d4ed8;
+  font-weight:750;
+  text-decoration:none;
+  border-bottom:1px solid rgba(29,78,216,.28);
+}
+
+.honor-proof a:hover{
+  color:#075f93;
+  border-bottom-color:#075f93;
+}
+
+
 /* 平板适配 */
 @media(max-width:800px){
   .honor-item{
@@ -1610,6 +1628,10 @@ nav > div:first-child b{
 
   .honor-name{
     grid-column:2;
+  }
+
+  .honor-proof{
+    margin-top:5px;
   }
 
   .honor-level{
@@ -2252,9 +2274,15 @@ nav > div:first-child b{
   <h2>奖励荣誉</h2>
 
   <div class="honor-list">
+
     <div class="honor-item">
       <div class="honor-index"></div>
-      <div class="honor-name">国家奖学金（全院综合排名<strong>第1</strong>）</div>
+      <div class="honor-name">
+        国家奖学金（全院综合排名<strong>第1</strong>）
+        <div class="honor-proof">
+          <a class="image-preview-link" href="2025国家奖学金.jpg" data-preview-src="2025国家奖学金.jpg" data-preview-alt="2025年国家奖学金证书">点击查看证书</a>
+        </div>
+      </div>
       <div class="honor-issuer">中华人民共和国教育部</div>
       <div class="honor-level">国家级</div>
       <div class="honor-date">2025.12</div>
@@ -2262,17 +2290,25 @@ nav > div:first-child b{
 
     <div class="honor-item">
       <div class="honor-index"></div>
-      <div class="honor-name">国家奖学金</div>
+      <div class="honor-name">
+        国家奖学金
+        <div class="honor-proof">
+          <a class="image-preview-link" href="2020国家奖学金.jpg" data-preview-src="2020国家奖学金.jpg" data-preview-alt="2020年国家奖学金证书">点击查看证书</a>
+        </div>
+      </div>
       <div class="honor-issuer">中华人民共和国教育部</div>
       <div class="honor-level">国家级</div>
       <div class="honor-date">2020.12</div>
     </div>
 
-
-
     <div class="honor-item">
       <div class="honor-index"></div>
-      <div class="honor-name">2025新域新质创新大赛特等奖</div>
+      <div class="honor-name">
+        2025新域新质创新大赛特等奖
+        <div class="honor-proof">
+          <a class="image-preview-link" href="2025新域新质大赛特等奖证书.jpg" data-preview-src="2025新域新质大赛特等奖证书.jpg" data-preview-alt="2025新域新质创新大赛特等奖证书">点击查看证书</a>
+        </div>
+      </div>
       <div class="honor-issuer">中国电子信息产业发展研究院</div>
       <div class="honor-level">国家级</div>
       <div class="honor-date">2025.12</div>
@@ -2280,7 +2316,12 @@ nav > div:first-child b{
 
     <div class="honor-item">
       <div class="honor-index"></div>
-      <div class="honor-name">第二十届全国研究生数学建模竞赛二等奖</div>
+      <div class="honor-name">
+        第二十届全国研究生数学建模竞赛二等奖
+        <div class="honor-proof">
+          <a class="image-preview-link" href="第二十届全国研究生数学建模竞赛二等奖.jpg" data-preview-src="第二十届全国研究生数学建模竞赛二等奖.jpg" data-preview-alt="第二十届全国研究生数学建模竞赛二等奖证书">点击查看证书</a>
+        </div>
+      </div>
       <div class="honor-issuer">中国学会与研究生教育学会</div>
       <div class="honor-level">国家级</div>
       <div class="honor-date">2023.12</div>
@@ -2288,25 +2329,38 @@ nav > div:first-child b{
 
     <div class="honor-item">
       <div class="honor-index"></div>
-      <div class="honor-name">第十九届全国研究生数学建模竞赛二等奖</div>
+      <div class="honor-name">
+        第十九届全国研究生数学建模竞赛二等奖
+        <div class="honor-proof">
+          <a class="image-preview-link" href="第十九届全国研究生数学建模竞赛二等奖.jpg" data-preview-src="第十九届全国研究生数学建模竞赛二等奖.jpg" data-preview-alt="第十九届全国研究生数学建模竞赛二等奖证书">点击查看证书</a>
+        </div>
+      </div>
       <div class="honor-issuer">中国学会与研究生教育学会</div>
       <div class="honor-level">国家级</div>
       <div class="honor-date">2022.12</div>
     </div>
-    
-    
+
     <div class="honor-item">
       <div class="honor-index"></div>
-      <div class="honor-name">优秀学生</div>
+      <div class="honor-name">
+        优秀学生
+        <div class="honor-proof">
+          <a class="image-preview-link" href="2025-西安交通大学-优秀研究生.jpg" data-preview-src="2025-西安交通大学-优秀研究生.jpg" data-preview-alt="西安交通大学优秀学生证书">点击查看证书</a>
+        </div>
+      </div>
       <div class="honor-issuer">西安交通大学</div>
       <div class="honor-level school">校级</div>
       <div class="honor-date">2025.12</div>
     </div>
 
-    
     <div class="honor-item">
       <div class="honor-index"></div>
-      <div class="honor-name">优秀学生干部</div>
+      <div class="honor-name">
+        优秀学生干部
+        <div class="honor-proof">
+          <a class="image-preview-link" href="D:\Desktop\myweb\2023-西安交通大学-优秀研究生干部.jpg" data-preview-src="D:\Desktop\myweb\2023-西安交通大学-优秀研究生干部.jpg" data-preview-alt="西安交通大学优秀学生干部证书">点击查看证书</a>
+        </div>
+      </div>
       <div class="honor-issuer">西安交通大学</div>
       <div class="honor-level school">校级</div>
       <div class="honor-date">2023.11</div>
@@ -2326,7 +2380,7 @@ nav > div:first-child b{
       <div class="service-index"></div>
       <div class="service-content">
         <div class="service-title">CSIAM第六届大数据与人工智能科学大会——“AI for Science中的算法与应用”主题研讨会</div>
-        <div class="service-meta">中国·桂林&nbsp;&nbsp;|&nbsp;&nbsp;2025年7月</div>
+        <div class="service-meta">中国·桂林&nbsp;&nbsp;|&nbsp;&nbsp;2025年7月&nbsp;&nbsp;|&nbsp;&nbsp;<a class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="桂林.jpg" data-preview-alt="CSIAM第六届大数据与人工智能科学大会桂林活动照片">点击查看活动照片</a></div>
       </div>
       <div class="service-tag">学术活动</div>
     </div>
@@ -2335,7 +2389,7 @@ nav > div:first-child b{
       <div class="service-index"></div>
       <div class="service-content">
         <div class="service-title">CSIAM第七届大数据与人工智能科学大会——“科学计算与机器学习的融合创新及前沿趋势”主题研讨会</div>
-        <div class="service-meta">中国·厦门&nbsp;&nbsp;|&nbsp;&nbsp;2026年7月</div>
+        <div class="service-meta">中国·厦门&nbsp;&nbsp;|&nbsp;&nbsp;2026年7月&nbsp;&nbsp;|&nbsp;&nbsp;<a class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="厦门.jpg" data-preview-alt="CSIAM第七届大数据与人工智能科学大会厦门活动照片">点击查看活动照片</a></div>
       </div>
       <div class="service-tag">学术活动</div>
     </div>
@@ -2345,7 +2399,7 @@ nav > div:first-child b{
       <div class="service-content">
         <div class="service-title">受邀担任 <em>Physics of Fluids</em> 审稿人</div>
         <div class="service-meta">
-          <a class="certificate-link" href="AIPP_Reviewer%20Certificate.pdf" target="_blank" rel="noopener noreferrer">点击查看审稿证书</a>
+          <a class="certificate-link image-preview-link" href="AIPP_Reviewer%20Certificate.jpg" data-preview-src="AIPP_Reviewer Certificate.jpg" data-preview-alt="Physics of Fluids审稿证书">点击查看审稿证书</a>
         </div>
       </div>
       <div class="service-tag review">学术服务</div>
@@ -2416,8 +2470,25 @@ document.querySelectorAll(".zoom-img").forEach(function(img){
     });
 });
 
+document.querySelectorAll(".image-preview-link").forEach(function(link){
+    link.addEventListener("click",function(event){
+        event.preventDefault();
+        document.getElementById("previewImg").src=this.dataset.previewSrc;
+        document.getElementById("previewImg").alt=this.dataset.previewAlt || "图片预览";
+        document.getElementById("imagePreview").classList.add("active");
+    });
+});
+
 document.getElementById("imagePreview").addEventListener("click",function(){
     this.classList.remove("active");
+    document.getElementById("previewImg").src="";
+});
+
+document.addEventListener("keydown",function(event){
+    if(event.key==="Escape"){
+        document.getElementById("imagePreview").classList.remove("active");
+        document.getElementById("previewImg").src="";
+    }
 });
 </script>
 
