@@ -1627,7 +1627,89 @@ nav > div:first-child b{
     text-align:left;
   }
 }
+/* 社交平台区域 */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+    width: 100%;
+}
 
+/* 单个平台 */
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* 图片 */
+.social-item img {
+    width: 100%;
+    max-width: 220px;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+
+/* 手机端 */
+@media (max-width: 600px) {
+
+    .social-links {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .social-item img {
+        width: 80%;
+        max-width: 320px;
+        height: auto;
+    }
+
+    .social-item {
+        font-size: 18px;
+    }
+
+}
+
+/* 图片点击放大 */
+.zoom-img{
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.zoom-img:hover{
+    transform:scale(1.03);
+}
+
+
+/* 放大查看背景 */
+.image-preview{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.image-preview img{
+    max-width:90%;
+    max-height:90%;
+    object-fit:contain;
+    border-radius:12px;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    background:white;
+}
+
+.image-preview.active{
+    display:flex;
+}
 
 </style>
 </head>
@@ -1656,7 +1738,7 @@ nav > div:first-child b{
     </div>
 </div>
 <div class="avatar">
-<img alt="吕志贤个人照片" src="白.jpg"/>
+<img class="zoom-img" alt="吕志贤个人照片" src="白.jpg"/>
 </div>
 </div>
 <!-- 基本信息 -->
@@ -2109,14 +2191,65 @@ nav > div:first-child b{
       导师<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" target="_blank">李义宝教授</a></strong>，<span class="background-highlight">国家级青年人才</span>，课题组隶属于<strong>徐宗本院士团队</strong>，现任学院党委副书记，CSIAM 大数据与人工智能专委会秘书长，现代计算科学与工程应用中心主任。在<strong>CMAME、JCP</strong>等国际高水平期刊发表论文<strong>130 余篇</strong>，主持<strong>20 余项</strong>纵向与横向科研项目。
     </div>
 </div>
+
 <!-- 联系方式 -->
 <div class="section" id="contact">
 <h2>联系方式</h2>
+
 <div class="card">
       邮箱：zhixianlv@stu.xjtu.edu.cn<br/>
+
+      <div class="social-links">
+
+        <div class="social-item">
+          <img class="zoom-img" src="CSDN.jpg" alt="CSDN">
+          <span>CSDN</span>
+        </div>
+        
+
+        <div class="social-item">
+          <img class="zoom-img" src="dy.png" alt="抖音">
+          <span>抖音</span>
+        </div>
+
+        <div class="social-item">
+          <img class="zoom-img" src="xhs.jpg" alt="小红书">
+          <span>小红书</span>
+        </div>
+
+        <div class="social-item">
+          <img class="zoom-img" src="Bilibili.jpg" alt="Bilibili">
+          <span>Bilibili</span>
+        </div>
+
+
+        
+
+      </div>
+
 </div>
 </div>
+
+
 </div>
+
+
+<div class="image-preview" id="imagePreview">
+    <img id="previewImg" src="" alt="">
+</div>
+
+<script>
+document.querySelectorAll(".zoom-img").forEach(function(img){
+    img.addEventListener("click",function(){
+        document.getElementById("previewImg").src=this.src;
+        document.getElementById("imagePreview").classList.add("active");
+    });
+});
+
+document.getElementById("imagePreview").addEventListener("click",function(){
+    this.classList.remove("active");
+});
+</script>
 
 </body>
 </html>
