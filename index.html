@@ -1,2499 +1,2542 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>吕志贤 | 个人主页</title>
-<style>
-:root{
-  --bg:#070A12;
-  --card:#111827;
-  --line:#1f2937;
-  --accent:#00e5ff;
-  --accent2:#8b5cf6;
-  --text:#e5e7eb;
-  --dim:#94a3b8;
-}
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>吕志贤 | 个人主页</title>
+  <style>
+    :root {
+      --bg: #070A12;
+      --card: #111827;
+      --line: #1f2937;
+      --accent: #00e5ff;
+      --accent2: #8b5cf6;
+      --text: #e5e7eb;
+      --dim: #94a3b8;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body{
-  font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-}
-/* 基本信息：单行展示 */
-.basic-info{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:18px;
-  margin-top:26px;
-  padding:18px 22px;
-  background:linear-gradient(
-    135deg,
-    rgba(0,229,255,.07),
-    rgba(139,92,246,.05)
-  );
-  border:1px solid rgba(0,229,255,.18);
-  border-radius:14px;
-}
+    body {
+      font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-.basic-info-item{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:8px;
-  white-space:nowrap;
-}
+    /* 基本信息：单行展示 */
+    .basic-info {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+      padding: 18px 22px;
+      background: linear-gradient(135deg,
+          rgba(0, 229, 255, .07),
+          rgba(139, 92, 246, .05));
+      border: 1px solid rgba(0, 229, 255, .18);
+      border-radius: 14px;
+    }
 
-.basic-info-label{
-  color:var(--dim);
-  font-weight:600;
-}
+    .basic-info-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      white-space: nowrap;
+    }
 
-.basic-info-label::after{
-  content:"";
-}
+    .basic-info-label {
+      color: var(--dim);
+      font-weight: 600;
+    }
 
-.basic-info-value{
-  color:var(--text);
-  font-weight:700;
-}
+    .basic-info-label::after {
+      content: "";
+    }
 
-.basic-info-value.highlight{
-  color:var(--accent);
-}
+    .basic-info-value {
+      color: var(--text);
+      font-weight: 700;
+    }
 
-.basic-info-colon{
-  color:var(--dim);
-  font-weight:600;
-}
+    .basic-info-value.highlight {
+      color: var(--accent);
+    }
 
-/* 小屏幕自动换行 */
-@media(max-width:800px){
-  .basic-info{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
+    .basic-info-colon {
+      color: var(--dim);
+      font-weight: 600;
+    }
 
-@media(max-width:480px){
-  .basic-info{
-    grid-template-columns:1fr;
-    gap:10px;
-    padding:16px 18px;
-  }
+    /* 小屏幕自动换行 */
+    @media(max-width:800px) {
+      .basic-info {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-  .basic-info-item{
-    display:grid;
-    grid-template-columns:4em 1em minmax(0,1fr);
-    align-items:center;
-    column-gap:4px;
-    width:100%;
-  }
+    @media(max-width:480px) {
+      .basic-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 16px 18px;
+      }
 
-  .basic-info-label{
-    width:4em;
-    text-align:justify;
-    text-align-last:justify;
-  }
+      .basic-info-item {
+        display: grid;
+        grid-template-columns: 4em 1em minmax(0, 1fr);
+        align-items: center;
+        column-gap: 4px;
+        width: 100%;
+      }
 
-  .basic-info-colon{
-    text-align:center;
-    color:var(--dim);
-    font-weight:600;
-  }
+      .basic-info-label {
+        width: 4em;
+        text-align: justify;
+        text-align-last: justify;
+      }
 
-  .basic-info-value{
-    text-align:left;
-  }
-}
+      .basic-info-colon {
+        text-align: center;
+        color: var(--dim);
+        font-weight: 600;
+      }
 
-/* 导航 */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  backdrop-filter:blur(10px);
-  background:rgba(7,10,18,.75);
-  border-bottom:1px solid var(--line);
-  padding:14px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-}
+      .basic-info-value {
+        text-align: left;
+      }
+    }
 
-nav a{
-  color:var(--dim);
-  margin:0 12px;
-  text-decoration:none;
-  font-size:14px;
-  transition:.2s;
-}
+    /* 导航 */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(7, 10, 18, .75);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
 
-nav a:hover{
-  color:var(--accent);
-}
+    nav a {
+      color: var(--dim);
+      margin: 0 12px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: .2s;
+    }
 
-/* 布局 */
-.container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:110px 24px 80px;
-}
+    nav a:hover {
+      color: var(--accent);
+    }
 
-/* HERO */
-.hero{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:0;
-}
+    /* 布局 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 110px 24px 80px;
+    }
 
-.hero h1{
-  font-size:2.6rem;
-}
+    /* HERO */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0;
+    }
 
-.hero h1 span{
-  color:var(--accent);
-}
+    .hero h1 {
+      font-size: 2.6rem;
+    }
 
-.subtitle{
-  color:var(--dim);
-  margin-top:10px;
-}
+    .hero h1 span {
+      color: var(--accent);
+    }
 
-.avatar{
-  width:189px;
-  height:264px;
-  border-radius:12px;
-  overflow:hidden;
-  flex-shrink:0;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 0 40px rgba(214, 220, 221, 0.089);
-}
+    .subtitle {
+      color: var(--dim);
+      margin-top: 10px;
+    }
 
-.avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+    /* 顶部简历查阅按钮 */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
 
-/* 数据统计 */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin:24px 0 32px;
-}
+    .resume-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0b76b7, #6d5dfc);
+      border: 1px solid rgba(11, 118, 183, .25);
+      border-radius: 9px;
+      font-size: .92rem;
+      font-weight: 750;
+      letter-spacing: .03em;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(11, 118, 183, .16);
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    }
 
-.stat{
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:18px;
-  border-radius:12px;
-  text-align:center;
-  transition:.2s;
-}
+    .resume-button:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(11, 118, 183, .24);
+    }
 
-.stat:hover{
-  border-color:var(--accent);
-  transform:translateY(-2px);
-}
+    .resume-button:active {
+      transform: translateY(0);
+    }
 
-.stat h2{
-  color:var(--accent);
-  font-size:1.7rem;
-  letter-spacing:normal;
-  margin-bottom:3px;
-}
+    .avatar {
+      width: 189px;
+      height: 264px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 40px rgba(214, 220, 221, 0.089);
+    }
 
-/* 区块 */
-.section{
-  margin-top:60px;
-  scroll-margin-top:90px;
-}
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.section > h2{
-  font-size:1rem;
-  color:var(--accent);
-  letter-spacing:.2em;
-  margin-bottom:18px;
-}
+    /* 数据统计 */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 24px 0 32px;
+    }
 
-/* 网格 */
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 18px;
+      border-radius: 12px;
+      text-align: center;
+      transition: .2s;
+    }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:18px;
-  border-radius:12px;
-  transition:.2s;
-}
+    .stat:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
 
-.card:hover{
-  border-color:var(--accent);
-  transform:translateY(-2px);
-}
+    .stat h2 {
+      color: var(--accent);
+      font-size: 1.7rem;
+      letter-spacing: normal;
+      margin-bottom: 3px;
+    }
+
+    /* 区块 */
+    .section {
+      margin-top: 60px;
+      scroll-margin-top: 90px;
+    }
+
+    .section>h2 {
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: .2em;
+      margin-bottom: 18px;
+    }
+
+    /* 网格 */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 18px;
+      border-radius: 12px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
 
 
-/* ==================================================
+    /* ==================================================
    科研成果简介
 ================================================== */
-.research-summary{
-  position:relative;
-  margin-bottom:24px;
-  padding:20px 22px 20px 26px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0,229,255,.08),
-      rgba(139,92,246,.05)
-    );
-  border:1px solid rgba(0,229,255,.18);
-  border-radius:14px;
-  color:var(--dim);
-  line-height:1.95;
-}
+    .research-summary {
+      position: relative;
+      margin-bottom: 24px;
+      padding: 20px 22px 20px 26px;
+      background:
+        linear-gradient(135deg,
+          rgba(0, 229, 255, .08),
+          rgba(139, 92, 246, .05));
+      border: 1px solid rgba(0, 229, 255, .18);
+      border-radius: 14px;
+      color: var(--dim);
+      line-height: 1.95;
+    }
 
-.research-summary::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:16px;
-  bottom:16px;
-  width:4px;
-  border-radius:4px;
-  background:linear-gradient(
-    to bottom,
-    var(--accent),
-    var(--accent2)
-  );
-}
+    .research-summary::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 4px;
+      border-radius: 4px;
+      background: linear-gradient(to bottom,
+          var(--accent),
+          var(--accent2));
+    }
 
-.research-summary strong{
-  color:var(--text);
-  font-weight:700;
-}
+    .research-summary strong {
+      color: var(--text);
+      font-weight: 700;
+    }
 
-.research-summary .summary-number{
-  color:#ff6b6b;
-  font-size:1.08rem;
-  font-weight:800;
-}
+    .research-summary .summary-number {
+      color: #ff6b6b;
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
 
-.research-summary .summary-key{
-  color:var(--accent);
-  font-weight:700;
-}
+    .research-summary .summary-key {
+      color: var(--accent);
+      font-weight: 700;
+    }
 
-@media(max-width:520px){
-  .research-summary{
-    padding:18px 16px 18px 21px;
-  }
-}
+    @media(max-width:520px) {
+      .research-summary {
+        padding: 18px 16px 18px 21px;
+      }
+    }
 
-/* 论文列表自动编号 */
-#papers{
-  counter-reset:publication;
-}
+    /* 论文列表自动编号 */
+    #papers {
+      counter-reset: publication;
+    }
 
-.paper{
-  counter-increment:publication;
-  position:relative;
-  margin-bottom:14px;
-  padding:18px 18px 18px 62px;
-  border-left:3px solid var(--accent);
-  border-radius:0 10px 10px 0;
-  background:rgba(255,255,255,.025);
-  line-height:1.7;
-  transition:.2s;
-}
+    .paper {
+      counter-increment: publication;
+      position: relative;
+      margin-bottom: 14px;
+      padding: 18px 18px 18px 62px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      background: rgba(255, 255, 255, .025);
+      line-height: 1.7;
+      transition: .2s;
+    }
 
-.paper::before{
-  content:"[" counter(publication) "]";
-  position:absolute;
-  left:16px;
-  top:17px;
-  color:var(--accent);
-  font-size:1rem;
-  font-weight:700;
-}
+    .paper::before {
+      content: "[" counter(publication) "]";
+      position: absolute;
+      left: 16px;
+      top: 17px;
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 700;
+    }
 
-.paper:hover{
-  background:rgba(255,255,255,.045);
-  transform:translateX(3px);
-}
+    .paper:hover {
+      background: rgba(255, 255, 255, .045);
+      transform: translateX(3px);
+    }
 
-.paper a{
-  color:var(--accent);
-  text-decoration:none;
-}
+    .paper a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-.paper a:hover{
-  text-decoration:underline;
-}
+    .paper a:hover {
+      text-decoration: underline;
+    }
 
-.my-name{
-  color:var(--accent);
-  font-weight:700;
-}
+    .my-name {
+      color: var(--accent);
+      font-weight: 700;
+    }
 
-.advisor{
-  font-weight:700;
-}
+    .advisor {
+      font-weight: 700;
+    }
 
-/* 响应式 */
-@media(max-width:760px){
-  nav{
-    padding:12px 16px;
-  }
+    /* 响应式 */
+    @media(max-width:760px) {
+      nav {
+        padding: 12px 16px;
+      }
 
-  nav > div:last-child{
-    display:none;
-  }
+      nav>div:last-child {
+        display: none;
+      }
 
-  .container{
-    padding:90px 16px 60px;
-  }
+      .container {
+        padding: 90px 16px 60px;
+      }
 
-  .hero{
-    flex-direction:column-reverse;
-    align-items:flex-start;
-    gap:24px;
-  }
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 24px;
+      }
 
-  .hero h1{
-    font-size:2rem;
-  }
+      .hero h1 {
+        font-size: 2rem;
+      }
 
-  .grid,
-  .stats{
-    grid-template-columns:1fr;
-  }
+      .hero-actions {
+        width: 100%;
+        margin-top: 18px;
+      }
 
-  .paper{
-    padding:54px 16px 16px;
-  }
+      .resume-button {
+        width: 100%;
+        max-width: 220px;
+        padding: 10px 18px;
+      }
 
-  .paper::before{
-    left:16px;
-    top:15px;
-  }
-}
+      .grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .paper {
+        padding: 54px 16px 16px;
+      }
+
+      .paper::before {
+        left: 16px;
+        top: 15px;
+      }
+    }
 
 
-/* ==================================================
+    /* ==================================================
    项目经历
 ================================================== */
 
-.project-intro{
-  position:relative;
-  margin-bottom:24px;
-  padding:20px 22px 20px 26px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0,229,255,.08),
-      rgba(139,92,246,.05)
-    );
-  border:1px solid rgba(0,229,255,.18);
-  border-radius:14px;
-  color:var(--dim);
-  line-height:1.95;
-}
+    .project-intro {
+      position: relative;
+      margin-bottom: 24px;
+      padding: 20px 22px 20px 26px;
+      background:
+        linear-gradient(135deg,
+          rgba(0, 229, 255, .08),
+          rgba(139, 92, 246, .05));
+      border: 1px solid rgba(0, 229, 255, .18);
+      border-radius: 14px;
+      color: var(--dim);
+      line-height: 1.95;
+    }
 
-.project-intro::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:16px;
-  bottom:16px;
-  width:4px;
-  border-radius:4px;
-  background:linear-gradient(
-    to bottom,
-    var(--accent),
-    var(--accent2)
-  );
-}
+    .project-intro::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 4px;
+      border-radius: 4px;
+      background: linear-gradient(to bottom,
+          var(--accent),
+          var(--accent2));
+    }
 
-.project-intro strong{
-  color:var(--text);
-  font-weight:700;
-}
+    .project-intro strong {
+      color: var(--text);
+      font-weight: 700;
+    }
 
-.project-intro .intro-number{
-  color:#ff6b6b;
-  font-size:1.08rem;
-  font-weight:800;
-}
+    .project-intro .intro-number {
+      color: #ff6b6b;
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
 
-.project-intro .intro-key{
-  color:var(--accent);
-  font-weight:700;
-}
+    .project-intro .intro-key {
+      color: var(--accent);
+      font-weight: 700;
+    }
 
 
-/* 三个项目卡片 */
-.project-list{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:22px;
-}
+    /* 三个项目卡片 */
+    .project-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
 
-.project-card{
-  position:relative;
-  overflow:hidden;
-  padding:0;
-  border:1px solid var(--line);
-  border-radius:16px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(17,24,39,.96),
-      rgba(12,18,31,.96)
-    );
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.16);
-  transition:
-    transform .28s ease,
-    border-color .28s ease,
-    box-shadow .28s ease;
-}
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg,
+          rgba(17, 24, 39, .96),
+          rgba(12, 18, 31, .96));
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, .16);
+      transition:
+        transform .28s ease,
+        border-color .28s ease,
+        box-shadow .28s ease;
+    }
 
-.project-card:hover{
-  transform:translateY(-4px);
-  box-shadow:
-    0 18px 42px rgba(0,0,0,.24);
-}
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, .24);
+    }
 
-/* 卡片顶部彩色线 */
-.project-card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-}
+    /* 卡片顶部彩色线 */
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
 
-/* 三类项目配色 */
-.project-card.project-cyan::before{
-  background:linear-gradient(
-    90deg,
-    #00e5ff,
-    #22d3ee
-  );
-}
+    /* 三类项目配色 */
+    .project-card.project-cyan::before {
+      background: linear-gradient(90deg,
+          #00e5ff,
+          #22d3ee);
+    }
 
-.project-card.project-purple::before{
-  background:linear-gradient(
-    90deg,
-    #8b5cf6,
-    #c084fc
-  );
-}
+    .project-card.project-purple::before {
+      background: linear-gradient(90deg,
+          #8b5cf6,
+          #c084fc);
+    }
 
-.project-card.project-blue::before{
-  background:linear-gradient(
-    90deg,
-    #38bdf8,
-    #3b82f6
-  );
-}
+    .project-card.project-blue::before {
+      background: linear-gradient(90deg,
+          #38bdf8,
+          #3b82f6);
+    }
 
-.project-card.project-cyan:hover{
-  border-color:rgba(0,229,255,.55);
-}
+    .project-card.project-cyan:hover {
+      border-color: rgba(0, 229, 255, .55);
+    }
 
-.project-card.project-purple:hover{
-  border-color:rgba(139,92,246,.58);
-}
+    .project-card.project-purple:hover {
+      border-color: rgba(139, 92, 246, .58);
+    }
 
-.project-card.project-blue:hover{
-  border-color:rgba(59,130,246,.58);
-}
+    .project-card.project-blue:hover {
+      border-color: rgba(59, 130, 246, .58);
+    }
 
 
-/* 项目标题区域 */
-.project-card-header{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:20px;
-  align-items:start;
-  padding:24px 24px 18px;
-  border-bottom:1px solid rgba(148,163,184,.10);
-}
+    /* 项目标题区域 */
+    .project-card-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: start;
+      padding: 24px 24px 18px;
+      border-bottom: 1px solid rgba(148, 163, 184, .10);
+    }
 
-.project-heading{
-  min-width:0;
-}
+    .project-heading {
+      min-width: 0;
+    }
 
-.project-index{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:64px;
-  height:26px;
-  margin-bottom:10px;
-  padding:0 10px;
-  border-radius:999px;
-  font-size:.74rem;
-  font-weight:800;
-  letter-spacing:.08em;
-}
+    .project-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      height: 26px;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
 
-.project-cyan .project-index{
-  color:#67e8f9;
-  background:rgba(0,229,255,.10);
-  border:1px solid rgba(0,229,255,.25);
-}
+    .project-cyan .project-index {
+      color: #67e8f9;
+      background: rgba(0, 229, 255, .10);
+      border: 1px solid rgba(0, 229, 255, .25);
+    }
 
-.project-purple .project-index{
-  color:#c4b5fd;
-  background:rgba(139,92,246,.11);
-  border:1px solid rgba(139,92,246,.28);
-}
+    .project-purple .project-index {
+      color: #c4b5fd;
+      background: rgba(139, 92, 246, .11);
+      border: 1px solid rgba(139, 92, 246, .28);
+    }
 
-.project-blue .project-index{
-  color:#7dd3fc;
-  background:rgba(59,130,246,.11);
-  border:1px solid rgba(59,130,246,.28);
-}
+    .project-blue .project-index {
+      color: #7dd3fc;
+      background: rgba(59, 130, 246, .11);
+      border: 1px solid rgba(59, 130, 246, .28);
+    }
 
-.project-name{
-  color:var(--text);
-  font-size:1.12rem;
-  font-weight:800;
-  line-height:1.55;
-}
+    .project-name {
+      color: var(--text);
+      font-size: 1.12rem;
+      font-weight: 800;
+      line-height: 1.55;
+    }
 
-.project-meta{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:9px;
-  flex-shrink:0;
-}
+    .project-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 9px;
+      flex-shrink: 0;
+    }
 
-.project-role,
-.project-date{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  white-space:nowrap;
-  border-radius:8px;
-  padding:5px 11px;
-  font-size:.8rem;
-  font-weight:700;
-}
+    .project-role,
+    .project-date {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      border-radius: 8px;
+      padding: 5px 11px;
+      font-size: .8rem;
+      font-weight: 700;
+    }
 
-.project-role{
-  color:#071018;
-  background:var(--accent);
-}
+    .project-role {
+      color: #071018;
+      background: var(--accent);
+    }
 
-.project-purple .project-role{
-  color:#fff;
-  background:#8b5cf6;
-}
+    .project-purple .project-role {
+      color: #fff;
+      background: #8b5cf6;
+    }
 
-.project-blue .project-role{
-  color:#fff;
-  background:#3b82f6;
-}
+    .project-blue .project-role {
+      color: #fff;
+      background: #3b82f6;
+    }
 
-.project-date{
-  color:var(--dim);
-  background:rgba(148,163,184,.08);
-  border:1px solid rgba(148,163,184,.15);
-}
-
-
-/* 项目正文 */
-.project-body{
-  padding:20px 24px 24px;
-}
-
-.project-overview{
-  margin-bottom:19px;
-  color:var(--dim);
-  line-height:1.95;
-  text-align:justify;
-}
-
-.project-overview strong{
-  color:var(--text);
-  font-weight:700;
-}
-
-.text-cyan{
-  color:#67e8f9;
-  font-weight:700;
-}
-
-.text-purple{
-  color:#c4b5fd;
-  font-weight:700;
-}
-
-.text-blue{
-  color:#7dd3fc;
-  font-weight:700;
-}
+    .project-date {
+      color: var(--dim);
+      background: rgba(148, 163, 184, .08);
+      border: 1px solid rgba(148, 163, 184, .15);
+    }
 
 
-/* 研究内容三栏 */
-.project-research-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
+    /* 项目正文 */
+    .project-body {
+      padding: 20px 24px 24px;
+    }
 
-.research-block{
-  position:relative;
-  min-height:124px;
-  padding:15px 15px 14px;
-  background:rgba(255,255,255,.025);
-  border:1px solid rgba(148,163,184,.10);
-  border-radius:11px;
-}
+    .project-overview {
+      margin-bottom: 19px;
+      color: var(--dim);
+      line-height: 1.95;
+      text-align: justify;
+    }
 
-.research-block-title{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:8px;
-  color:var(--text);
-  font-size:.88rem;
-  font-weight:750;
-}
+    .project-overview strong {
+      color: var(--text);
+      font-weight: 700;
+    }
 
-.research-block-title::before{
-  content:"";
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 10px rgba(0,229,255,.65);
-}
+    .text-cyan {
+      color: #67e8f9;
+      font-weight: 700;
+    }
 
-.project-purple .research-block-title::before{
-  background:#a78bfa;
-  box-shadow:0 0 10px rgba(139,92,246,.65);
-}
+    .text-purple {
+      color: #c4b5fd;
+      font-weight: 700;
+    }
 
-.project-blue .research-block-title::before{
-  background:#60a5fa;
-  box-shadow:0 0 10px rgba(59,130,246,.65);
-}
-
-.research-block p{
-  color:var(--dim);
-  font-size:.84rem;
-  line-height:1.75;
-}
-
-.research-block strong{
-  color:var(--text);
-  font-weight:700;
-}
+    .text-blue {
+      color: #7dd3fc;
+      font-weight: 700;
+    }
 
 
-/* 移动端 */
-@media(max-width:850px){
-  .project-card-header{
-    grid-template-columns:1fr;
-  }
+    /* 研究内容三栏 */
+    .project-research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
 
-  .project-meta{
-    flex-direction:row;
-    align-items:center;
-    flex-wrap:wrap;
-  }
+    .research-block {
+      position: relative;
+      min-height: 124px;
+      padding: 15px 15px 14px;
+      background: rgba(255, 255, 255, .025);
+      border: 1px solid rgba(148, 163, 184, .10);
+      border-radius: 11px;
+    }
 
-  .project-research-grid{
-    grid-template-columns:1fr;
-  }
-}
+    .research-block-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: .88rem;
+      font-weight: 750;
+    }
 
-@media(max-width:520px){
-  .project-intro{
-    padding:18px 16px 18px 21px;
-  }
+    .research-block-title::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(0, 229, 255, .65);
+    }
 
-  .project-card-header,
-  .project-body{
-    padding-left:17px;
-    padding-right:17px;
-  }
+    .project-purple .research-block-title::before {
+      background: #a78bfa;
+      box-shadow: 0 0 10px rgba(139, 92, 246, .65);
+    }
 
-  .project-name{
-    font-size:1rem;
-  }
-}
+    .project-blue .research-block-title::before {
+      background: #60a5fa;
+      box-shadow: 0 0 10px rgba(59, 130, 246, .65);
+    }
+
+    .research-block p {
+      color: var(--dim);
+      font-size: .84rem;
+      line-height: 1.75;
+    }
+
+    .research-block strong {
+      color: var(--text);
+      font-weight: 700;
+    }
 
 
-/* ==================================================
+    /* 移动端 */
+    @media(max-width:850px) {
+      .project-card-header {
+        grid-template-columns: 1fr;
+      }
+
+      .project-meta {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .project-research-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:520px) {
+      .project-intro {
+        padding: 18px 16px 18px 21px;
+      }
+
+      .project-card-header,
+      .project-body {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      .project-name {
+        font-size: 1rem;
+      }
+    }
+
+
+    /* ==================================================
    科研背景
 ================================================== */
-.research-background-card{
-  position:relative;
-  overflow:hidden;
-  padding:24px 26px 24px 30px;
-  background:
-    linear-gradient(135deg, rgba(0,229,255,.07), rgba(139,92,246,.05));
-  border:1px solid rgba(0,229,255,.18);
-  border-radius:14px;
-  color:var(--dim);
-  line-height:2;
-  text-align:justify;
-  box-shadow:0 10px 28px rgba(0,0,0,.13);
-}
+    .research-background-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 26px 24px 30px;
+      background:
+        linear-gradient(135deg, rgba(0, 229, 255, .07), rgba(139, 92, 246, .05));
+      border: 1px solid rgba(0, 229, 255, .18);
+      border-radius: 14px;
+      color: var(--dim);
+      line-height: 2;
+      text-align: justify;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .13);
+    }
 
-.research-background-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:18px;
-  bottom:18px;
-  width:4px;
-  border-radius:4px;
-  background:linear-gradient(to bottom, var(--accent), var(--accent2));
-}
+    .research-background-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+      border-radius: 4px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    }
 
-.research-background-card strong{
-  color:var(--text);
-  font-weight:800;
-}
+    .research-background-card strong {
+      color: var(--text);
+      font-weight: 800;
+    }
 
-.research-background-card .background-highlight{
-  color:var(--accent);
-  font-weight:800;
-}
+    .research-background-card .background-highlight {
+      color: var(--accent);
+      font-weight: 800;
+    }
 
-.research-background-card a{
-  color:#60a5fa;
-  font-weight:700;
-  text-decoration:none;
-  border-bottom:1px solid rgba(96,165,250,.35);
-  transition:.2s;
-}
+    .research-background-card a {
+      color: #60a5fa;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(96, 165, 250, .35);
+      transition: .2s;
+    }
 
-.research-background-card a:hover{
-  color:var(--accent);
-  border-bottom-color:var(--accent);
-}
+    .research-background-card a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
 
-@media(max-width:520px){
-  .research-background-card{
-    padding:20px 17px 20px 22px;
-    line-height:1.85;
-  }
-}
+    @media(max-width:520px) {
+      .research-background-card {
+        padding: 20px 17px 20px 22px;
+        line-height: 1.85;
+      }
+    }
 
 
-/* ==================================================
+    /* ==================================================
    白色主题覆盖
 ================================================== */
-:root{
-  --bg:#f7f9fc;
-  --card:#ffffff;
-  --line:#dbe3ee;
-  --accent:#0b76b7;
-  --accent2:#6d5dfc;
-  --text:#1f2937;
-  --dim:#64748b;
-}
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --line: #dbe3ee;
+      --accent: #0b76b7;
+      --accent2: #6d5dfc;
+      --text: #1f2937;
+      --dim: #64748b;
+    }
 
-body{
-  background:var(--bg);
-  color:var(--text);
-}
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
 
-nav{
-  background:rgba(255,255,255,.88);
-  border-bottom:1px solid var(--line);
-  box-shadow:0 4px 18px rgba(15,23,42,.06);
-}
+    nav {
+      background: rgba(255, 255, 255, .88);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 18px rgba(15, 23, 42, .06);
+    }
 
-nav a{
-  color:#64748b;
-}
+    nav a {
+      color: #64748b;
+    }
 
-nav a:hover{
-  color:var(--accent);
-}
+    nav a:hover {
+      color: var(--accent);
+    }
 
-.avatar{
-  background:linear-gradient(135deg,#0ea5e9,#7c3aed);
-  box-shadow:0 10px 30px rgba(14,165,233,.18);
-}
+    .avatar {
+      background: linear-gradient(135deg, #0ea5e9, #7c3aed);
+      box-shadow: 0 10px 30px rgba(14, 165, 233, .18);
+    }
 
-.basic-info,
-.research-summary,
-.project-intro,
-.research-background-card{
-  background:
-    linear-gradient(
-      135deg,
-      rgba(14,165,233,.055),
-      rgba(109,93,252,.035)
-    );
-  border-color:rgba(14,116,183,.18);
-  box-shadow:0 10px 26px rgba(15,23,42,.05);
-}
+    .basic-info,
+    .research-summary,
+    .project-intro,
+    .research-background-card {
+      background:
+        linear-gradient(135deg,
+          rgba(14, 165, 233, .055),
+          rgba(109, 93, 252, .035));
+      border-color: rgba(14, 116, 183, .18);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, .05);
+    }
 
-.card,
-.stat{
-  background:#ffffff;
-  border-color:var(--line);
-  box-shadow:0 8px 24px rgba(15,23,42,.05);
-}
+    .card,
+    .stat {
+      background: #ffffff;
+      border-color: var(--line);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, .05);
+    }
 
-.card:hover,
-.stat:hover{
-  border-color:rgba(11,118,183,.5);
-  box-shadow:0 12px 28px rgba(15,23,42,.08);
-}
+    .card:hover,
+    .stat:hover {
+      border-color: rgba(11, 118, 183, .5);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, .08);
+    }
 
-.paper{
-  background:#ffffff;
-  border-left-color:var(--accent);
-  box-shadow:0 7px 20px rgba(15,23,42,.045);
-}
+    .paper {
+      background: #ffffff;
+      border-left-color: var(--accent);
+      box-shadow: 0 7px 20px rgba(15, 23, 42, .045);
+    }
 
-.paper:hover{
-  background:#f8fbff;
-  box-shadow:0 10px 24px rgba(15,23,42,.07);
-}
+    .paper:hover {
+      background: #f8fbff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .07);
+    }
 
-.project-card{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.99),
-      rgba(248,250,252,.99)
-    );
-  border-color:var(--line);
-  box-shadow:0 10px 28px rgba(15,23,42,.07);
-}
+    .project-card {
+      background:
+        linear-gradient(145deg,
+          rgba(255, 255, 255, .99),
+          rgba(248, 250, 252, .99));
+      border-color: var(--line);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, .07);
+    }
 
-.project-card:hover{
-  box-shadow:0 16px 36px rgba(15,23,42,.10);
-}
+    .project-card:hover {
+      box-shadow: 0 16px 36px rgba(15, 23, 42, .10);
+    }
 
-.project-card-header{
-  border-bottom-color:rgba(100,116,139,.14);
-}
+    .project-card-header {
+      border-bottom-color: rgba(100, 116, 139, .14);
+    }
 
-.project-date{
-  color:#64748b;
-  background:#f8fafc;
-  border-color:#dbe3ee;
-}
+    .project-date {
+      color: #64748b;
+      background: #f8fafc;
+      border-color: #dbe3ee;
+    }
 
-.research-block{
-  background:#f8fafc;
-  border-color:#e2e8f0;
-}
+    .research-block {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
 
-.project-overview,
-.research-block p,
-.research-summary,
-.project-intro,
-.research-background-card{
-  color:#64748b;
-}
+    .project-overview,
+    .research-block p,
+    .research-summary,
+    .project-intro,
+    .research-background-card {
+      color: #64748b;
+    }
 
-.project-overview strong,
-.research-block strong,
-.research-summary strong,
-.project-intro strong,
-.research-background-card strong{
-  color:#1f2937;
-}
+    .project-overview strong,
+    .research-block strong,
+    .research-summary strong,
+    .project-intro strong,
+    .research-background-card strong {
+      color: #1f2937;
+    }
 
-.my-name,
-.paper a,
-.summary-key,
-.intro-key,
-.background-highlight,
-.basic-info-value.highlight{
-  color:#0b76b7;
-}
+    .my-name,
+    .paper a,
+    .summary-key,
+    .intro-key,
+    .background-highlight,
+    .basic-info-value.highlight {
+      color: #0b76b7;
+    }
 
-.research-background-card a{
-  color:#2563eb;
-  border-bottom-color:rgba(37,99,235,.25);
-}
+    .research-background-card a {
+      color: #2563eb;
+      border-bottom-color: rgba(37, 99, 235, .25);
+    }
 
-.research-background-card a:hover{
-  color:#0b76b7;
-  border-bottom-color:#0b76b7;
-}
+    .research-background-card a:hover {
+      color: #0b76b7;
+      border-bottom-color: #0b76b7;
+    }
 
-.project-role{
-  color:#ffffff;
-  background:#0ea5e9;
-}
+    .project-role {
+      color: #ffffff;
+      background: #0ea5e9;
+    }
 
-.project-purple .project-role{
-  background:#7c3aed;
-}
+    .project-purple .project-role {
+      background: #7c3aed;
+    }
 
-.project-blue .project-role{
-  background:#2563eb;
-}
+    .project-blue .project-role {
+      background: #2563eb;
+    }
 
 
-/* 论文信息顺序：标题、作者、期刊 */
-.paper > b:first-child{
-  color:var(--text);
-  font-weight:800;
-}
+    /* 论文信息顺序：标题、作者、期刊 */
+    .paper>b:first-child {
+      color: var(--text);
+      font-weight: 800;
+    }
 
-.paper-title{
-  color:var(--text);
-  font-weight:800;
-}
+    .paper-title {
+      color: var(--text);
+      font-weight: 800;
+    }
 
-/* ==================================================
+    /* ==================================================
    校徽透明背景
    请将 a1-3jdxhred.png 与 index.html 放在同一目录
 ================================================== */
-body{
-  position:relative;
-  isolation:isolate;
-}
+    body {
+      position: relative;
+      isolation: isolate;
+    }
 
-/* 页面浅色渐变底纹 */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 18% 16%, rgba(14,165,233,.08), transparent 34%),
-    radial-gradient(circle at 82% 72%, rgba(109,93,252,.07), transparent 38%);
-  z-index:-2;
-  pointer-events:none;
-}
+    /* 页面浅色渐变底纹 */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(14, 165, 233, .08), transparent 34%),
+        radial-gradient(circle at 82% 72%, rgba(109, 93, 252, .07), transparent 38%);
+      z-index: -2;
+      pointer-events: none;
+    }
 
-/* 校徽水印 */
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:url("xjtured.png");
-  background-repeat:no-repeat;
-  background-position:center 220px;
-  background-size:520px auto;
-  opacity:.09;
-  z-index:-1;
-  pointer-events:none;
-}
+    /* 校徽水印 */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("xjtured.png");
+      background-repeat: no-repeat;
+      background-position: center 220px;
+      background-size: 520px auto;
+      opacity: .09;
+      z-index: -1;
+      pointer-events: none;
+    }
 
 
-/* ==================================================
+    /* ==================================================
    半透明内容卡片：让校徽水印透出，同时保证可读性
 ================================================== */
-.basic-info,
-.card,
-.research-summary,
-.project-intro,
-.research-background-card,
-.paper,
-.project-card,
-.research-block{
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-}
+    .basic-info,
+    .card,
+    .research-summary,
+    .project-intro,
+    .research-background-card,
+    .paper,
+    .project-card,
+    .research-block {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
 
-.basic-info,
-.card,
-.research-summary,
-.project-intro,
-.research-background-card{
-  background:rgba(255,255,255,.72);
-}
+    .basic-info,
+    .card,
+    .research-summary,
+    .project-intro,
+    .research-background-card {
+      background: rgba(255, 255, 255, .72);
+    }
 
-.paper{
-  background:rgba(255,255,255,.68);
-}
+    .paper {
+      background: rgba(255, 255, 255, .68);
+    }
 
-.paper:hover{
-  background:rgba(255,255,255,.82);
-}
+    .paper:hover {
+      background: rgba(255, 255, 255, .82);
+    }
 
-.project-card{
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.78),
-    rgba(248,250,252,.66)
-  );
-}
+    .project-card {
+      background: linear-gradient(145deg,
+          rgba(255, 255, 255, .78),
+          rgba(248, 250, 252, .66));
+    }
 
-.research-block{
-  background:rgba(255,255,255,.56);
-}
+    .research-block {
+      background: rgba(255, 255, 255, .56);
+    }
 
-nav{
-  background:rgba(255,255,255,.78);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
+    nav {
+      background: rgba(255, 255, 255, .78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
 
-.project-date{
-  background:rgba(255,255,255,.62);
-}
+    .project-date {
+      background: rgba(255, 255, 255, .62);
+    }
 
-/* 保持文字清晰 */
-.paper,
-.card,
-.project-card,
-.research-block,
-.basic-info,
-.research-summary,
-.project-intro,
-.research-background-card{
-  color:var(--text);
-}
+    /* 保持文字清晰 */
+    .paper,
+    .card,
+    .project-card,
+    .research-block,
+    .basic-info,
+    .research-summary,
+    .project-intro,
+    .research-background-card {
+      color: var(--text);
+    }
 
 
-/* ==================================================
+    /* ==================================================
    全透明模块覆盖
 ================================================== */
-.basic-info,
-.card,
-.research-summary,
-.project-intro,
-.research-background-card,
-.paper,
-.project-card,
-.research-block,
-.project-date,
-.stat{
-  background:transparent !important;
-  backdrop-filter:none !important;
-  -webkit-backdrop-filter:none !important;
-  box-shadow:none !important;
-}
+    .basic-info,
+    .card,
+    .research-summary,
+    .project-intro,
+    .research-background-card,
+    .paper,
+    .project-card,
+    .research-block,
+    .project-date,
+    .stat {
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      box-shadow: none !important;
+    }
 
-/* 导航栏也改为透明，仅保留模糊和底部分隔线 */
-nav{
-  background:rgba(255,255,255,.18) !important;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  box-shadow:none !important;
-}
+    /* 导航栏也改为透明，仅保留模糊和底部分隔线 */
+    nav {
+      background: rgba(255, 255, 255, .18) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: none !important;
+    }
 
-/* 保留边框，避免版块完全失去层次 */
-.basic-info,
-.card,
-.research-summary,
-.project-intro,
-.research-background-card,
-.paper,
-.project-card,
-.research-block,
-.project-date,
-.stat{
-  border-color:rgba(148,163,184,.28) !important;
-}
+    /* 保留边框，避免版块完全失去层次 */
+    .basic-info,
+    .card,
+    .research-summary,
+    .project-intro,
+    .research-background-card,
+    .paper,
+    .project-card,
+    .research-block,
+    .project-date,
+    .stat {
+      border-color: rgba(148, 163, 184, .28) !important;
+    }
 
-/* 论文悬停时仍保持透明 */
-.paper:hover,
-.card:hover,
-.stat:hover,
-.project-card:hover{
-  background:transparent !important;
-}
+    /* 论文悬停时仍保持透明 */
+    .paper:hover,
+    .card:hover,
+    .stat:hover,
+    .project-card:hover {
+      background: transparent !important;
+    }
 
-/* 项目标题分隔线稍微保留 */
-.project-card-header{
-  border-bottom-color:rgba(100,116,139,.18) !important;
-}
+    /* 项目标题分隔线稍微保留 */
+    .project-card-header {
+      border-bottom-color: rgba(100, 116, 139, .18) !important;
+    }
 
 
-/* ==================================================
+    /* ==================================================
    白色背景文字配色最终校正
    统一降低高亮色亮度，保证白底可读性
 ================================================== */
-.subtitle,
-.basic-info-label,
-.project-overview,
-.research-block p,
-.research-summary,
-.project-intro,
-.research-background-card,
-.project-date{
-  color:#526174;
-}
-
-.paper-title,
-.project-name,
-.research-block-title,
-.basic-info-value,
-.project-overview strong,
-.research-block strong,
-.research-summary strong,
-.project-intro strong,
-.research-background-card strong,
-.advisor{
-  color:#172033;
-}
-
-.section > h2,
-.my-name,
-.paper a,
-.summary-key,
-.intro-key,
-.background-highlight,
-.basic-info-value.highlight{
-  color:#075f93;
-}
-
-.research-summary .summary-number,
-.project-intro .intro-number{
-  color:#b42318;
-}
-
-.project-cyan .project-index,
-.text-cyan{
-  color:#087f8c;
-}
-
-.project-purple .project-index,
-.text-purple{
-  color:#6d28d9;
-}
-
-.project-blue .project-index,
-.text-blue{
-  color:#1d4ed8;
-}
-
-.project-cyan .project-index{
-  background:rgba(8,127,140,.08);
-  border-color:rgba(8,127,140,.24);
-}
-
-.project-purple .project-index{
-  background:rgba(109,40,217,.07);
-  border-color:rgba(109,40,217,.22);
-}
-
-.project-blue .project-index{
-  background:rgba(29,78,216,.07);
-  border-color:rgba(29,78,216,.22);
-}
-
-.research-background-card a,
-.card a{
-  color:#1d4ed8 !important;
-}
-
-.research-background-card a:hover,
-.card a:hover{
-  color:#075f93 !important;
-}
-
-nav > div:first-child b{
-  color:#172033;
-}
-
-/* ==================================================
-   教育经历
-================================================== */
-.education-list{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-/* 单条教育经历 */
-.education-item{
-  position:relative;
-  display:grid;
-  grid-template-columns:
-    minmax(150px,.95fr)
-    minmax(150px,1fr)
-    minmax(135px,.85fr)
-    minmax(220px,1.35fr)
-    minmax(110px,.7fr);
-  align-items:center;
-  gap:20px;
-
-  padding:18px 20px 18px 24px;
-
-  background:transparent;
-  border:1px solid rgba(148,163,184,.28);
-  border-radius:12px;
-
-  transition:
-    transform .2s ease,
-    border-color .2s ease,
-    background .2s ease;
-}
-
-/* 左侧蓝紫渐变装饰线 */
-.education-item::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:14px;
-  bottom:14px;
-  width:4px;
-  border-radius:0 4px 4px 0;
-  background:linear-gradient(
-    to bottom,
-    var(--accent),
-    var(--accent2)
-  );
-}
-
-.education-item:hover{
-  transform:translateY(-2px);
-  border-color:rgba(11,118,183,.48);
-  background:rgba(255,255,255,.18);
-}
-
-/* 时间 */
-.education-time{
-  color:var(--accent);
-  font-size:.92rem;
-  font-weight:750;
-  white-space:nowrap;
-  font-variant-numeric:tabular-nums;
-}
-
-/* 学校 */
-.education-school{
-  color:var(--text);
-  font-size:1rem;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-/* 学历 */
-.education-degree{
-  color:var(--text);
-  font-size:.94rem;
-  font-weight:700;
-  white-space:nowrap;
-}
-
-/* 专业 */
-.education-major{
-  color:var(--dim);
-  font-size:.94rem;
-  white-space:nowrap;
-}
-
-/* 学生工作 */
-.education-position{
-  justify-self:end;
-  padding:4px 10px;
-
-  color:#0b76b7;
-  font-size:.82rem;
-  font-weight:700;
-  white-space:nowrap;
-
-  background:rgba(14,116,183,.07);
-  border:1px solid rgba(14,116,183,.18);
-  border-radius:999px;
-}
-
-/* 平板 */
-@media(max-width:900px){
-  .education-item{
-    grid-template-columns:
-      minmax(145px,.9fr)
-      minmax(150px,1fr)
-      minmax(135px,.85fr)
-      minmax(190px,1.2fr);
-  }
-
-  .education-position{
-    grid-column:2 / 5;
-    justify-self:start;
-  }
-}
-
-/* 手机 */
-@media(max-width:650px){
-  .education-list{
-    gap:12px;
-  }
-
-  .education-item{
-    grid-template-columns:1fr;
-    gap:5px;
-    padding:17px 17px 17px 21px;
-  }
-
-  .education-time{
-    margin-bottom:2px;
-  }
-
-  .education-school{
-    font-size:1.02rem;
-  }
-
-  .education-degree,
-  .education-major{
-    font-size:.9rem;
-  }
-
-  .education-position{
-    grid-column:auto;
-    justify-self:start;
-    margin-top:5px;
-  }
-}
-
-/* ==================================================
-   教学与学生指导
-================================================== */
-.teaching-card{
-  position:relative;
-  padding:22px 24px 22px 28px;
-  color:var(--dim);
-  line-height:1.95;
-  background:transparent;
-  border:1px solid rgba(148,163,184,.28);
-  border-radius:14px;
-  transition:
-    transform .2s ease,
-    border-color .2s ease;
-}
-
-.teaching-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:16px;
-  bottom:16px;
-  width:4px;
-  border-radius:0 4px 4px 0;
-  background:linear-gradient(
-    to bottom,
-    var(--accent),
-    var(--accent2)
-  );
-}
-
-.teaching-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(11,118,183,.45);
-}
-
-.teaching-item{
-  position:relative;
-  padding-left:18px;
-  margin-bottom:9px;
-  text-align:justify;
-}
-
-.teaching-item:last-child{
-  margin-bottom:0;
-}
-
-.teaching-item::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:.8em;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--accent);
-}
-
-.teaching-card strong{
-  color:var(--text);
-  font-weight:750;
-}
-
-.teaching-number{
-  color:#c24141;
-  font-weight:800;
-}
-
-.teaching-highlight{
-  color:var(--accent);
-  font-weight:750;
-}
-
-
-/* ==================================================
-   奖励荣誉
-================================================== */
-.honor-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  counter-reset:honor;
-}
-
-.honor-item{
-  counter-increment:honor;
-  position:relative;
-  display:grid;
-  grid-template-columns:46px minmax(0,1fr) minmax(150px,210px) 96px 120px;
-  align-items:center;
-  gap:18px;
-  padding:17px 20px 17px 24px;
-  background:transparent;
-  border:1px solid rgba(148,163,184,.28);
-  border-radius:12px;
-  transition:
-    transform .2s ease,
-    border-color .2s ease;
-}
-
-.honor-item::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:13px;
-  bottom:13px;
-  width:4px;
-  border-radius:0 4px 4px 0;
-  background:linear-gradient(
-    to bottom,
-    var(--accent),
-    var(--accent2)
-  );
-}
-
-.honor-item:hover{
-  transform:translateX(3px);
-  border-color:rgba(11,118,183,.45);
-}
-
-
-.honor-index{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:34px;
-  height:34px;
-  color:#ffffff;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  border-radius:9px;
-  font-size:.78rem;
-  font-weight:800;
-  font-variant-numeric:tabular-nums;
-  box-shadow:0 5px 14px rgba(11,118,183,.16);
-}
-
-.honor-index::before{
-  content:counter(honor, decimal-leading-zero);
-}
-
-.honor-name{
-  color:var(--text);
-  font-size:.96rem;
-  font-weight:700;
-  line-height:1.65;
-}
-
-.honor-name strong{
-  color:#c24141;
-  font-weight:800;
-}
-
-.honor-level{
-  justify-self:center;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:74px;
-  padding:4px 11px;
-  color:#0b76b7;
-  font-size:.82rem;
-  font-weight:750;
-  background:rgba(11,118,183,.07);
-  border:1px solid rgba(11,118,183,.18);
-  border-radius:999px;
-  white-space:nowrap;
-}
-
-.honor-level.school{
-  color:#6d5dfc;
-  background:rgba(109,93,252,.07);
-  border-color:rgba(109,93,252,.18);
-}
-
-
-.honor-issuer{
-  color:#526174;
-  font-size:.88rem;
-  font-weight:600;
-  text-align:center;
-  line-height:1.5;
-}
-
-.honor-date{
-  color:var(--dim);
-  font-size:.88rem;
-  font-weight:600;
-  text-align:right;
-  white-space:nowrap;
-  font-variant-numeric:tabular-nums;
-}
-
-
-.honor-proof{
-  margin-top:4px;
-  font-size:.84rem;
-}
-
-.honor-proof a{
-  color:#1d4ed8;
-  font-weight:750;
-  text-decoration:none;
-  border-bottom:1px solid rgba(29,78,216,.28);
-}
-
-.honor-proof a:hover{
-  color:#075f93;
-  border-bottom-color:#075f93;
-}
-
-
-/* 平板适配 */
-@media(max-width:800px){
-  .honor-item{
-    grid-template-columns:42px minmax(0,1fr) auto;
-  }
-
-  .honor-level{
-    justify-self:end;
-  }
-
-  .honor-issuer{
-    grid-column:2 / 3;
-    text-align:left;
-  }
-
-  .honor-date{
-    grid-column:3 / 4;
-    text-align:right;
-  }
-}
-
-
-/* 手机适配 */
-@media(max-width:560px){
-  .teaching-card{
-    padding:18px 17px 18px 21px;
-  }
-
-  .teaching-item{
-    padding-left:15px;
-    margin-bottom:12px;
-  }
-
-  .honor-item{
-    grid-template-columns:38px minmax(0,1fr);
-    gap:8px 12px;
-    padding:16px 16px 16px 20px;
-  }
-
-  .honor-index{
-    grid-row:1 / 5;
-    align-self:start;
-    width:32px;
-    height:32px;
-  }
-
-  .honor-name{
-    grid-column:2;
-  }
-
-  .honor-proof{
-    margin-top:5px;
-  }
-
-  .honor-level{
-    grid-column:2;
-    justify-self:start;
-  }
-
-  .honor-issuer{
-    grid-column:2;
-    text-align:left;
-  }
-
-  .honor-date{
-    grid-column:2;
-    text-align:left;
-  }
-}
-/* 社交平台区域 */
-.social-links {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-    width: 100%;
-}
-
-/* 单个平台 */
-.social-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-/* 图片 */
-.social-item img {
-    width: 100%;
-    max-width: 220px;
-    height: 220px;
-    object-fit: contain;
-    margin-bottom: 15px;
-}
-
-
-/* 手机端 */
-@media (max-width: 600px) {
-
-    .social-links {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .subtitle,
+    .basic-info-label,
+    .project-overview,
+    .research-block p,
+    .research-summary,
+    .project-intro,
+    .research-background-card,
+    .project-date {
+      color: #526174;
     }
 
+    .paper-title,
+    .project-name,
+    .research-block-title,
+    .basic-info-value,
+    .project-overview strong,
+    .research-block strong,
+    .research-summary strong,
+    .project-intro strong,
+    .research-background-card strong,
+    .advisor {
+      color: #172033;
+    }
+
+    .section>h2,
+    .my-name,
+    .paper a,
+    .summary-key,
+    .intro-key,
+    .background-highlight,
+    .basic-info-value.highlight {
+      color: #075f93;
+    }
+
+    .research-summary .summary-number,
+    .project-intro .intro-number {
+      color: #b42318;
+    }
+
+    .project-cyan .project-index,
+    .text-cyan {
+      color: #087f8c;
+    }
+
+    .project-purple .project-index,
+    .text-purple {
+      color: #6d28d9;
+    }
+
+    .project-blue .project-index,
+    .text-blue {
+      color: #1d4ed8;
+    }
+
+    .project-cyan .project-index {
+      background: rgba(8, 127, 140, .08);
+      border-color: rgba(8, 127, 140, .24);
+    }
+
+    .project-purple .project-index {
+      background: rgba(109, 40, 217, .07);
+      border-color: rgba(109, 40, 217, .22);
+    }
+
+    .project-blue .project-index {
+      background: rgba(29, 78, 216, .07);
+      border-color: rgba(29, 78, 216, .22);
+    }
+
+    .research-background-card a,
+    .card a {
+      color: #1d4ed8 !important;
+    }
+
+    .research-background-card a:hover,
+    .card a:hover {
+      color: #075f93 !important;
+    }
+
+    nav>div:first-child b {
+      color: #172033;
+    }
+
+    /* ==================================================
+   教育经历
+================================================== */
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* 单条教育经历 */
+    .education-item {
+      position: relative;
+      display: grid;
+      grid-template-columns:
+        minmax(150px, .95fr) minmax(150px, 1fr) minmax(135px, .85fr) minmax(220px, 1.35fr) minmax(110px, .7fr);
+      align-items: center;
+      gap: 20px;
+
+      padding: 18px 20px 18px 24px;
+
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, .28);
+      border-radius: 12px;
+
+      transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+    }
+
+    /* 左侧蓝紫渐变装饰线 */
+    .education-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: linear-gradient(to bottom,
+          var(--accent),
+          var(--accent2));
+    }
+
+    .education-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(11, 118, 183, .48);
+      background: rgba(255, 255, 255, .18);
+    }
+
+    /* 时间 */
+    .education-time {
+      color: var(--accent);
+      font-size: .92rem;
+      font-weight: 750;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 学校 */
+    .education-school {
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* 学历 */
+    .education-degree {
+      color: var(--text);
+      font-size: .94rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* 专业 */
+    .education-major {
+      color: var(--dim);
+      font-size: .94rem;
+      white-space: nowrap;
+    }
+
+    /* 学生工作 */
+    .education-position {
+      justify-self: end;
+      padding: 4px 10px;
+
+      color: #0b76b7;
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+
+      background: rgba(14, 116, 183, .07);
+      border: 1px solid rgba(14, 116, 183, .18);
+      border-radius: 999px;
+    }
+
+    /* 平板 */
+    @media(max-width:900px) {
+      .education-item {
+        grid-template-columns:
+          minmax(145px, .9fr) minmax(150px, 1fr) minmax(135px, .85fr) minmax(190px, 1.2fr);
+      }
+
+      .education-position {
+        grid-column: 2 / 5;
+        justify-self: start;
+      }
+    }
+
+    /* 手机 */
+    @media(max-width:650px) {
+      .education-list {
+        gap: 12px;
+      }
+
+      .education-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 17px 17px 17px 21px;
+      }
+
+      .education-time {
+        margin-bottom: 2px;
+      }
+
+      .education-school {
+        font-size: 1.02rem;
+      }
+
+      .education-degree,
+      .education-major {
+        font-size: .9rem;
+      }
+
+      .education-position {
+        grid-column: auto;
+        justify-self: start;
+        margin-top: 5px;
+      }
+    }
+
+    /* ==================================================
+   教学与学生指导
+================================================== */
+    .teaching-card {
+      position: relative;
+      padding: 22px 24px 22px 28px;
+      color: var(--dim);
+      line-height: 1.95;
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, .28);
+      border-radius: 14px;
+      transition:
+        transform .2s ease,
+        border-color .2s ease;
+    }
+
+    .teaching-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: linear-gradient(to bottom,
+          var(--accent),
+          var(--accent2));
+    }
+
+    .teaching-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(11, 118, 183, .45);
+    }
+
+    .teaching-item {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 9px;
+      text-align: justify;
+    }
+
+    .teaching-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .teaching-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .8em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .teaching-card strong {
+      color: var(--text);
+      font-weight: 750;
+    }
+
+    .teaching-number {
+      color: #c24141;
+      font-weight: 800;
+    }
+
+    .teaching-highlight {
+      color: var(--accent);
+      font-weight: 750;
+    }
+
+
+    /* ==================================================
+   奖励荣誉
+================================================== */
+    .honor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      counter-reset: honor;
+    }
+
+    .honor-item {
+      counter-increment: honor;
+      position: relative;
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) minmax(150px, 210px) 96px 120px;
+      align-items: center;
+      gap: 18px;
+      padding: 17px 20px 17px 24px;
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, .28);
+      border-radius: 12px;
+      transition:
+        transform .2s ease,
+        border-color .2s ease;
+    }
+
+    .honor-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      bottom: 13px;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: linear-gradient(to bottom,
+          var(--accent),
+          var(--accent2));
+    }
+
+    .honor-item:hover {
+      transform: translateX(3px);
+      border-color: rgba(11, 118, 183, .45);
+    }
+
+
+    .honor-index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 9px;
+      font-size: .78rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      box-shadow: 0 5px 14px rgba(11, 118, 183, .16);
+    }
+
+    .honor-index::before {
+      content: counter(honor, decimal-leading-zero);
+    }
+
+    .honor-name {
+      color: var(--text);
+      font-size: .96rem;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .honor-name strong {
+      color: #c24141;
+      font-weight: 800;
+    }
+
+    .honor-level {
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 74px;
+      padding: 4px 11px;
+      color: #0b76b7;
+      font-size: .82rem;
+      font-weight: 750;
+      background: rgba(11, 118, 183, .07);
+      border: 1px solid rgba(11, 118, 183, .18);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .honor-level.school {
+      color: #6d5dfc;
+      background: rgba(109, 93, 252, .07);
+      border-color: rgba(109, 93, 252, .18);
+    }
+
+
+    .honor-issuer {
+      color: #526174;
+      font-size: .88rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .honor-date {
+      color: var(--dim);
+      font-size: .88rem;
+      font-weight: 600;
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+
+    .honor-proof {
+      margin-top: 4px;
+      font-size: .84rem;
+    }
+
+    .honor-proof a {
+      color: #1d4ed8;
+      font-weight: 750;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(29, 78, 216, .28);
+    }
+
+    .honor-proof a:hover {
+      color: #075f93;
+      border-bottom-color: #075f93;
+    }
+
+
+    /* 平板适配 */
+    @media(max-width:800px) {
+      .honor-item {
+        grid-template-columns: 42px minmax(0, 1fr) auto;
+      }
+
+      .honor-level {
+        justify-self: end;
+      }
+
+      .honor-issuer {
+        grid-column: 2 / 3;
+        text-align: left;
+      }
+
+      .honor-date {
+        grid-column: 3 / 4;
+        text-align: right;
+      }
+    }
+
+
+    /* 手机适配 */
+    @media(max-width:560px) {
+      .teaching-card {
+        padding: 18px 17px 18px 21px;
+      }
+
+      .teaching-item {
+        padding-left: 15px;
+        margin-bottom: 12px;
+      }
+
+      .honor-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 8px 12px;
+        padding: 16px 16px 16px 20px;
+      }
+
+      .honor-index {
+        grid-row: 1 / 5;
+        align-self: start;
+        width: 32px;
+        height: 32px;
+      }
+
+      .honor-name {
+        grid-column: 2;
+      }
+
+      .honor-proof {
+        margin-top: 5px;
+      }
+
+      .honor-level {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .honor-issuer {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .honor-date {
+        grid-column: 2;
+        text-align: left;
+      }
+    }
+
+    /* 社交平台区域 */
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    /* 单个平台 */
+    .social-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    /* 图片 */
     .social-item img {
+      width: 100%;
+      max-width: 220px;
+      height: 220px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+
+    /* 手机端 */
+    @media (max-width: 600px) {
+
+      .social-links {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .social-item img {
         width: 80%;
         max-width: 320px;
         height: auto;
-    }
+      }
 
-    .social-item {
+      .social-item {
         font-size: 18px;
+      }
+
     }
 
-}
+    /* 图片点击放大 */
+    .zoom-img {
+      cursor: pointer;
+      transition: .25s ease;
+    }
 
-/* 图片点击放大 */
-.zoom-img{
-    cursor:pointer;
-    transition:.25s ease;
-}
-
-.zoom-img:hover{
-    transform:scale(1.03);
-}
+    .zoom-img:hover {
+      transform: scale(1.03);
+    }
 
 
-/* 放大查看背景 */
-.image-preview{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:9999;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
-}
+    /* 放大查看背景 */
+    .image-preview {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .65);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
 
-.image-preview img{
-    max-width:90%;
-    max-height:90%;
-    object-fit:contain;
-    border-radius:12px;
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-    background:white;
-}
+    .image-preview img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+      background: white;
+    }
 
-.image-preview.active{
-    display:flex;
-}
+    .image-preview.active {
+      display: flex;
+    }
 
 
-/* ==================================================
+    /* ==================================================
    活动与学术服务
 ================================================== */
-.service-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  counter-reset:service;
-}
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      counter-reset: service;
+    }
 
-.service-item{
-  counter-increment:service;
-  position:relative;
-  display:grid;
-  grid-template-columns:46px minmax(0,1fr) 118px;
-  align-items:center;
-  gap:18px;
-  padding:18px 20px 18px 24px;
-  background:transparent;
-  border:1px solid rgba(148,163,184,.28);
-  border-radius:12px;
-  transition:transform .2s ease, border-color .2s ease;
-}
+    .service-item {
+      counter-increment: service;
+      position: relative;
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) 118px;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px 18px 24px;
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, .28);
+      border-radius: 12px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
 
-.service-item::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:13px;
-  bottom:13px;
-  width:4px;
-  border-radius:0 4px 4px 0;
-  background:linear-gradient(to bottom,var(--accent),var(--accent2));
-}
+    .service-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      bottom: 13px;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    }
 
-.service-item:hover{
-  transform:translateX(3px);
-  border-color:rgba(11,118,183,.45);
-}
+    .service-item:hover {
+      transform: translateX(3px);
+      border-color: rgba(11, 118, 183, .45);
+    }
 
-.service-index{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:34px;
-  height:34px;
-  color:#fff;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  border-radius:9px;
-  font-size:.78rem;
-  font-weight:800;
-  box-shadow:0 5px 14px rgba(11,118,183,.16);
-}
+    .service-index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 9px;
+      font-size: .78rem;
+      font-weight: 800;
+      box-shadow: 0 5px 14px rgba(11, 118, 183, .16);
+    }
 
-.service-index::before{
-  content:counter(service, decimal-leading-zero);
-}
+    .service-index::before {
+      content: counter(service, decimal-leading-zero);
+    }
 
-.service-content{
-  min-width:0;
-}
+    .service-content {
+      min-width: 0;
+    }
 
-.service-title{
-  color:#172033;
-  font-size:.97rem;
-  font-weight:750;
-  line-height:1.7;
-}
+    .service-title {
+      color: #172033;
+      font-size: .97rem;
+      font-weight: 750;
+      line-height: 1.7;
+    }
 
-.service-meta{
-  margin-top:4px;
-  color:#526174;
-  font-size:.88rem;
-  line-height:1.6;
-}
+    .service-meta {
+      margin-top: 4px;
+      color: #526174;
+      font-size: .88rem;
+      line-height: 1.6;
+    }
 
-.service-tag{
-  justify-self:end;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:92px;
-  padding:5px 11px;
-  color:#075f93;
-  background:rgba(11,118,183,.07);
-  border:1px solid rgba(11,118,183,.18);
-  border-radius:999px;
-  font-size:.82rem;
-  font-weight:750;
-  white-space:nowrap;
-}
+    .service-tag {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 92px;
+      padding: 5px 11px;
+      color: #075f93;
+      background: rgba(11, 118, 183, .07);
+      border: 1px solid rgba(11, 118, 183, .18);
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
 
-.service-tag.review{
-  color:#6d28d9;
-  background:rgba(109,40,217,.07);
-  border-color:rgba(109,40,217,.20);
-}
+    .service-tag.review {
+      color: #6d28d9;
+      background: rgba(109, 40, 217, .07);
+      border-color: rgba(109, 40, 217, .20);
+    }
 
-.certificate-link{
-  color:#1d4ed8;
-  font-weight:750;
-  text-decoration:none;
-  border-bottom:1px solid rgba(29,78,216,.28);
-}
+    .certificate-link {
+      color: #1d4ed8;
+      font-weight: 750;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(29, 78, 216, .28);
+    }
 
-.certificate-link:hover{
-  color:#075f93;
-  border-bottom-color:#075f93;
-}
+    .certificate-link:hover {
+      color: #075f93;
+      border-bottom-color: #075f93;
+    }
 
-@media(max-width:650px){
-  .service-item{
-    grid-template-columns:38px minmax(0,1fr);
-    gap:8px 12px;
-    padding:16px 16px 16px 20px;
-  }
+    @media(max-width:650px) {
+      .service-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 8px 12px;
+        padding: 16px 16px 16px 20px;
+      }
 
-  .service-index{
-    grid-row:1 / 3;
-    align-self:start;
-    width:32px;
-    height:32px;
-  }
+      .service-index {
+        grid-row: 1 / 3;
+        align-self: start;
+        width: 32px;
+        height: 32px;
+      }
 
-  .service-tag{
-    grid-column:2;
-    justify-self:start;
-    margin-top:4px;
-  }
-}
-
-</style>
+      .service-tag {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 4px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<!-- 导航 -->
-<nav>
-<div><b>吕志贤</b></div>
-<div>
-<a href="#about">个人简介</a>
-<a href="#education">教育经历</a>
-<a href="#papers">科研成果</a>
-<a href="#projects">项目经历</a>
-<a href="#teaching">教学指导</a>
-<a href="#honors">奖励荣誉</a>
-<a href="#services">活动与学术服务</a>
-<a href="#background">科研背景</a>
-<a href="#contact">联系方式</a>
-</div>
-</nav>
-<div class="container">
-<!-- HERO -->
-<div class="hero">
-<div>
-<h1>吕志贤</h1>
-<div class="subtitle">
-      计算数学 · 多物理场建模 · 神经算子 · 降阶建模 · 数字孪生
+  <!-- 导航 -->
+  <nav>
+    <div><b>吕志贤</b></div>
+    <div>
+      <a href="#about">个人简介</a>
+      <a href="#education">教育经历</a>
+      <a href="#papers">科研成果</a>
+      <a href="#projects">项目经历</a>
+      <a href="#teaching">教学指导</a>
+      <a href="#honors">奖励荣誉</a>
+      <a href="#services">活动与学术服务</a>
+      <a href="#background">科研背景</a>
+      <a href="#contact">联系方式</a>
     </div>
-</div>
-<div class="avatar">
-<img class="zoom-img" alt="吕志贤个人照片" src="白.jpg"/>
-</div>
-</div>
-<!-- 基本信息 -->
-<div class="basic-info">
-<div class="basic-info-item">
-<span class="basic-info-label">政治面貌</span>
-<span class="basic-info-colon">：</span>
-<span class="basic-info-value highlight">中共党员</span>
-</div>
-<div class="basic-info-item">
-<span class="basic-info-label">籍贯</span>
-<span class="basic-info-colon">：</span>
-<span class="basic-info-value">福建龙岩</span>
-</div>
-<div class="basic-info-item">
-<span class="basic-info-label">出生年月</span>
-<span class="basic-info-colon">：</span>
-<span class="basic-info-value">2000.02</span>
-</div>
-<div class="basic-info-item">
-<span class="basic-info-label">民族</span>
-<span class="basic-info-colon">：</span>
-<span class="basic-info-value">汉族</span>
-</div>
-</div>
-<!-- 个人简介 -->
-<div class="section" id="about">
-<h2>个人简介</h2>
-<div class="card">
-      吕志贤，男，中共党员，西安交通大学博士研究生，师从<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" target="_blank">李义宝教授</a></strong>，研究方向为复杂多物理场建模与智能计算，聚焦神经算子方法、物理约束学习与降阶建模方法。已在J. Comput. Phys.等期刊发表10篇SCI论文，其中一作/学生一作7篇，高被引1篇。主持并参与多项科研项目，获得国家奖学金等荣誉。
+  </nav>
+  <div class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <h1>吕志贤</h1>
+        <div class="subtitle">
+          计算数学 · 多物理场建模 · 神经算子 · 降阶建模 · 数字孪生
+        </div>
+        <div class="hero-actions">
+          <a class="resume-button" href="西安交通大学吕志贤.jpg" target="_blank" rel="noopener noreferrer">
+            查阅个人简历
+          </a>
+        </div>
+      </div>
+      <div class="avatar">
+        <img class="zoom-img" alt="吕志贤个人照片" src="白.jpg" />
+      </div>
     </div>
-</div>
-
-<!-- 教育经历 -->
-<div class="section" id="education">
-  <h2>教育经历</h2>
-
-  <div class="education-list">
-
-    <div class="education-item">
-      <div class="education-time">2018.09–2022.06</div>
-      <div class="education-school">中南大学</div>
-      <div class="education-degree">本科（保研）</div>
-      <div class="education-major">数学与应用数学</div>
-      <div class="education-position">团支部书记</div>
+    <!-- 基本信息 -->
+    <div class="basic-info">
+      <div class="basic-info-item">
+        <span class="basic-info-label">政治面貌</span>
+        <span class="basic-info-colon">：</span>
+        <span class="basic-info-value highlight">中共党员</span>
+      </div>
+      <div class="basic-info-item">
+        <span class="basic-info-label">籍贯</span>
+        <span class="basic-info-colon">：</span>
+        <span class="basic-info-value">福建龙岩</span>
+      </div>
+      <div class="basic-info-item">
+        <span class="basic-info-label">出生年月</span>
+        <span class="basic-info-colon">：</span>
+        <span class="basic-info-value">2000.02</span>
+      </div>
+      <div class="basic-info-item">
+        <span class="basic-info-label">民族</span>
+        <span class="basic-info-colon">：</span>
+        <span class="basic-info-value">汉族</span>
+      </div>
+    </div>
+    <!-- 个人简介 -->
+    <div class="section" id="about">
+      <h2>个人简介</h2>
+      <div class="card">
+        吕志贤，男，中共党员，西安交通大学博士研究生，师从<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer"
+            target="_blank">李义宝教授</a></strong>，研究方向为复杂多物理场建模与智能计算，聚焦神经算子方法、物理约束学习与降阶建模方法。已在J. Comput.
+        Phys.等期刊发表10篇论文，其中一作/学生一作7篇，高被引1篇。主持并参与多项科研项目，获得国家奖学金等荣誉。
+      </div>
     </div>
 
-    <div class="education-item">
-      <div class="education-time">2022.09–2024.03</div>
-      <div class="education-school">西安交通大学</div>
-      <div class="education-degree">硕士研究生</div>
-      <div class="education-major">计算数学（A类学科）</div>
-      <div class="education-position">党支部书记</div>
+    <!-- 教育经历 -->
+    <div class="section" id="education">
+      <h2>教育经历</h2>
+
+      <div class="education-list">
+
+        <div class="education-item">
+          <div class="education-time">2018.09–2022.06</div>
+          <div class="education-school">中南大学</div>
+          <div class="education-degree">本科（保研）</div>
+          <div class="education-major">数学与应用数学</div>
+          <div class="education-position">团支部书记</div>
+        </div>
+
+        <div class="education-item">
+          <div class="education-time">2022.09–2024.03</div>
+          <div class="education-school">西安交通大学</div>
+          <div class="education-degree">硕士研究生</div>
+          <div class="education-major">计算数学（A类学科）</div>
+          <div class="education-position">党支部书记</div>
+        </div>
+
+        <div class="education-item">
+          <div class="education-time">2024.03–至今</div>
+          <div class="education-school">西安交通大学</div>
+          <div class="education-degree">博士研究生</div>
+          <div class="education-major">计算数学（A类学科）</div>
+          <div class="education-position">党支部书记</div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="education-item">
-      <div class="education-time">2024.03–至今</div>
-      <div class="education-school">西安交通大学</div>
-      <div class="education-degree">博士研究生</div>
-      <div class="education-major">计算数学（A类学科）</div>
-      <div class="education-position">党支部书记</div>
+
+    <!-- 论文成果 -->
+    <div class="section" id="papers">
+      <h2>科研成果</h2>
+      <div class="research-summary">
+        基于<strong>神经算子与物理约束降阶方法</strong>，围绕复杂多物理场耦合的高性能求解问题，
+        构建<strong>数据驱动与物理模型融合的高效数值预测框架</strong>，实现了流体–固体–燃烧耦合系统的<span
+          class="summary-key">稳定求解与快速预测</span>。在<strong>Journal of Computational Physics、Physics of
+          Fluids</strong>等国际期刊发表 SCI 论文<span class="summary-number">10篇</span>，其中一作/学生一作<span
+          class="summary-number">7篇</span>，西安交通大学最具影响力期刊<span class="summary-number">6篇</span>，高被引论文<span
+          class="summary-number">1篇</span>。
+      </div>
+      <div class="paper"><span class="paper-title">
+          Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion</span><br />
+        <span class="my-name">Zhixian Lv</span>; Jiachen Feng; Qing Xia;
+        Jiahao Huang; Xing Sun; Junseok Kim;
+        <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Physics of Fluids (2025)</b><br />
+        Volume 37(7): 077110<br />
+        DOI:
+        <a href="https://doi.org/10.1063/5.0268665" rel="noopener noreferrer" target="_blank">
+          10.1063/5.0268665
+        </a>
+      </div>
+      <div class="paper"><span class="paper-title">
+          Simulation of the coupled Navier–Stokes–Cahn–Hilliard–Heat Transfer System
+          via a U-shaped Spatial-Channel Attention Neural Operator</span><br />
+        <span class="my-name">Zhixian Lv</span>; Yuhong Li; Qing Xia;
+        Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Communications in Nonlinear Science and Numerical Simulation (2025)</b><br />
+        Volume 154: 109537<br />
+        DOI:
+        <a href="https://doi.org/10.1016/j.cnsns.2025.109537" rel="noopener noreferrer" target="_blank">
+          10.1016/j.cnsns.2025.109537
+        </a>
+      </div>
+      <div class="paper"><span class="paper-title">
+          Derivative neural operators with physics-guided diffusion refinement
+          for predicting two-phase flow dynamics
+        </span><br />
+        <span class="my-name">Zhixian Lv</span>; Chen Li; Yating Wang;
+        <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Physics of Fluids (2026)</b>
+      </div>
+      <div class="paper"><span class="paper-title">
+          Efficient prediction of phase-field crystal dynamics via β-variational
+          autoencoders and time-series transformers on coupled physical fields</span><br />
+        <span class="my-name">Zhixian Lv</span>; Jiahao Huang; Chengyang Yue;
+        Wenxuan Xie; Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Computers &amp; Mathematics with Applications (2026)</b><br />
+        Volume 204: 198–215<br />
+        DOI:
+        <a href="https://doi.org/10.1016/j.camwa.2025.12.024" rel="noopener noreferrer" target="_blank">
+          10.1016/j.camwa.2025.12.024
+        </a>
+      </div>
+      <div class="paper"><span class="paper-title">
+          Reduced-order prediction model for the Cahn–Hilliard equation based on deep learning</span><br />
+        <span class="my-name">Zhixian Lv</span>; Xin Song; Jiachen Feng;
+        Qing Xia; Bing Xia; <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Engineering Analysis with Boundary Elements (2025)</b><br />
+        Volume 172: 106118<br />
+        DOI:
+        <a href="https://doi.org/10.1016/j.enganabound.2025.106118" rel="noopener noreferrer" target="_blank">
+          10.1016/j.enganabound.2025.106118
+        </a>
+      </div>
+      <div class="paper"><span class="paper-title">
+          On the unconditionally stable phase field model of ternary components system
+          considering liquid–solid phase transition</span><br />
+        <span class="advisor">Yibao Li（导师）</span>;
+        <span class="my-name">Zhixian Lv</span>; Qing Xia<br />
+        <b>Journal of Computational Physics (2025)</b><br />
+        Volume 543: 114404<br />
+        DOI:
+        <a href="https://doi.org/10.1016/j.jcp.2025.114404" rel="noopener noreferrer" target="_blank">
+          10.1016/j.jcp.2025.114404
+        </a>
+      </div>
+      <div class="paper"><span class="paper-title">
+          On the adaption of biological transport networks affected by complex domains</span><br />
+        <span class="advisor">Yibao Li（导师）</span>;
+        <span class="my-name">Zhixian Lv</span>; Qing Xia<br />
+        <b>Physics of Fluids (2024)</b><br />
+        Volume 36(10): 107101<br />
+        DOI:
+        <a href="https://doi.org/10.1063/5.0231079" rel="noopener noreferrer" target="_blank">
+          10.1063/5.0231079
+        </a>
+      </div>
+      <div class="paper"><span class="paper-title">
+          A dual-energy physics-informed multi-material topology optimization method
+          within the phase-field framework</span><br />
+        Sijing Lai; Jiachen Feng; <span class="my-name">Zhixian Lv</span>;
+        Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Computer Methods in Applied Mechanics and Engineering (2025)</b><br />
+        Volume 447: 118338<br />
+        DOI:
+        <a href="https://doi.org/10.1016/j.cma.2025.118338" rel="noopener noreferrer" target="_blank">
+          10.1016/j.cma.2025.118338
+        </a>
+      </div>
+
+      <div class="paper"><span class="paper-title">
+          Microstructural evolution prediction in the phase field crystal model
+          with VAE-LSTM and ensemble Kalman filtering
+        </span><br />
+        Jiachen Feng; Wenxuan Xie; <span class="my-name">Zhixian Lv</span>;
+        Qing Xia; Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Communications in Nonlinear Science and Numerical Simulation (2026)</b>
+      </div>
     </div>
 
-  </div>
-</div>
-
-
-<!-- 论文成果 -->
-<div class="section" id="papers">
-<h2>科研成果</h2>
-<div class="research-summary">
-      基于<strong>神经算子与物理约束降阶方法</strong>，围绕复杂多物理场耦合的高性能求解问题，
-      构建<strong>数据驱动与物理模型融合的高效数值预测框架</strong>，实现了流体–固体–燃烧耦合系统的<span class="summary-key">稳定求解与快速预测</span>。在<strong>Journal of Computational Physics、Physics of Fluids</strong>等国际期刊发表 SCI 论文<span class="summary-number">10篇</span>，其中一作/学生一作<span class="summary-number">7篇</span>，西安交通大学最具影响力期刊<span class="summary-number">6篇</span>，高被引论文<span class="summary-number">1篇</span>。
-    </div>
-<div class="paper"><span class="paper-title">
-      Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion</span><br/>
-<span class="my-name">Zhixian Lv</span>; Jiachen Feng; Qing Xia;
-      Jiahao Huang; Xing Sun; Junseok Kim;
-      <span class="advisor">Yibao Li（导师）</span><br/>
-<b>Physics of Fluids (2025)</b><br/>
-      Volume 37(7): 077110<br/>
-      DOI:
-      <a href="https://doi.org/10.1063/5.0268665" rel="noopener noreferrer" target="_blank">
-        10.1063/5.0268665
-      </a>
-</div>
-<div class="paper"><span class="paper-title">
-      Simulation of the coupled Navier–Stokes–Cahn–Hilliard–Heat Transfer System
-      via a U-shaped Spatial-Channel Attention Neural Operator</span><br/>
-<span class="my-name">Zhixian Lv</span>; Yuhong Li; Qing Xia;
-      Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br/>
-<b>Communications in Nonlinear Science and Numerical Simulation (2025)</b><br/>
-      Volume 154: 109537<br/>
-      DOI:
-      <a href="https://doi.org/10.1016/j.cnsns.2025.109537" rel="noopener noreferrer" target="_blank">
-        10.1016/j.cnsns.2025.109537
-      </a>
-</div>
-<div class="paper"><span class="paper-title">
-      Derivative neural operators with physics-guided diffusion refinement
-      for predicting two-phase flow dynamics
-    </span><br/>
-<span class="my-name">Zhixian Lv</span>; Chen Li; Yating Wang;
-      <span class="advisor">Yibao Li（导师）</span><br/>
-<b>Physics of Fluids (2026)</b></div>
-<div class="paper"><span class="paper-title">
-      Efficient prediction of phase-field crystal dynamics via β-variational
-      autoencoders and time-series transformers on coupled physical fields</span><br/>
-<span class="my-name">Zhixian Lv</span>; Jiahao Huang; Chengyang Yue;
-      Wenxuan Xie; Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br/>
-<b>Computers &amp; Mathematics with Applications (2026)</b><br/>
-      Volume 204: 198–215<br/>
-      DOI:
-      <a href="https://doi.org/10.1016/j.camwa.2025.12.024" rel="noopener noreferrer" target="_blank">
-        10.1016/j.camwa.2025.12.024
-      </a>
-</div>
-<div class="paper"><span class="paper-title">
-      Reduced-order prediction model for the Cahn–Hilliard equation based on deep learning</span><br/>
-<span class="my-name">Zhixian Lv</span>; Xin Song; Jiachen Feng;
-      Qing Xia; Bing Xia; <span class="advisor">Yibao Li（导师）</span><br/>
-<b>Engineering Analysis with Boundary Elements (2025)</b><br/>
-      Volume 172: 106118<br/>
-      DOI:
-      <a href="https://doi.org/10.1016/j.enganabound.2025.106118" rel="noopener noreferrer" target="_blank">
-        10.1016/j.enganabound.2025.106118
-      </a>
-</div>
-<div class="paper"><span class="paper-title">
-      On the unconditionally stable phase field model of ternary components system
-      considering liquid–solid phase transition</span><br/>
-<span class="advisor">Yibao Li（导师）</span>;
-      <span class="my-name">Zhixian Lv</span>; Qing Xia<br/>
-<b>Journal of Computational Physics (2025)</b><br/>
-      Volume 543: 114404<br/>
-      DOI:
-      <a href="https://doi.org/10.1016/j.jcp.2025.114404" rel="noopener noreferrer" target="_blank">
-        10.1016/j.jcp.2025.114404
-      </a>
-</div>
-<div class="paper"><span class="paper-title">
-      On the adaption of biological transport networks affected by complex domains</span><br/>
-<span class="advisor">Yibao Li（导师）</span>;
-      <span class="my-name">Zhixian Lv</span>; Qing Xia<br/>
-<b>Physics of Fluids (2024)</b><br/>
-      Volume 36(10): 107101<br/>
-      DOI:
-      <a href="https://doi.org/10.1063/5.0231079" rel="noopener noreferrer" target="_blank">
-        10.1063/5.0231079
-      </a>
-</div>
-<div class="paper"><span class="paper-title">
-      A dual-energy physics-informed multi-material topology optimization method
-      within the phase-field framework</span><br/>
-      Sijing Lai; Jiachen Feng; <span class="my-name">Zhixian Lv</span>;
-      Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br/>
-<b>Computer Methods in Applied Mechanics and Engineering (2025)</b><br/>
-      Volume 447: 118338<br/>
-      DOI:
-      <a href="https://doi.org/10.1016/j.cma.2025.118338" rel="noopener noreferrer" target="_blank">
-        10.1016/j.cma.2025.118338
-      </a>
-</div>
-
-<div class="paper"><span class="paper-title">
-      Microstructural evolution prediction in the phase field crystal model
-      with VAE-LSTM and ensemble Kalman filtering
-    </span><br/>
-      Jiachen Feng; Wenxuan Xie; <span class="my-name">Zhixian Lv</span>;
-      Qing Xia; Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br/>
-<b>Communications in Nonlinear Science and Numerical Simulation (2026)</b></div>
-</div>
-
-<div class="paper"><span class="paper-title">
-      A third-order temporal accurate and unconditionally stable Runge-Kutta
-      scalar auxiliary variable method for the modified phase field crystal model</span><br/>
+    <div class="paper"><span class="paper-title">
+        A third-order temporal accurate and unconditionally stable Runge-Kutta
+        scalar auxiliary variable method for the modified phase field crystal model</span><br />
       Xiaochuan Hu; <span class="advisor">Yibao Li（导师）</span>; Sijing Lai;
-      <span class="my-name">Zhixian Lv</span>; Wenxuan Xie; Junseok Kim<br/>
-<b>Communications in Nonlinear Science and Numerical Simulation (2026)</b><br/>
-      Volume 162: 110255<br/>
+      <span class="my-name">Zhixian Lv</span>; Wenxuan Xie; Junseok Kim<br />
+      <b>Communications in Nonlinear Science and Numerical Simulation (2026)</b><br />
+      Volume 162: 110255<br />
       DOI:
       <a href="https://doi.org/10.1016/j.cnsns.2026.110255" rel="noopener noreferrer" target="_blank">
         10.1016/j.cnsns.2026.110255
       </a>
-</div>
-<!-- ==================================================
+    </div>
+    <!-- ==================================================
      项目经历
 ================================================== -->
-<div class="section" id="projects">
-<h2>项目经历</h2>
-<!-- 项目总体情况 -->
-<div class="project-intro">
-    担任科研项目负责人<span class="intro-number">1项</span>，
-    作为项目骨干参与<span class="intro-number">5项</span>纵向与横向科研项目。熟悉<strong>项目申报书撰写、任务拆解、技术路线设计、阶段汇报、成果验收及交付材料撰写</strong>等全流程工作；了解纵向科研、校际合作、特殊任务和企业合作等项目组织模式，
-    具备<span class="intro-key">独立申报、协同推进和成果交付能力</span>。
-  </div>
-<div class="project-list">
-<!-- ================= 项目一 ================= -->
-<article class="project-card project-cyan">
-<div class="project-card-header">
-<div class="project-heading">
-<div class="project-index">项目 01</div>
-<div class="project-name">
-            中央高校基础业务费——氢气超声速燃烧快速预测与物理约束研究(3万元)
+    <div class="section" id="projects">
+      <h2>项目经历</h2>
+      <!-- 项目总体情况 -->
+      <div class="project-intro">
+        担任科研项目负责人<span class="intro-number">1项</span>，
+        作为项目骨干参与<span
+          class="intro-number">5项</span>纵向与横向科研项目。熟悉<strong>项目申报书撰写、任务拆解、技术路线设计、阶段汇报、成果验收及交付材料撰写</strong>等全流程工作；了解纵向科研、校际合作、特殊任务和企业合作等项目组织模式，
+        具备<span class="intro-key">独立申报、协同推进和成果交付能力</span>。
+      </div>
+      <div class="project-list">
+        <!-- ================= 项目一 ================= -->
+        <article class="project-card project-cyan">
+          <div class="project-card-header">
+            <div class="project-heading">
+              <div class="project-index">项目 01</div>
+              <div class="project-name">
+                中央高校基础业务费——氢气超声速燃烧快速预测与物理约束研究(3万元)
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-role">项目负责人</span>
+              <span class="project-date">2025.01–2026.12</span>
+            </div>
           </div>
-</div>
-<div class="project-meta">
-<span class="project-role">项目负责人</span>
-<span class="project-date">2025.01–2026.12</span>
-</div>
-</div>
-<div class="project-body">
-<p class="project-overview">
-          针对氢气超声速燃烧中<strong>多物理场强耦合、非线性演化及高保真模拟成本高</strong>等问题，构建融合降阶表征、长时间预测与生成模型的数据驱动计算框架，
-          实现压力、温度和速度等复杂燃烧流场的<span class="text-cyan">快速预测、细节重构与信息重建</span>。
-        </p>
-<div class="project-research-grid">
-<div class="research-block">
-<div class="research-block-title">降阶表征</div>
-<p>
-              面向高维燃烧流场，研究<strong>非线性降维与紧凑潜在表征</strong>，
-              提取耦合物理场中的主要演化特征。
+          <div class="project-body">
+            <p class="project-overview">
+              针对氢气超声速燃烧中<strong>多物理场强耦合、非线性演化及高保真模拟成本高</strong>等问题，构建融合降阶表征、长时间预测与生成模型的数据驱动计算框架，
+              实现压力、温度和速度等复杂燃烧流场的<span class="text-cyan">快速预测、细节重构与信息重建</span>。
             </p>
-</div>
-<div class="research-block">
-<div class="research-block-title">长时间预测</div>
-<p>
-              构建预测模型，学习复杂燃烧过程中的<strong>非线性动态演化规律</strong>，
-              提升长时间预测精度与稳定性。
-            </p>
-</div>
-<div class="research-block">
-<div class="research-block-title">生成式重构</div>
-<p>
-              融合物理约束与生成模型，实现高分辨率流场的<strong>细节恢复、缺失补全和信息重建</strong>。
-            </p>
-</div>
-</div>
-</div>
-</article>
-<!-- ================= 项目二 ================= -->
-<article class="project-card project-purple">
-<div class="project-card-header">
-<div class="project-heading">
-<div class="project-index">项目 02</div>
-<div class="project-name">
-            特殊任务重点项目——多物理场耦合数字孪生研究(240万元)
+            <div class="project-research-grid">
+              <div class="research-block">
+                <div class="research-block-title">降阶表征</div>
+                <p>
+                  面向高维燃烧流场，研究<strong>非线性降维与紧凑潜在表征</strong>，
+                  提取耦合物理场中的主要演化特征。
+                </p>
+              </div>
+              <div class="research-block">
+                <div class="research-block-title">长时间预测</div>
+                <p>
+                  构建预测模型，学习复杂燃烧过程中的<strong>非线性动态演化规律</strong>，
+                  提升长时间预测精度与稳定性。
+                </p>
+              </div>
+              <div class="research-block">
+                <div class="research-block-title">生成式重构</div>
+                <p>
+                  融合物理约束与生成模型，实现高分辨率流场的<strong>细节恢复、缺失补全和信息重建</strong>。
+                </p>
+              </div>
+            </div>
           </div>
-</div>
-<div class="project-meta">
-<span class="project-role">项目骨干</span>
-<span class="project-date">2023.10–2024.10</span>
-</div>
-</div>
-<div class="project-body">
-<p class="project-overview">
-          针对复杂多物理场强耦合条件下<strong>高保真模拟代价高、观测数据稀疏以及局部信息缺失</strong>等问题，开发复杂物理场孪生计算软件，构建模型与数据融合的数字孪生框架，
-          提升复杂流动与燃烧场景下的<span class="text-purple">计算效率、预测精度与长期稳定性</span>。
-        </p>
-<div class="project-research-grid">
-<div class="research-block">
-<div class="research-block-title">多物理场建模</div>
-<p>
-              建立复杂流动、传热与燃烧过程的<strong>多物理场耦合模型</strong>，
-              描述不同物理变量之间的相互作用。
-            </p>
-</div>
-<div class="research-block">
-<div class="research-block-title">孪生计算</div>
-<p>
-              开发复杂物理场<strong>数字孪生计算软件</strong>，
-              实现高保真模型、观测数据与快速预测模型之间的协同。
-            </p>
-</div>
-<div class="research-block">
-<div class="research-block-title">信息融合</div>
-<p>
-              面向稀疏观测与数据缺失问题，研究<strong>状态重构、数据修复与动态预测</strong>，
-              提升系统状态感知能力。
-            </p>
-</div>
-</div>
-</div>
-</article>
-
-<!-- ================= 项目三 ================= -->
-<article class="project-card project-blue">
-<div class="project-card-header">
-<div class="project-heading">
-<div class="project-index">项目 03</div>
-<div class="project-name">
-            华为终端——微型液冷流道优化研究(118万元)
+        </article>
+        <!-- ================= 项目二 ================= -->
+        <article class="project-card project-purple">
+          <div class="project-card-header">
+            <div class="project-heading">
+              <div class="project-index">项目 02</div>
+              <div class="project-name">
+                特殊任务重点项目——多物理场耦合数字孪生研究(240万元)
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-role">项目骨干</span>
+              <span class="project-date">2023.10–2024.10</span>
+            </div>
           </div>
-</div>
-<div class="project-meta">
-<span class="project-role">项目骨干</span>
-<span class="project-date">2025.10–2027.12</span>
-</div>
-</div>
-<div class="project-body">
-<p class="project-overview">
-          面向微型液冷流道结构优化与高效散热需求，结合<strong>拓扑优化、相场模型、流阻建模与混合整数优化方法</strong>，
-          开展液冷流道结构设计与性能优化，实现<span class="text-blue">流阻降低、流量性能提升与传热能力增强</span>，
-          为高效散热结构设计提供理论与计算支撑。
-        </p>
-<div class="project-research-grid">
-<div class="research-block">
-<div class="research-block-title">流热耦合建模</div>
-<p>
-              建立微型液冷流道中的<strong>流动与传热耦合模型</strong>，
-              分析结构参数对流阻与散热性能的影响。
+          <div class="project-body">
+            <p class="project-overview">
+              针对复杂多物理场强耦合条件下<strong>高保真模拟代价高、观测数据稀疏以及局部信息缺失</strong>等问题，开发复杂物理场孪生计算软件，构建模型与数据融合的数字孪生框架，
+              提升复杂流动与燃烧场景下的<span class="text-purple">计算效率、预测精度与长期稳定性</span>。
             </p>
-</div>
-<div class="research-block">
-<div class="research-block-title">拓扑优化</div>
-<p>
-              结合相场方法与拓扑优化技术，
-              实现复杂流道结构的<strong>连续演化与自动设计</strong>。
+            <div class="project-research-grid">
+              <div class="research-block">
+                <div class="research-block-title">多物理场建模</div>
+                <p>
+                  建立复杂流动、传热与燃烧过程的<strong>多物理场耦合模型</strong>，
+                  描述不同物理变量之间的相互作用。
+                </p>
+              </div>
+              <div class="research-block">
+                <div class="research-block-title">孪生计算</div>
+                <p>
+                  开发复杂物理场<strong>数字孪生计算软件</strong>，
+                  实现高保真模型、观测数据与快速预测模型之间的协同。
+                </p>
+              </div>
+              <div class="research-block">
+                <div class="research-block-title">信息融合</div>
+                <p>
+                  面向稀疏观测与数据缺失问题，研究<strong>状态重构、数据修复与动态预测</strong>，
+                  提升系统状态感知能力。
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= 项目三 ================= -->
+        <article class="project-card project-blue">
+          <div class="project-card-header">
+            <div class="project-heading">
+              <div class="project-index">项目 03</div>
+              <div class="project-name">
+                华为终端——微型液冷流道优化研究(118万元)
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-role">项目骨干</span>
+              <span class="project-date">2025.10–2027.12</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-overview">
+              面向微型液冷流道结构优化与高效散热需求，结合<strong>拓扑优化、相场模型、流阻建模与混合整数优化方法</strong>，
+              开展液冷流道结构设计与性能优化，实现<span class="text-blue">流阻降低、流量性能提升与传热能力增强</span>，
+              为高效散热结构设计提供理论与计算支撑。
             </p>
-</div>
-<div class="research-block">
-<div class="research-block-title">性能提升</div>
-<p>
-              构建流阻模型与混合整数优化方法，
-              协同优化<strong>流阻、流量分配和传热效率</strong>。
-            </p>
-</div>
-</div>
-</div>
-</article>
-</div>
-</div>
-
-<!-- 教学与学生指导 -->
-<div class="section" id="teaching">
-  <h2>教学与学生指导</h2>
-
-  <div class="teaching-card">
-
-    <div class="teaching-item">
-      指导本科毕业设计
-      <span class="teaching-number">2名</span>，
-      协助学生完成
-      <strong>选题设计、数值实验、结果分析、论文撰写与答辩准备</strong>
-      等工作。
+            <div class="project-research-grid">
+              <div class="research-block">
+                <div class="research-block-title">流热耦合建模</div>
+                <p>
+                  建立微型液冷流道中的<strong>流动与传热耦合模型</strong>，
+                  分析结构参数对流阻与散热性能的影响。
+                </p>
+              </div>
+              <div class="research-block">
+                <div class="research-block-title">拓扑优化</div>
+                <p>
+                  结合相场方法与拓扑优化技术，
+                  实现复杂流道结构的<strong>连续演化与自动设计</strong>。
+                </p>
+              </div>
+              <div class="research-block">
+                <div class="research-block-title">性能提升</div>
+                <p>
+                  构建流阻模型与混合整数优化方法，
+                  协同优化<strong>流阻、流量分配和传热效率</strong>。
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
 
-    <div class="teaching-item">
-      指导数学建模竞赛学生
-      <span class="teaching-number">6名</span>，
-      负责
-      <strong>建模思路凝练、算法设计实现与论文修改</strong>，
-      指导学生获美赛
-      <span class="teaching-highlight">M奖1项</span>、
-      国赛
-      <span class="teaching-highlight">二等奖1项</span>。
+    <!-- 教学与学生指导 -->
+    <div class="section" id="teaching">
+      <h2>教学与学生指导</h2>
+
+      <div class="teaching-card">
+
+        <div class="teaching-item">
+          指导本科毕业设计
+          <span class="teaching-number">2名</span>，
+          协助学生完成
+          <strong>选题设计、数值实验、结果分析、论文撰写与答辩准备</strong>
+          等工作。
+        </div>
+
+        <div class="teaching-item">
+          指导数学建模竞赛学生
+          <span class="teaching-number">6名</span>，
+          负责
+          <strong>建模思路凝练、算法设计实现与论文修改</strong>，
+          指导学生获美赛
+          <span class="teaching-highlight">M奖1项</span>、
+          国赛
+          <span class="teaching-highlight">二等奖1项</span>。
+        </div>
+
+        <div class="teaching-item">
+          参与指导硕士研究生
+          <span class="teaching-number">6名</span>、
+          博士研究生
+          <span class="teaching-number">2名</span>，
+          协助开展
+          <strong>科研选题、实验分析、论文写作修改和项目任务推进</strong>
+          等工作。
+        </div>
+
+        <div class="teaching-item">
+          担任党支部书记、兼职辅导员等学生工作职务，
+          具备良好的
+          <span class="teaching-highlight">学生沟通、组织管理、思想引导和协同育人能力</span>。
+        </div>
+
+      </div>
     </div>
 
-    <div class="teaching-item">
-      参与指导硕士研究生
-      <span class="teaching-number">6名</span>、
-      博士研究生
-      <span class="teaching-number">2名</span>，
-      协助开展
-      <strong>科研选题、实验分析、论文写作修改和项目任务推进</strong>
-      等工作。
+
+    <!-- 奖励荣誉 -->
+    <div class="section" id="honors">
+      <h2>奖励荣誉</h2>
+
+      <div class="honor-list">
+
+        <div class="honor-item">
+          <div class="honor-index"></div>
+          <div class="honor-name">
+            国家奖学金（全院综合排名<strong>第1</strong>）
+            <div class="honor-proof">
+              <a class="image-preview-link" href="2025国家奖学金.jpg" data-preview-src="2025国家奖学金.jpg"
+                data-preview-alt="2025年国家奖学金证书">点击查看证书</a>
+            </div>
+          </div>
+          <div class="honor-issuer">中华人民共和国教育部</div>
+          <div class="honor-level">国家级</div>
+          <div class="honor-date">2025.12</div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-index"></div>
+          <div class="honor-name">
+            国家奖学金
+            <div class="honor-proof">
+              <a class="image-preview-link" href="2020国家奖学金.jpg" data-preview-src="2020国家奖学金.jpg"
+                data-preview-alt="2020年国家奖学金证书">点击查看证书</a>
+            </div>
+          </div>
+          <div class="honor-issuer">中华人民共和国教育部</div>
+          <div class="honor-level">国家级</div>
+          <div class="honor-date">2020.12</div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-index"></div>
+          <div class="honor-name">
+            2025新域新质创新大赛特等奖
+            <div class="honor-proof">
+              <a class="image-preview-link" href="2025新域新质大赛特等奖证书.jpg" data-preview-src="2025新域新质大赛特等奖证书.jpg"
+                data-preview-alt="2025新域新质创新大赛特等奖证书">点击查看证书</a>
+            </div>
+          </div>
+          <div class="honor-issuer">中国电子信息产业发展研究院</div>
+          <div class="honor-level">国家级</div>
+          <div class="honor-date">2025.12</div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-index"></div>
+          <div class="honor-name">
+            第二十届全国研究生数学建模竞赛二等奖
+            <div class="honor-proof">
+              <a class="image-preview-link" href="第二十届全国研究生数学建模竞赛二等奖.jpg" data-preview-src="第二十届全国研究生数学建模竞赛二等奖.jpg"
+                data-preview-alt="第二十届全国研究生数学建模竞赛二等奖证书">点击查看证书</a>
+            </div>
+          </div>
+          <div class="honor-issuer">中国学会与研究生教育学会</div>
+          <div class="honor-level">国家级</div>
+          <div class="honor-date">2023.12</div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-index"></div>
+          <div class="honor-name">
+            第十九届全国研究生数学建模竞赛二等奖
+            <div class="honor-proof">
+              <a class="image-preview-link" href="第十九届全国研究生数学建模竞赛二等奖.jpg" data-preview-src="第十九届全国研究生数学建模竞赛二等奖.jpg"
+                data-preview-alt="第十九届全国研究生数学建模竞赛二等奖证书">点击查看证书</a>
+            </div>
+          </div>
+          <div class="honor-issuer">中国学会与研究生教育学会</div>
+          <div class="honor-level">国家级</div>
+          <div class="honor-date">2022.12</div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-index"></div>
+          <div class="honor-name">
+            优秀学生
+            <div class="honor-proof">
+              <a class="image-preview-link" href="2025-西安交通大学-优秀研究生.jpg" data-preview-src="2025-西安交通大学-优秀研究生.jpg"
+                data-preview-alt="西安交通大学优秀学生证书">点击查看证书</a>
+            </div>
+          </div>
+          <div class="honor-issuer">西安交通大学</div>
+          <div class="honor-level school">校级</div>
+          <div class="honor-date">2025.12</div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-index"></div>
+          <div class="honor-name">
+            优秀学生干部
+            <div class="honor-proof">
+              <a class="image-preview-link" href="2023-西安交通大学-优秀研究生干部.jpg" data-preview-src="2023-西安交通大学-优秀研究生干部.jpg"
+                data-preview-alt="西安交通大学优秀学生干部证书">点击查看证书</a>
+            </div>
+          </div>
+          <div class="honor-issuer">西安交通大学</div>
+          <div class="honor-level school">校级</div>
+          <div class="honor-date">2023.11</div>
+        </div>
+
+
+      </div>
     </div>
 
-    <div class="teaching-item">
-      担任党支部书记、兼职辅导员等学生工作职务，
-      具备良好的
-      <span class="teaching-highlight">学生沟通、组织管理、思想引导和协同育人能力</span>。
+
+    <!-- 活动与学术服务 -->
+    <div class="section" id="services">
+      <h2>活动与学术服务</h2>
+
+      <div class="service-list">
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">CSIAM第六届大数据与人工智能科学大会——“AI for Science中的算法与应用”主题研讨会</div>
+            <div class="service-meta">中国·桂林&nbsp;&nbsp;|&nbsp;&nbsp;2025年7月&nbsp;&nbsp;|&nbsp;&nbsp;<a
+                class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="桂林.jpg"
+                data-preview-alt="CSIAM第六届大数据与人工智能科学大会桂林活动照片">点击查看活动照片</a></div>
+          </div>
+          <div class="service-tag">学术活动</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">CSIAM第七届大数据与人工智能科学大会——“科学计算与机器学习的融合创新及前沿趋势”主题研讨会</div>
+            <div class="service-meta">中国·厦门&nbsp;&nbsp;|&nbsp;&nbsp;2026年7月&nbsp;&nbsp;|&nbsp;&nbsp;<a
+                class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="厦门.jpg"
+                data-preview-alt="CSIAM第七届大数据与人工智能科学大会厦门活动照片">点击查看活动照片</a></div>
+          </div>
+          <div class="service-tag">学术活动</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">受邀担任 <em>Physics of Fluids</em> 审稿人</div>
+            <div class="service-meta">
+              <a class="certificate-link image-preview-link" href="AIPP_Reviewer%20Certificate.jpg"
+                data-preview-src="AIPP_Reviewer Certificate.jpg" data-preview-alt="Physics of Fluids审稿证书">点击查看审稿证书</a>
+            </div>
+          </div>
+          <div class="service-tag review">学术服务</div>
+        </div>
+      </div>
     </div>
+
+
+    <!-- 科研背景 -->
+    <div class="section" id="background">
+      <h2>科研背景</h2>
+      <div class="research-background-card">
+        导师<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer"
+            target="_blank">李义宝教授</a></strong>，<span
+          class="background-highlight">国家级青年人才</span>，课题组隶属于<strong>徐宗本院士团队</strong>，现任学院党委副书记，CSIAM
+        大数据与人工智能专委会秘书长，现代计算科学与工程应用中心主任。在<strong>CMAME、JCP</strong>等国际高水平期刊发表论文<strong>130 余篇</strong>，主持<strong>20
+          余项</strong>纵向与横向科研项目。
+      </div>
+    </div>
+
+    <!-- 联系方式 -->
+    <div class="section" id="contact">
+      <h2>联系方式</h2>
+
+      <div class="card">
+        邮箱：zhixianlv@stu.xjtu.edu.cn<br />
+
+        <div class="social-links">
+
+          <div class="social-item">
+            <img class="zoom-img" src="CSDN.jpg" alt="CSDN">
+            <span>CSDN</span>
+          </div>
+
+
+          <div class="social-item">
+            <img class="zoom-img" src="dy.png" alt="抖音">
+            <span>抖音</span>
+          </div>
+
+          <div class="social-item">
+            <img class="zoom-img" src="xhs.jpg" alt="小红书">
+            <span>小红书</span>
+          </div>
+
+          <div class="social-item">
+            <img class="zoom-img" src="Bilibili.jpg" alt="Bilibili">
+            <span>Bilibili</span>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+
 
   </div>
-</div>
 
 
-<!-- 奖励荣誉 -->
-<div class="section" id="honors">
-  <h2>奖励荣誉</h2>
-
-  <div class="honor-list">
-
-    <div class="honor-item">
-      <div class="honor-index"></div>
-      <div class="honor-name">
-        国家奖学金（全院综合排名<strong>第1</strong>）
-        <div class="honor-proof">
-          <a class="image-preview-link" href="2025国家奖学金.jpg" data-preview-src="2025国家奖学金.jpg" data-preview-alt="2025年国家奖学金证书">点击查看证书</a>
-        </div>
-      </div>
-      <div class="honor-issuer">中华人民共和国教育部</div>
-      <div class="honor-level">国家级</div>
-      <div class="honor-date">2025.12</div>
-    </div>
-
-    <div class="honor-item">
-      <div class="honor-index"></div>
-      <div class="honor-name">
-        国家奖学金
-        <div class="honor-proof">
-          <a class="image-preview-link" href="2020国家奖学金.jpg" data-preview-src="2020国家奖学金.jpg" data-preview-alt="2020年国家奖学金证书">点击查看证书</a>
-        </div>
-      </div>
-      <div class="honor-issuer">中华人民共和国教育部</div>
-      <div class="honor-level">国家级</div>
-      <div class="honor-date">2020.12</div>
-    </div>
-
-    <div class="honor-item">
-      <div class="honor-index"></div>
-      <div class="honor-name">
-        2025新域新质创新大赛特等奖
-        <div class="honor-proof">
-          <a class="image-preview-link" href="2025新域新质大赛特等奖证书.jpg" data-preview-src="2025新域新质大赛特等奖证书.jpg" data-preview-alt="2025新域新质创新大赛特等奖证书">点击查看证书</a>
-        </div>
-      </div>
-      <div class="honor-issuer">中国电子信息产业发展研究院</div>
-      <div class="honor-level">国家级</div>
-      <div class="honor-date">2025.12</div>
-    </div>
-
-    <div class="honor-item">
-      <div class="honor-index"></div>
-      <div class="honor-name">
-        第二十届全国研究生数学建模竞赛二等奖
-        <div class="honor-proof">
-          <a class="image-preview-link" href="第二十届全国研究生数学建模竞赛二等奖.jpg" data-preview-src="第二十届全国研究生数学建模竞赛二等奖.jpg" data-preview-alt="第二十届全国研究生数学建模竞赛二等奖证书">点击查看证书</a>
-        </div>
-      </div>
-      <div class="honor-issuer">中国学会与研究生教育学会</div>
-      <div class="honor-level">国家级</div>
-      <div class="honor-date">2023.12</div>
-    </div>
-
-    <div class="honor-item">
-      <div class="honor-index"></div>
-      <div class="honor-name">
-        第十九届全国研究生数学建模竞赛二等奖
-        <div class="honor-proof">
-          <a class="image-preview-link" href="第十九届全国研究生数学建模竞赛二等奖.jpg" data-preview-src="第十九届全国研究生数学建模竞赛二等奖.jpg" data-preview-alt="第十九届全国研究生数学建模竞赛二等奖证书">点击查看证书</a>
-        </div>
-      </div>
-      <div class="honor-issuer">中国学会与研究生教育学会</div>
-      <div class="honor-level">国家级</div>
-      <div class="honor-date">2022.12</div>
-    </div>
-
-    <div class="honor-item">
-      <div class="honor-index"></div>
-      <div class="honor-name">
-        优秀学生
-        <div class="honor-proof">
-          <a class="image-preview-link" href="2025-西安交通大学-优秀研究生.jpg" data-preview-src="2025-西安交通大学-优秀研究生.jpg" data-preview-alt="西安交通大学优秀学生证书">点击查看证书</a>
-        </div>
-      </div>
-      <div class="honor-issuer">西安交通大学</div>
-      <div class="honor-level school">校级</div>
-      <div class="honor-date">2025.12</div>
-    </div>
-
-    <div class="honor-item">
-      <div class="honor-index"></div>
-      <div class="honor-name">
-        优秀学生干部
-        <div class="honor-proof">
-          <a class="image-preview-link" href="2023-西安交通大学-优秀研究生干部.jpg" data-preview-src="2023-西安交通大学-优秀研究生干部.jpg" data-preview-alt="西安交通大学优秀学生干部证书">点击查看证书</a>
-        </div>
-      </div>
-      <div class="honor-issuer">西安交通大学</div>
-      <div class="honor-level school">校级</div>
-      <div class="honor-date">2023.11</div>
-    </div>
-
-
-  </div>
-</div>
-
-
-<!-- 活动与学术服务 -->
-<div class="section" id="services">
-  <h2>活动与学术服务</h2>
-
-  <div class="service-list">
-    <div class="service-item">
-      <div class="service-index"></div>
-      <div class="service-content">
-        <div class="service-title">CSIAM第六届大数据与人工智能科学大会——“AI for Science中的算法与应用”主题研讨会</div>
-        <div class="service-meta">中国·桂林&nbsp;&nbsp;|&nbsp;&nbsp;2025年7月&nbsp;&nbsp;|&nbsp;&nbsp;<a class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="桂林.jpg" data-preview-alt="CSIAM第六届大数据与人工智能科学大会桂林活动照片">点击查看活动照片</a></div>
-      </div>
-      <div class="service-tag">学术活动</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-index"></div>
-      <div class="service-content">
-        <div class="service-title">CSIAM第七届大数据与人工智能科学大会——“科学计算与机器学习的融合创新及前沿趋势”主题研讨会</div>
-        <div class="service-meta">中国·厦门&nbsp;&nbsp;|&nbsp;&nbsp;2026年7月&nbsp;&nbsp;|&nbsp;&nbsp;<a class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="厦门.jpg" data-preview-alt="CSIAM第七届大数据与人工智能科学大会厦门活动照片">点击查看活动照片</a></div>
-      </div>
-      <div class="service-tag">学术活动</div>
-    </div>
-
-    <div class="service-item">
-      <div class="service-index"></div>
-      <div class="service-content">
-        <div class="service-title">受邀担任 <em>Physics of Fluids</em> 审稿人</div>
-        <div class="service-meta">
-          <a class="certificate-link image-preview-link" href="AIPP_Reviewer%20Certificate.jpg" data-preview-src="AIPP_Reviewer Certificate.jpg" data-preview-alt="Physics of Fluids审稿证书">点击查看审稿证书</a>
-        </div>
-      </div>
-      <div class="service-tag review">学术服务</div>
-    </div>
-  </div>
-</div>
-
-
-<!-- 科研背景 -->
-<div class="section" id="background">
-<h2>科研背景</h2>
-<div class="research-background-card">
-      导师<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer" target="_blank">李义宝教授</a></strong>，<span class="background-highlight">国家级青年人才</span>，课题组隶属于<strong>徐宗本院士团队</strong>，现任学院党委副书记，CSIAM 大数据与人工智能专委会秘书长，现代计算科学与工程应用中心主任。在<strong>CMAME、JCP</strong>等国际高水平期刊发表论文<strong>130 余篇</strong>，主持<strong>20 余项</strong>纵向与横向科研项目。
-    </div>
-</div>
-
-<!-- 联系方式 -->
-<div class="section" id="contact">
-<h2>联系方式</h2>
-
-<div class="card">
-      邮箱：zhixianlv@stu.xjtu.edu.cn<br/>
-
-      <div class="social-links">
-
-        <div class="social-item">
-          <img class="zoom-img" src="CSDN.jpg" alt="CSDN">
-          <span>CSDN</span>
-        </div>
-        
-
-        <div class="social-item">
-          <img class="zoom-img" src="dy.png" alt="抖音">
-          <span>抖音</span>
-        </div>
-
-        <div class="social-item">
-          <img class="zoom-img" src="xhs.jpg" alt="小红书">
-          <span>小红书</span>
-        </div>
-
-        <div class="social-item">
-          <img class="zoom-img" src="Bilibili.jpg" alt="Bilibili">
-          <span>Bilibili</span>
-        </div>
-
-
-        
-
-      </div>
-
-</div>
-</div>
-
-
-</div>
-
-
-<div class="image-preview" id="imagePreview">
+  <div class="image-preview" id="imagePreview">
     <img id="previewImg" src="" alt="">
-</div>
+  </div>
 
-<script>
-document.querySelectorAll(".zoom-img").forEach(function(img){
-    img.addEventListener("click",function(){
-        document.getElementById("previewImg").src=this.src;
+  <script>
+    document.querySelectorAll(".zoom-img").forEach(function (img) {
+      img.addEventListener("click", function () {
+        document.getElementById("previewImg").src = this.src;
         document.getElementById("imagePreview").classList.add("active");
+      });
     });
-});
 
-document.querySelectorAll(".image-preview-link").forEach(function(link){
-    link.addEventListener("click",function(event){
+    document.querySelectorAll(".image-preview-link").forEach(function (link) {
+      link.addEventListener("click", function (event) {
         event.preventDefault();
-        document.getElementById("previewImg").src=this.dataset.previewSrc;
-        document.getElementById("previewImg").alt=this.dataset.previewAlt || "图片预览";
+        document.getElementById("previewImg").src = this.dataset.previewSrc;
+        document.getElementById("previewImg").alt = this.dataset.previewAlt || "图片预览";
         document.getElementById("imagePreview").classList.add("active");
+      });
     });
-});
 
-document.getElementById("imagePreview").addEventListener("click",function(){
-    this.classList.remove("active");
-    document.getElementById("previewImg").src="";
-});
+    document.getElementById("imagePreview").addEventListener("click", function () {
+      this.classList.remove("active");
+      document.getElementById("previewImg").src = "";
+    });
 
-document.addEventListener("keydown",function(event){
-    if(event.key==="Escape"){
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
         document.getElementById("imagePreview").classList.remove("active");
-        document.getElementById("previewImg").src="";
-    }
-});
-</script>
+        document.getElementById("previewImg").src = "";
+      }
+    });
+  </script>
 
 </body>
+
 </html>
