@@ -1725,22 +1725,32 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .65);
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: rgba(0, 0, 0, .72);
       z-index: 9999;
       justify-content: center;
       align-items: center;
-      padding: 30px;
+      padding: 72px 30px 58px;
+      overflow: hidden;
+      touch-action: none;
     }
 
     .image-preview img {
-      max-width: 90%;
-      max-height: 90%;
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: calc(100vw - 60px);
+      max-height: calc(100dvh - 130px);
       object-fit: contain;
       border-radius: 12px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
       background: white;
       cursor: grab;
       user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
       transition: transform .08s ease-out;
       transform-origin: center center;
     }
@@ -1808,6 +1818,60 @@
 
     .image-preview.active .preview-tip {
       display: block;
+    }
+
+    @media(max-width:650px) {
+      .image-preview {
+        padding: 64px 12px 84px;
+        align-items: center;
+      }
+
+      .image-preview img {
+        max-width: calc(100vw - 24px);
+        max-height: calc(100dvh - 150px);
+        border-radius: 9px;
+      }
+
+      .preview-toolbar {
+        top: auto;
+        right: auto;
+        left: 50%;
+        bottom: calc(16px + env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        gap: 10px;
+        padding: 9px 10px;
+        background: rgba(0, 0, 0, .62);
+      }
+
+      .preview-toolbar button {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+      }
+
+      #previewCloseBtn {
+        position: fixed;
+        top: calc(12px + env(safe-area-inset-top));
+        right: 12px;
+        z-index: 10001;
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, .68);
+        border: 1px solid rgba(255, 255, 255, .35);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
+      }
+
+      .preview-tip {
+        top: calc(18px + env(safe-area-inset-top));
+        bottom: auto;
+        left: 14px;
+        right: 66px;
+        transform: none;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 12px;
+        padding: 8px 10px;
+      }
     }
 
 
@@ -2577,7 +2641,7 @@
       <button type="button" id="previewCloseBtn" title="关闭">×</button>
     </div>
     <img id="previewImg" src="" alt="">
-    <div class="preview-tip">滚轮缩放｜按住拖动｜双击还原｜Esc关闭</div>
+    <div class="preview-tip">滚轮/按钮缩放｜按住拖动｜双击还原｜点击×关闭</div>
   </div>
 
   <script>
@@ -2603,6 +2667,7 @@
       previewScale = 1;
       translateX = 0;
       translateY = 0;
+      isDragging = false;
       updatePreviewTransform();
     }
 
@@ -2665,6 +2730,69 @@
 
     document.addEventListener("mouseup", function () {
       isDragging = false;
+    });
+
+    let lastTouchDistance = 0;
+    let lastTouchCenterX = 0;
+    let lastTouchCenterY = 0;
+
+    function getTouchDistance(touches) {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.hypot(dx, dy);
+    }
+
+    function getTouchCenter(touches) {
+      return {
+        x: (touches[0].clientX + touches[1].clientX) / 2,
+        y: (touches[0].clientY + touches[1].clientY) / 2
+      };
+    }
+
+    previewImg.addEventListener("touchstart", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.touches.length === 1) {
+        isDragging = true;
+        startX = event.touches[0].clientX - translateX;
+        startY = event.touches[0].clientY - translateY;
+      }
+      if (event.touches.length === 2) {
+        isDragging = false;
+        lastTouchDistance = getTouchDistance(event.touches);
+        const center = getTouchCenter(event.touches);
+        lastTouchCenterX = center.x;
+        lastTouchCenterY = center.y;
+      }
+    }, { passive: false });
+
+    previewImg.addEventListener("touchmove", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.touches.length === 1 && isDragging) {
+        translateX = event.touches[0].clientX - startX;
+        translateY = event.touches[0].clientY - startY;
+        updatePreviewTransform();
+      }
+      if (event.touches.length === 2) {
+        const newDistance = getTouchDistance(event.touches);
+        if (lastTouchDistance > 0) {
+          const change = (newDistance - lastTouchDistance) / 180;
+          previewScale = Math.min(5, Math.max(0.5, previewScale + change));
+        }
+        const center = getTouchCenter(event.touches);
+        translateX += center.x - lastTouchCenterX;
+        translateY += center.y - lastTouchCenterY;
+        lastTouchCenterX = center.x;
+        lastTouchCenterY = center.y;
+        lastTouchDistance = newDistance;
+        updatePreviewTransform();
+      }
+    }, { passive: false });
+
+    document.addEventListener("touchend", function () {
+      isDragging = false;
+      lastTouchDistance = 0;
     });
 
     imagePreview.addEventListener("wheel", function (event) {
