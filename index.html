@@ -1324,6 +1324,44 @@
       white-space: nowrap;
     }
 
+    /* 教育经历中的链接：保留原有排版，同时让用户看得出可点击 */
+    .education-school a,
+    .education-major a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px dotted rgba(11, 118, 183, .55);
+      transition: color .2s ease, border-color .2s ease;
+    }
+
+    .education-school a::after,
+    .education-major a::after {
+      content: "↗";
+      color: #0b76b7;
+      font-size: .74em;
+      font-weight: 800;
+      line-height: 1;
+      opacity: .78;
+      transform: translateY(-1px);
+    }
+
+    .education-school a:hover,
+    .education-major a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .education-school a:hover::after,
+    .education-major a:hover::after {
+      opacity: 1;
+    }
+
     /* 学生工作 */
     .education-position {
       justify-self: end;
@@ -2099,8 +2137,8 @@
       <h2>个人简介</h2>
       <div class="card">
         吕志贤，男，中共党员，西安交通大学博士研究生，师从<strong><a href="https://gr.xjtu.edu.cn/web/yibaoli" rel="noopener noreferrer"
-            target="_blank">李义宝教授</a></strong>，研究方向为复杂多物理场建模与智能计算，聚焦神经算子方法、物理约束学习与降阶建模方法。已在J. Comput.
-        Phys.等期刊发表10篇论文，其中一作/学生一作7篇，高被引1篇。主持并参与多项科研项目，获得国家奖学金等荣誉。
+            target="_blank">李义宝教授</a></strong>，研究方向为复杂多物理场建模与智能计算，模型-数据融合降阶与数字孪生。聚焦神经算子方法、物理约束学习与降阶建模方法。已在J. Comput.
+        Phys.等期刊发表10篇SCI论文，其中一作/学生一作7篇，高被引1篇。主持并参与多项科研项目，获得国家奖学金等荣誉。
       </div>
     </div>
 
@@ -2112,25 +2150,37 @@
 
         <div class="education-item">
           <div class="education-time">2018.09–2022.06</div>
-          <div class="education-school">中南大学</div>
+          <div class="education-school">
+            <a href="https://www.csu.edu.cn/" rel="noopener noreferrer" target="_blank">中南大学</a>
+          </div>
           <div class="education-degree">本科（保研）</div>
-          <div class="education-major">数学与应用数学</div>
+          <div class="education-major">
+            <a href="https://math.csu.edu.cn/" rel="noopener noreferrer" target="_blank">数学与应用数学</a>
+          </div>
           <div class="education-position">团支部书记</div>
         </div>
 
         <div class="education-item">
           <div class="education-time">2022.09–2024.03</div>
-          <div class="education-school">西安交通大学</div>
+          <div class="education-school">
+            <a href="https://www.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">西安交通大学</a>
+          </div>
           <div class="education-degree">硕士研究生</div>
-          <div class="education-major">计算数学（A类学科）</div>
+          <div class="education-major">
+            <a href="https://math.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">计算数学（A类学科）</a>
+          </div>
           <div class="education-position">党支部书记</div>
         </div>
 
         <div class="education-item">
           <div class="education-time">2024.03–至今</div>
-          <div class="education-school">西安交通大学</div>
+          <div class="education-school">
+            <a href="https://www.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">西安交通大学</a>
+          </div>
           <div class="education-degree">博士研究生</div>
-          <div class="education-major">计算数学（A类学科）</div>
+          <div class="education-major">
+            <a href="https://math.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">计算数学（A类学科）</a>
+          </div>
           <div class="education-position">党支部书记</div>
         </div>
 
