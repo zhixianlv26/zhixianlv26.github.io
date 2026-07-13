@@ -2224,6 +2224,58 @@
         margin-top: 4px;
       }
     }
+  
+
+    /* ==================================================
+       BibTeX 一键复制按钮
+    ================================================== */
+    .bibtex-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .bibtex-copy-btn {
+      appearance: none;
+      border: 1px solid rgba(11, 118, 183, .28);
+      border-radius: 8px;
+      padding: 7px 13px;
+      color: #075f93;
+      background: rgba(11, 118, 183, .07);
+      font-family: inherit;
+      font-size: .82rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .bibtex-copy-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(11, 118, 183, .55);
+      background: rgba(11, 118, 183, .12);
+    }
+
+    .bibtex-copy-btn.copied {
+      color: #166534;
+      border-color: rgba(22, 101, 52, .28);
+      background: rgba(22, 101, 52, .08);
+    }
+
+    .bibtex-copy-status {
+      color: #526174;
+      font-size: .8rem;
+    }
+
+    .bibtex-source {
+      position: fixed;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
   </style>
 </head>
 
@@ -2364,6 +2416,22 @@
         <a href="https://doi.org/10.1063/5.0268665" rel="noopener noreferrer" target="_blank">
           10.1063/5.0268665
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2025data,
+  title={Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion},
+  author={Lv, Zhixian and Feng, Jiachen and Xia, Qing and Huang, Jiahao and Sun, Xing and Kim, Junseok and Li, Yibao},
+  journal={Physics of Fluids},
+  volume={37},
+  number={7},
+  pages={077110},
+  year={2025},
+  doi={10.1063/5.0268665},
+  publisher={AIP Publishing}
+}</textarea>
+        </div>
       </div>
       <div class="paper"><span class="paper-title">
           Simulation of the coupled Navier–Stokes–Cahn–Hilliard–Heat Transfer System
@@ -2376,6 +2444,21 @@
         <a href="https://doi.org/10.1016/j.cnsns.2025.109537" rel="noopener noreferrer" target="_blank">
           10.1016/j.cnsns.2025.109537
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2026simulation,
+  title={Simulation of the coupled Navier--Stokes--Cahn--Hilliard--Heat Transfer System via a U-shaped Spatial-Channel Attention Neural Operator},
+  author={Lv, Zhixian and Li, Yuhong and Xia, Qing and Kim, Junseok and Li, Yibao},
+  journal={Communications in Nonlinear Science and Numerical Simulation},
+  volume={154},
+  pages={109537},
+  year={2026},
+  doi={10.1016/j.cnsns.2025.109537},
+  publisher={Elsevier}
+}</textarea>
+        </div>
       </div>
       <div class="paper"><span class="paper-title">
           Derivative neural operators with physics-guided diffusion refinement
@@ -2384,6 +2467,18 @@
         <span class="my-name">Zhixian Lv</span>; Chen Li; Yating Wang;
         <span class="advisor">Yibao Li（导师）</span><br />
         <b>Physics of Fluids (2026)</b>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2026derivative,
+  title={Derivative neural operators with physics-guided diffusion refinement for predicting two-phase flow dynamics},
+  author={Lv, Zhixian and Li, Chen and Wang, Yating and Li, Yibao},
+  journal={Physics of Fluids},
+  year={2026},
+  note={Publication details and DOI pending}
+}</textarea>
+        </div>
       </div>
       <div class="paper"><span class="paper-title">
           Efficient prediction of phase-field crystal dynamics via β-variational
@@ -2396,6 +2491,21 @@
         <a href="https://doi.org/10.1016/j.camwa.2025.12.024" rel="noopener noreferrer" target="_blank">
           10.1016/j.camwa.2025.12.024
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2026efficient,
+  title={Efficient prediction of phase-field crystal dynamics via {$\\beta$}-variational autoencoders and time-series transformers on coupled physical fields},
+  author={Lv, Zhixian and Huang, Jiahao and Yue, Chengyang and Xie, Wenxuan and Kim, Junseok and Li, Yibao},
+  journal={Computers \\&amp; Mathematics with Applications},
+  volume={204},
+  pages={198--215},
+  year={2026},
+  doi={10.1016/j.camwa.2025.12.024},
+  publisher={Elsevier}
+}</textarea>
+        </div>
       </div>
       <div class="paper"><span class="paper-title">
           Reduced-order prediction model for the Cahn–Hilliard equation based on deep learning</span><br />
@@ -2407,6 +2517,21 @@
         <a href="https://doi.org/10.1016/j.enganabound.2025.106118" rel="noopener noreferrer" target="_blank">
           10.1016/j.enganabound.2025.106118
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2025reduced,
+  title={Reduced-order prediction model for the Cahn--Hilliard equation based on deep learning},
+  author={Lv, Zhixian and Song, Xin and Feng, Jiachen and Xia, Qing and Xia, Bing and Li, Yibao},
+  journal={Engineering Analysis with Boundary Elements},
+  volume={172},
+  pages={106118},
+  year={2025},
+  doi={10.1016/j.enganabound.2025.106118},
+  publisher={Elsevier}
+}</textarea>
+        </div>
       </div>
       <div class="paper"><span class="paper-title">
           On the unconditionally stable phase field model of ternary components system
@@ -2419,6 +2544,21 @@
         <a href="https://doi.org/10.1016/j.jcp.2025.114404" rel="noopener noreferrer" target="_blank">
           10.1016/j.jcp.2025.114404
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{li2025unconditionally,
+  title={On the unconditionally stable phase field model of ternary components system considering liquid--solid phase transition},
+  author={Li, Yibao and Lv, Zhixian and Xia, Qing},
+  journal={Journal of Computational Physics},
+  volume={543},
+  pages={114404},
+  year={2025},
+  doi={10.1016/j.jcp.2025.114404},
+  publisher={Elsevier}
+}</textarea>
+        </div>
       </div>
       <div class="paper"><span class="paper-title">
           On the adaption of biological transport networks affected by complex domains</span><br />
@@ -2430,6 +2570,22 @@
         <a href="https://doi.org/10.1063/5.0231079" rel="noopener noreferrer" target="_blank">
           10.1063/5.0231079
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{li2024adaption,
+  title={On the adaption of biological transport networks affected by complex domains},
+  author={Li, Yibao and Lv, Zhixian and Xia, Qing},
+  journal={Physics of Fluids},
+  volume={36},
+  number={10},
+  pages={107101},
+  year={2024},
+  doi={10.1063/5.0231079},
+  publisher={AIP Publishing}
+}</textarea>
+        </div>
       </div>
       <div class="paper"><span class="paper-title">
           A dual-energy physics-informed multi-material topology optimization method
@@ -2442,6 +2598,21 @@
         <a href="https://doi.org/10.1016/j.cma.2025.118338" rel="noopener noreferrer" target="_blank">
           10.1016/j.cma.2025.118338
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lai2025dual,
+  title={A dual-energy physics-informed multi-material topology optimization method within the phase-field framework},
+  author={Lai, Sijing and Feng, Jiachen and Lv, Zhixian and Kim, Junseok and Li, Yibao},
+  journal={Computer Methods in Applied Mechanics and Engineering},
+  volume={447},
+  pages={118338},
+  year={2025},
+  doi={10.1016/j.cma.2025.118338},
+  publisher={Elsevier}
+}</textarea>
+        </div>
       </div>
 
       <div class="paper"><span class="paper-title">
@@ -2457,6 +2628,21 @@
         <a href="https://doi.org/10.1016/j.cnsns.2026.110522" rel="noopener noreferrer" target="_blank">
           10.1016/j.cnsns.2026.110522
         </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{feng2026microstructural,
+  title={Microstructural evolution prediction in the phase field crystal model with VAE-LSTM and ensemble Kalman filtering},
+  author={Feng, Jiachen and Xie, Wenxuan and Lv, Zhixian and Xia, Qing and Kim, Junseok and Li, Yibao},
+  journal={Communications in Nonlinear Science and Numerical Simulation},
+  volume={163},
+  pages={110522},
+  year={2026},
+  doi={10.1016/j.cnsns.2026.110522},
+  publisher={Elsevier}
+}</textarea>
+        </div>
       </div>
     </div>
 
@@ -2471,7 +2657,22 @@
       <a href="https://doi.org/10.1016/j.cnsns.2026.110255" rel="noopener noreferrer" target="_blank">
         10.1016/j.cnsns.2026.110255
       </a>
-    </div>
+    
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{hu2026third,
+  title={A third-order temporal accurate and unconditionally stable Runge--Kutta scalar auxiliary variable method for the modified phase field crystal model},
+  author={Hu, Xiaochuan and Li, Yibao and Lai, Sijing and Lv, Zhixian and Xie, Wenxuan and Kim, Junseok},
+  journal={Communications in Nonlinear Science and Numerical Simulation},
+  volume={162},
+  pages={110255},
+  year={2026},
+  doi={10.1016/j.cnsns.2026.110255},
+  publisher={Elsevier}
+}</textarea>
+        </div>
+      </div>
     <!-- ==================================================
      项目经历
 ================================================== -->
@@ -3157,6 +3358,45 @@
       if (event.key === "+" || event.key === "=") zoomPreview(0.25);
       if (event.key === "-" || event.key === "_") zoomPreview(-0.25);
       if (event.key === "0") resetPreviewTransform();
+    });
+  </script>
+
+
+
+  <script>
+    document.querySelectorAll(".bibtex-copy-btn").forEach(function (button) {
+      button.addEventListener("click", async function () {
+        const actions = this.closest(".bibtex-actions");
+        const source = actions.querySelector(".bibtex-source");
+        const status = actions.querySelector(".bibtex-copy-status");
+        const bibtex = source.value.trim();
+        const originalText = this.textContent;
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(bibtex);
+          } else {
+            source.removeAttribute("aria-hidden");
+            source.select();
+            source.setSelectionRange(0, source.value.length);
+            const copied = document.execCommand("copy");
+            source.setAttribute("aria-hidden", "true");
+            if (!copied) throw new Error("copy failed");
+          }
+
+          this.textContent = "已复制";
+          this.classList.add("copied");
+          status.textContent = "可直接粘贴到 .bib 文件";
+
+          window.setTimeout(() => {
+            this.textContent = originalText;
+            this.classList.remove("copied");
+            status.textContent = "";
+          }, 2200);
+        } catch (error) {
+          status.textContent = "复制失败，请长按或手动复制";
+        }
+      });
     });
   </script>
 
