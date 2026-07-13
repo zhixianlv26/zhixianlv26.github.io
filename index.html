@@ -1495,6 +1495,159 @@
 
 
     /* ==================================================
+   党务与学生工作
+================================================== */
+    .student-work-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      counter-reset: student-work;
+    }
+
+    .student-work-item {
+      counter-increment: student-work;
+      position: relative;
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) 150px 130px;
+      align-items: center;
+      gap: 18px;
+      padding: 17px 20px 17px 24px;
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, .28);
+      border-radius: 12px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .student-work-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      bottom: 13px;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    }
+
+    .student-work-item:hover {
+      transform: translateX(3px);
+      border-color: rgba(11, 118, 183, .45);
+    }
+
+    .student-work-index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 9px;
+      font-size: .78rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      box-shadow: 0 5px 14px rgba(11, 118, 183, .16);
+    }
+
+    .student-work-index::before {
+      content: counter(student-work, decimal-leading-zero);
+    }
+
+    .student-work-content {
+      min-width: 0;
+    }
+
+    .student-work-title {
+      color: #172033;
+      font-size: .97rem;
+      font-weight: 750;
+      line-height: 1.7;
+    }
+
+    .student-work-unit {
+      margin-top: 3px;
+      color: #526174;
+      font-size: .88rem;
+      line-height: 1.6;
+    }
+
+    .student-work-role {
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 104px;
+      padding: 5px 11px;
+      color: #075f93;
+      background: rgba(11, 118, 183, .07);
+      border: 1px solid rgba(11, 118, 183, .18);
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .student-work-role.counselor {
+      color: #6d28d9;
+      background: rgba(109, 40, 217, .07);
+      border-color: rgba(109, 40, 217, .20);
+    }
+
+    .student-work-date {
+      color: var(--dim);
+      font-size: .88rem;
+      font-weight: 600;
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media(max-width:760px) {
+      .student-work-item {
+        grid-template-columns: 42px minmax(0, 1fr) auto;
+      }
+
+      .student-work-role {
+        justify-self: end;
+      }
+
+      .student-work-date {
+        grid-column: 2 / 4;
+        text-align: left;
+      }
+    }
+
+    @media(max-width:560px) {
+      .student-work-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 8px 12px;
+        padding: 16px 16px 16px 20px;
+      }
+
+      .student-work-index {
+        grid-row: 1 / 4;
+        align-self: start;
+        width: 32px;
+        height: 32px;
+      }
+
+      .student-work-content,
+      .student-work-role,
+      .student-work-date {
+        grid-column: 2;
+      }
+
+      .student-work-role {
+        justify-self: start;
+      }
+
+      .student-work-date {
+        text-align: left;
+      }
+    }
+
+
+    /* ==================================================
    奖励荣誉
 ================================================== */
     .honor-list {
@@ -2083,9 +2236,10 @@
       <a href="#education">教育经历</a>
       <a href="#papers">科研成果</a>
       <a href="#projects">项目经历</a>
-      <a href="#teaching">教学指导</a>
+      <a href="#student-work">学生工作</a>
       <a href="#honors">奖励荣誉</a>
-      <a href="#services">活动与学术服务</a>
+      <a href="#teaching">教学指导</a>
+      <a href="#services">学术活动</a>
       <a href="#background">科研背景</a>
       <a href="#contact">联系方式</a>
     </div>
@@ -2461,45 +2615,40 @@
       </div>
     </div>
 
-    <!-- 教学与学生指导 -->
-    <div class="section" id="teaching">
-      <h2>教学与学生指导</h2>
+    <!-- 学生工作 -->
+    <div class="section" id="student-work">
+      <h2>学生工作</h2>
 
-      <div class="teaching-card">
+      <div class="student-work-list">
 
-        <div class="teaching-item">
-          指导本科毕业设计
-          <span class="teaching-number">2名</span>，
-          协助学生完成
-          <strong>选题设计、数值实验、结果分析、论文撰写与答辩准备</strong>
-          等工作。
+        <div class="student-work-item">
+          <div class="student-work-index"></div>
+          <div class="student-work-content">
+            <div class="student-work-title">硕2022级第一党支部</div>
+            <div class="student-work-unit">西安交通大学数学与统计学院</div>
+          </div>
+          <div class="student-work-role">支部书记</div>
+          <div class="student-work-date">2022.09–2024.03</div>
         </div>
 
-        <div class="teaching-item">
-          指导数学建模竞赛学生
-          <span class="teaching-number">6名</span>，
-          负责
-          <strong>建模思路凝练、算法设计实现与论文修改</strong>，
-          指导学生获美赛
-          <span class="teaching-highlight">M奖1项</span>、
-          国赛
-          <span class="teaching-highlight">二等奖1项</span>。
+        <div class="student-work-item">
+          <div class="student-work-index"></div>
+          <div class="student-work-content">
+            <div class="student-work-title">学生工作队伍</div>
+            <div class="student-work-unit">西安交通大学数学与统计学院</div>
+          </div>
+          <div class="student-work-role counselor">兼职辅导员</div>
+          <div class="student-work-date">2023.03–2025.03</div>
         </div>
 
-        <div class="teaching-item">
-          参与指导硕士研究生
-          <span class="teaching-number">6名</span>、
-          博士研究生
-          <span class="teaching-number">2名</span>，
-          协助开展
-          <strong>科研选题、实验分析、论文写作修改和项目任务推进</strong>
-          等工作。
-        </div>
-
-        <div class="teaching-item">
-          担任党支部书记、兼职辅导员等学生工作职务，
-          具备良好的
-          <span class="teaching-highlight">学生沟通、组织管理、思想引导和协同育人能力</span>。
+        <div class="student-work-item">
+          <div class="student-work-index"></div>
+          <div class="student-work-content">
+            <div class="student-work-title">计算科学师生联合党支部</div>
+            <div class="student-work-unit">西安交通大学数学与统计学院</div>
+          </div>
+          <div class="student-work-role">支部副书记</div>
+          <div class="student-work-date">2025.12–至今</div>
         </div>
 
       </div>
@@ -2614,10 +2763,48 @@
       </div>
     </div>
 
+    <!-- 教学指导 -->
+    <div class="section" id="teaching">
+      <h2>教学指导</h2>
 
-    <!-- 活动与学术服务 -->
+      <div class="teaching-card">
+
+        <div class="teaching-item">
+          指导本科毕业设计
+          <span class="teaching-number">2名</span>，
+          协助学生完成
+          <strong>选题设计、数值实验、结果分析、论文撰写与答辩准备</strong>
+          等工作。
+        </div>
+
+        <div class="teaching-item">
+          指导数学建模竞赛学生
+          <span class="teaching-number">6名</span>，
+          负责
+          <strong>建模思路凝练、算法设计实现与论文修改</strong>，
+          指导学生获美赛
+          <span class="teaching-highlight">M奖1项</span>、
+          国赛
+          <span class="teaching-highlight">二等奖1项</span>。
+        </div>
+
+        <div class="teaching-item">
+          参与指导硕士研究生
+          <span class="teaching-number">6名</span>、
+          博士研究生
+          <span class="teaching-number">2名</span>，
+          协助开展
+          <strong>科研选题、实验分析、论文写作修改和项目任务推进</strong>
+          等工作。
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- 学术活动 -->
     <div class="section" id="services">
-      <h2>活动与学术服务</h2>
+      <h2>学术活动</h2>
 
       <div class="service-list">
         <div class="service-item">
