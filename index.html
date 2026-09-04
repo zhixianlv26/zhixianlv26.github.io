@@ -145,6 +145,36 @@
       color: var(--accent);
     }
 
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .mobile-nav-select {
+      display: none;
+      width: 6.8em;
+      appearance: none;
+      border: 1px solid rgba(148, 163, 184, .28);
+      border-radius: 8px;
+      padding: 8px 24px 8px 9px;
+      color: var(--text);
+      background:
+        linear-gradient(45deg, transparent 50%, var(--dim) 50%) calc(100% - 14px) 50% / 5px 5px no-repeat,
+        linear-gradient(135deg, var(--dim) 50%, transparent 50%) calc(100% - 10px) 50% / 5px 5px no-repeat,
+        rgba(255, 255, 255, .72);
+      font-family: inherit;
+      font-size: .86rem;
+      font-weight: 700;
+      outline: none;
+    }
+
+    .mobile-nav-select:focus {
+      border-color: rgba(11, 118, 183, .46);
+      box-shadow: 0 0 0 3px rgba(11, 118, 183, .10);
+    }
+
     /* 布局 */
     .container {
       max-width: 1100px;
@@ -502,8 +532,12 @@
         padding: 12px 16px;
       }
 
-      nav>div:last-child {
+      .desktop-nav {
         display: none;
+      }
+
+      .mobile-nav-select {
+        display: block;
       }
 
       .container {
@@ -2381,6 +2415,30 @@
       background: rgba(22, 101, 52, .08);
     }
 
+    .paper-proof-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(148, 163, 184, .22);
+      border-radius: 8px;
+      padding: 7px 13px;
+      color: var(--dim);
+      background: rgba(148, 163, 184, .07);
+      font-size: .82rem;
+      font-weight: 750;
+      line-height: 1.2;
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .paper-proof-btn:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, .38);
+      background: rgba(148, 163, 184, .11);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
     .bibtex-copy-status {
       color: #526174;
       font-size: .8rem;
@@ -2432,7 +2490,7 @@
   <!-- 导航 -->
   <nav>
     <div><b>吕志贤</b></div>
-    <div>
+    <div class="desktop-nav">
       <a href="#about">个人简介</a>
       <a href="#education">教育经历</a>
       <a href="#papers">科研成果</a>
@@ -2444,6 +2502,19 @@
       <a href="#background">科研背景</a>
       <a href="#contact">联系方式</a>
     </div>
+    <select class="mobile-nav-select" id="mobileNavSelect" aria-label="选择浏览内容">
+      <option value="">选择栏目</option>
+      <option value="#about">个人简介</option>
+      <option value="#education">教育经历</option>
+      <option value="#papers">科研成果</option>
+      <option value="#projects">项目经历</option>
+      <option value="#student-work">学生工作</option>
+      <option value="#honors">奖励荣誉</option>
+      <option value="#teaching">教学指导</option>
+      <option value="#services">学术活动</option>
+      <option value="#background">科研背景</option>
+      <option value="#contact">联系方式</option>
+    </select>
   </nav>
   <div class="container">
     <!-- HERO -->
@@ -2709,6 +2780,8 @@
       
         <div class="bibtex-actions">
           <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <a class="paper-proof-btn image-preview-link" href="EABE高被引证明.png" data-preview-src="EABE高被引证明.png"
+            data-preview-alt="EABE 高被引证明">高被引证明</a>
           <span class="bibtex-copy-status" aria-live="polite"></span>
           <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2025reduced,
   title={Reduced-order prediction model for the Cahn--Hilliard equation based on deep learning},
@@ -2722,6 +2795,9 @@
 }</textarea>
         </div>
       </div>
+
+
+      
       <div class="paper" data-paper-date="2025-10-01"><span class="paper-title">
           On the unconditionally stable phase field model of ternary components system
           considering liquid–solid phase transition</span><br />
@@ -3695,6 +3771,44 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       if (event.key === "-" || event.key === "_") zoomPreview(-0.25);
       if (event.key === "0") resetPreviewTransform();
     });
+  </script>
+
+
+
+  <script>
+    const mobileNavSelect = document.getElementById("mobileNavSelect");
+
+    if (mobileNavSelect) {
+      const mobileNavTargets = Array.from(mobileNavSelect.options)
+        .map(function (option) {
+          return option.value;
+        })
+        .filter(Boolean);
+
+      mobileNavSelect.addEventListener("change", function () {
+        if (!this.value) return;
+
+        const target = document.querySelector(this.value);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      window.addEventListener("scroll", function () {
+        let activeTarget = "";
+
+        mobileNavTargets.forEach(function (selector) {
+          const section = document.querySelector(selector);
+          if (section && section.getBoundingClientRect().top <= 90) {
+            activeTarget = selector;
+          }
+        });
+
+        if (activeTarget) {
+          mobileNavSelect.value = activeTarget;
+        }
+      }, { passive: true });
+    }
   </script>
 
 
