@@ -339,6 +339,113 @@
       }
     }
 
+    .paper-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, .025);
+      border: 1px solid rgba(148, 163, 184, .14);
+      border-radius: 10px;
+    }
+
+    .paper-sort-label {
+      color: var(--dim);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .paper-sort-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .paper-sort-btn {
+      appearance: none;
+      border: 1px solid rgba(0, 229, 255, .18);
+      border-radius: 8px;
+      padding: 7px 12px;
+      color: var(--dim);
+      background: rgba(0, 229, 255, .05);
+      font-family: inherit;
+      font-size: .82rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .paper-sort-btn:hover {
+      color: var(--text);
+      border-color: rgba(0, 229, 255, .45);
+      transform: translateY(-1px);
+    }
+
+    .paper-sort-btn.active {
+      color: #071018;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .paper-date-badge {
+      display: none;
+      width: fit-content;
+      margin: 0;
+      padding: 2px 8px;
+      color: var(--dim);
+      background: rgba(148, 163, 184, .08);
+      border: 1px solid rgba(148, 163, 184, .14);
+      border-radius: 6px;
+      font-size: .76rem;
+      font-weight: 650;
+      line-height: 1.45;
+    }
+
+    .paper-author-badge {
+      display: none;
+      margin: 0;
+      padding: 2px 8px;
+      color: var(--dim);
+      background: rgba(148, 163, 184, .08);
+      border: 1px solid rgba(148, 163, 184, .14);
+      border-radius: 6px;
+      font-size: .76rem;
+      font-weight: 650;
+      line-height: 1.45;
+      vertical-align: middle;
+    }
+
+    .paper-author-count {
+      color: #f59e0b;
+      font-weight: 800;
+    }
+
+    .paper-sort-meta {
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0 2px;
+    }
+
+    .paper-list.show-paper-dates .paper-sort-meta,
+    .paper-list.show-paper-authors .paper-sort-meta {
+      display: flex;
+    }
+
+    .paper-list.show-paper-dates .paper-date-badge {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .paper-list.show-paper-authors .paper-author-badge {
+      display: inline-flex;
+      align-items: center;
+    }
+
     /* 论文列表自动编号 */
     #papers {
       counter-reset: publication;
@@ -436,6 +543,18 @@
       .paper::before {
         left: 16px;
         top: 15px;
+      }
+
+      .paper-toolbar {
+        align-items: stretch;
+      }
+
+      .paper-sort-actions {
+        width: 100%;
+      }
+
+      .paper-sort-btn {
+        flex: 1 1 96px;
       }
     }
 
@@ -2267,6 +2386,34 @@
       font-size: .8rem;
     }
 
+    /* Email copy button: same appearance as BibTeX copy button */
+    .email-copy-btn {
+      appearance: none;
+      border: 1px solid rgba(11, 118, 183, .28);
+      border-radius: 8px;
+      padding: 7px 13px;
+      color: #075f93;
+      background: rgba(11, 118, 183, .07);
+      font-family: inherit;
+      font-size: .82rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      margin-left: 6px;
+    }
+
+    .email-copy-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(11, 118, 183, .55);
+      background: rgba(11, 118, 183, .12);
+    }
+
+    .email-copy-btn.copied {
+      color: #166534;
+      border-color: rgba(22, 101, 52, .28);
+      background: rgba(22, 101, 52, .08);
+    }
+
     .bibtex-source {
       position: fixed;
       left: -9999px;
@@ -2276,6 +2423,8 @@
       pointer-events: none;
     }
 
+
+    
   </style>
 </head>
 
@@ -2405,7 +2554,19 @@
           class="summary-number">7篇</span>，西安交通大学最具影响力期刊<span class="summary-number">6篇</span>，高被引论文<span
           class="summary-number">1篇</span>。
       </div>
-      <div class="paper"><span class="paper-title">
+      <div class="paper-toolbar" aria-label="论文排序工具">
+        <span class="paper-sort-label">论文排序</span>
+        <div class="paper-sort-actions">
+          <button type="button" class="paper-sort-btn active" data-paper-sort="default">默认顺序</button>
+          <button type="button" class="paper-sort-btn" data-paper-sort="author">按作者顺序</button>
+          <button type="button" class="paper-sort-btn" data-paper-sort="time">按时间排序</button>
+        </div>
+      </div>
+      <div class="paper-list" id="paperList">
+      <!-- 修改每篇论文的 data-paper-date 即可调整时间排序，格式为 YYYY-MM-DD。 -->
+
+
+      <div class="paper" data-paper-date="2025-4-22"><span class="paper-title">
           Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion</span><br />
         <span class="my-name">Zhixian Lv</span>; Jiachen Feng; Qing Xia;
         Jiahao Huang; Xing Sun; Junseok Kim;
@@ -2421,46 +2582,22 @@
           <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
           <span class="bibtex-copy-status" aria-live="polite"></span>
           <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2025data,
-  title={Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion},
-  author={Lv, Zhixian and Feng, Jiachen and Xia, Qing and Huang, Jiahao and Sun, Xing and Kim, Junseok and Li, Yibao},
-  journal={Physics of Fluids},
-  volume={37},
-  number={7},
-  pages={077110},
-  year={2025},
-  doi={10.1063/5.0268665},
-  publisher={AIP Publishing}
-}</textarea>
+        title={Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion},
+        author={Lv, Zhixian and Feng, Jiachen and Xia, Qing and Huang, Jiahao and Sun, Xing and Kim, Junseok and Li, Yibao},
+        journal={Physics of Fluids},
+        volume={37},
+        number={7},
+        pages={077110},
+        year={2025},
+        doi={10.1063/5.0268665},
+        publisher={AIP Publishing}
+      }</textarea>
         </div>
       </div>
-      <div class="paper"><span class="paper-title">
-          Simulation of the coupled Navier–Stokes–Cahn–Hilliard–Heat Transfer System
-          via a U-shaped Spatial-Channel Attention Neural Operator</span><br />
-        <span class="my-name">Zhixian Lv</span>; Yuhong Li; Qing Xia;
-        Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br />
-        <b>Communications in Nonlinear Science and Numerical Simulation (2025)</b><br />
-        Volume 154: 109537<br />
-        DOI:
-        <a href="https://doi.org/10.1016/j.cnsns.2025.109537" rel="noopener noreferrer" target="_blank">
-          10.1016/j.cnsns.2025.109537
-        </a>
-      
-        <div class="bibtex-actions">
-          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
-          <span class="bibtex-copy-status" aria-live="polite"></span>
-          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2026simulation,
-  title={Simulation of the coupled Navier--Stokes--Cahn--Hilliard--Heat Transfer System via a U-shaped Spatial-Channel Attention Neural Operator},
-  author={Lv, Zhixian and Li, Yuhong and Xia, Qing and Kim, Junseok and Li, Yibao},
-  journal={Communications in Nonlinear Science and Numerical Simulation},
-  volume={154},
-  pages={109537},
-  year={2026},
-  doi={10.1016/j.cnsns.2025.109537},
-  publisher={Elsevier}
-}</textarea>
-        </div>
-      </div>
-      <div class="paper"><span class="paper-title">
+
+
+
+      <div class="paper" data-paper-date="2026-06-26"><span class="paper-title">
           Derivative neural operators with physics-guided diffusion refinement
           for predicting two-phase flow dynamics
         </span><br />
@@ -2496,7 +2633,40 @@
           </textarea>
         </div>
       </div>
-      <div class="paper"><span class="paper-title">
+
+
+      
+      <div class="paper" data-paper-date="2025-11-30"><span class="paper-title">
+          Simulation of the coupled Navier–Stokes–Cahn–Hilliard–Heat Transfer System
+          via a U-shaped Spatial-Channel Attention Neural Operator</span><br />
+        <span class="my-name">Zhixian Lv</span>; Yuhong Li; Qing Xia;
+        Junseok Kim; <span class="advisor">Yibao Li（导师）</span><br />
+        <b>Communications in Nonlinear Science and Numerical Simulation (2025)</b><br />
+        Volume 154: 109537<br />
+        DOI:
+        <a href="https://doi.org/10.1016/j.cnsns.2025.109537" rel="noopener noreferrer" target="_blank">
+          10.1016/j.cnsns.2025.109537
+        </a>
+      
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">@article{lv2026simulation,
+  title={Simulation of the coupled Navier--Stokes--Cahn--Hilliard--Heat Transfer System via a U-shaped Spatial-Channel Attention Neural Operator},
+  author={Lv, Zhixian and Li, Yuhong and Xia, Qing and Kim, Junseok and Li, Yibao},
+  journal={Communications in Nonlinear Science and Numerical Simulation},
+  volume={154},
+  pages={109537},
+  year={2026},
+  doi={10.1016/j.cnsns.2025.109537},
+  publisher={Elsevier}
+}</textarea>
+        </div>
+      </div>
+
+
+
+      <div class="paper" data-paper-date="2025-12-31"><span class="paper-title">
           Efficient prediction of phase-field crystal dynamics via β-variational
           autoencoders and time-series transformers on coupled physical fields</span><br />
         <span class="my-name">Zhixian Lv</span>; Jiahao Huang; Chengyang Yue;
@@ -2523,7 +2693,11 @@
 }</textarea>
         </div>
       </div>
-      <div class="paper"><span class="paper-title">
+
+
+
+
+      <div class="paper" data-paper-date="2025-01-17"><span class="paper-title">
           Reduced-order prediction model for the Cahn–Hilliard equation based on deep learning</span><br />
         <span class="my-name">Zhixian Lv</span>; Xin Song; Jiachen Feng;
         Qing Xia; Bing Xia; <span class="advisor">Yibao Li（导师）</span><br />
@@ -2549,7 +2723,7 @@
 }</textarea>
         </div>
       </div>
-      <div class="paper"><span class="paper-title">
+      <div class="paper" data-paper-date="2025-10-01"><span class="paper-title">
           On the unconditionally stable phase field model of ternary components system
           considering liquid–solid phase transition</span><br />
         <span class="advisor">Yibao Li（导师）</span>;
@@ -2576,7 +2750,12 @@
 }</textarea>
         </div>
       </div>
-      <div class="paper"><span class="paper-title">
+
+
+
+
+
+      <div class="paper" data-paper-date="2024-09-11"><span class="paper-title">
           On the adaption of biological transport networks affected by complex domains</span><br />
         <span class="advisor">Yibao Li（导师）</span>;
         <span class="my-name">Zhixian Lv</span>; Qing Xia<br />
@@ -2604,8 +2783,49 @@
         </div>
       </div>
 
+
       
-          <div class="paper"><span class="paper-title">
+
+    <div class="paper" data-paper-date="2026-09-03"><span class="paper-title">
+        GeoFusionNet: A geometry-aware fusion network for bearing surface defect detection</span><br />
+             Shuai Wang; 
+      <span class="my-name">Zhixian Lv</span>;
+      <span class="advisor">Yibao Li（导师）</span><br />
+      <b>Advanced Engineering Informatics(2027)</b>
+      <br />
+      Volume 77: 105178<br />
+      DOI:
+      <a href="https://doi.org/10.1016/j.aei.2026.105178" rel="noopener noreferrer" target="_blank">
+        10.1016/j.aei.2026.105178
+      </a>
+    
+        <div class="bibtex-actions">
+          <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
+          <span class="bibtex-copy-status" aria-live="polite"></span>
+          <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">
+            @article{WANG2027105178,
+title = {GeoFusionNet: A geometry-aware fusion network for bearing surface defect detection},
+journal = {Advanced Engineering Informatics},
+volume = {77},
+pages = {105178},
+year = {2027},
+issn = {1474-0346},
+doi = {https://doi.org/10.1016/j.aei.2026.105178},
+url = {https://www.sciencedirect.com/science/article/pii/S1474034626008700},
+author = {Shuai Wang and Zhixian Lv and Yibao Li},
+keywords = {Bearing defect detection, Geometry-aware fusion, Realistic noise synthesis, Feature channel selection, Model calibration},
+abstract = {As critical rotating components, bearings are susceptible to surface defects with diverse morphologies and complex textures, posing challenges for defect detection and pixel-level localization. Existing methods neglect the geometric priors of bearings and lack bearing-specific noise synthesis strategies. To address these issues, we propose a geometry-aware fusion network (GeoFusionNet). Focusing on the annular structure of bearings, a segmentation-detection-fusion pipeline is constructed. A lightweight semantic segmentation network first partitions the bearing images, followed by polar coordinate transformation and independent defect detection within each functional region. Finally, global result fusion is achieved through inverse transformation. In the detection phase, we design a simple anomaly detection network integrated with two enhancement mechanisms. Realistic noise synthesis generates structurally plausible pseudo-defects in feature space to improve detection performance. Feature channel selection adaptively retains discriminative channels to suppress redundancy and reduce model complexity. To meet the demands of industrial defect inspection, we introduce a framework for model calibration and maintenance. GeoFusionNet attains a 67.27% pixel-level average precision on the bearing defect dataset, outperforming other mainstream methods. Experiments demonstrate the effectiveness of the proposed method and its favorable trade-off between inference efficiency and detection performance.}
+}
+          </textarea>
+        </div>
+      </div>
+
+
+
+
+      
+      
+      <div class="paper" data-paper-date="2026-07-25"><span class="paper-title">
         A latent space assimilation framework for quasicrystal growth prediction using 𝛽-VAE–Transformer and Ensemble Kalman Filter</span><br />
        Jiachen Feng; 
       <span class="my-name">Zhixian Lv</span>; Wenxuan Xie;
@@ -2637,7 +2857,9 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
      </div>
 
 
-      <div class="paper"><span class="paper-title">
+     
+
+      <div class="paper" data-paper-date="2025-09-01"><span class="paper-title">
           A dual-energy physics-informed multi-material topology optimization method
           within the phase-field framework</span><br />
         Sijing Lai; Jiachen Feng; <span class="my-name">Zhixian Lv</span>;
@@ -2665,7 +2887,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
         </div>
       </div>
 
-      <div class="paper"><span class="paper-title">
+      <div class="paper" data-paper-date="2026-07-13"><span class="paper-title">
           Microstructural evolution prediction in the phase field crystal model
           with VAE-LSTM and ensemble Kalman filtering
         </span><br />
@@ -2694,9 +2916,11 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 }</textarea>
         </div>
       </div>
-    </div>
 
-    <div class="paper"><span class="paper-title">
+      
+
+      
+    <div class="paper" data-paper-date="2026-06-03"><span class="paper-title">
         A third-order temporal accurate and unconditionally stable Runge-Kutta
         scalar auxiliary variable method for the modified phase field crystal model</span><br />
       Xiaochuan Hu; <span class="advisor">Yibao Li（导师）</span>; Sijing Lai;
@@ -2727,20 +2951,10 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
 
-    <div class="paper"><span class="paper-title">
-        GeoFusionNet: A Geometry-Aware Fusion Network for Bearing Surface Defect Detection</span><br />
-       Shuai Wang; 
-      <span class="my-name">Zhixian Lv</span>;
-      <span class="advisor">Yibao Li（导师）</span><br />
-      <b>Advanced Engineering Informatics（接收）</b>
-      </div>
 
 
 
-
-
-
-    <div class="paper"><span class="paper-title">
+    <div class="paper" data-paper-date="2026-01-01"><span class="paper-title">
       Parameter-conditioned latent dynamics for long-horizon forecasting of thermally coupled two-phase flows</span><br />
        Shaoxuan Ji; 
       <span class="my-name">Zhixian Lv</span>;  Sajjad ur Rehman;
@@ -2749,7 +2963,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       </div>
 
 
-    <div class="paper"><span class="paper-title">
+    <div class="paper" data-paper-date="2027-01-01"><span class="paper-title">
       U-shaped cross-gated neural operator for simulating long-term phase-field crystal dynamics</span><br />
        Ziyao Pan; 
       <span class="my-name">Zhixian Lv</span>;  Sajjad ur Rehman;
@@ -2758,7 +2972,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       </div>
 
 
-    <div class="paper"><span class="paper-title">
+    <div class="paper" data-paper-date="2027-01-01"><span class="paper-title">
       A Latent-Space Prediction Framework with Observation-Guided Diffusion Correction for Crystal and Quasicrystal Dynamics</span><br />
       Yixin Yuan; 
       <span class="my-name">Zhixian Lv</span>;  Junseok Kim;
@@ -2766,12 +2980,12 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       <b>Computer Physics Communications（一审）</b>
       </div>
 
-    <div class="paper"><span class="paper-title">
+    <div class="paper" data-paper-date="2027-01-01"><span class="paper-title">
       A latent-space surrogate modeling and data assimilation framework for quasicrystal phase-field dynamics</span><br />
       Jiachen Feng; Wenxuan Xie; 
       <span class="my-name">Zhixian Lv</span>;  Sajjad ur Rehman;
       <span class="advisor">Yibao Li（导师）</span><br />
-      <b>Chaos, Solitons &amp; Fractals（一审）</b>
+      <b>Chaos, Solitons &amp; Fractals（二审）</b>
       </div>
 
 
@@ -2783,6 +2997,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
 
+      </div>
     <!-- ==================================================
      项目经历
 ================================================== -->
@@ -3177,10 +3392,22 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
     <div class="section" id="contact">
       <h2>联系方式</h2>
 
-      <div class="card">
-        邮箱：zhixianlv@stu.xjtu.edu.cn<br />
+<div class="card">
+  邮箱：
+  <a href="mailto:zhixianlv@stu.xjtu.edu.cn">
+    zhixianlv@stu.xjtu.edu.cn
+  </a>
+  <button
+    type="button"
+    class="email-copy-btn"
+    onclick="navigator.clipboard.writeText('zhixianlv@stu.xjtu.edu.cn').then(() => { this.textContent = '已复制'; this.classList.add('copied'); setTimeout(() => { this.textContent = '复制'; this.classList.remove('copied'); }, 2200); })"
+  >
+    复制
+  </button>
+  <br />
 
-        <div class="social-links">
+  <div class="social-links">
+    
 
           <div class="social-item">
             <img class="zoom-img" src="CSDN.jpg" alt="CSDN">
@@ -3469,6 +3696,239 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       if (event.key === "-" || event.key === "_") zoomPreview(-0.25);
       if (event.key === "0") resetPreviewTransform();
     });
+  </script>
+
+
+
+  <script>
+    const paperList = document.getElementById("paperList");
+    const paperSortButtons = document.querySelectorAll(".paper-sort-btn");
+
+    if (paperList && paperSortButtons.length) {
+      let currentSortMode = "default";
+      let timeSortDirection = "asc";
+
+      const papers = Array.from(paperList.querySelectorAll(".paper")).map(function (paper, index) {
+        paper.dataset.originalIndex = index;
+        return paper;
+      });
+
+      function getPaperText(paper) {
+        return paper.textContent.replace(/\s+/g, " ").trim();
+      }
+
+      function getPaperYear(paper) {
+        const text = getPaperText(paper);
+        const years = Array.from(text.matchAll(/\b(20\d{2})\b/g), function (match) {
+          return Number(match[1]);
+        });
+        return years.length ? Math.max.apply(null, years) : 0;
+      }
+
+      function getPaperTimestamp(paper) {
+        const date = (paper.dataset.paperDate || "").trim();
+        const dateParts = date.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+
+        if (dateParts) {
+          const year = Number(dateParts[1]);
+          const month = Number(dateParts[2]);
+          const day = Number(dateParts[3]);
+          const timestamp = Date.UTC(year, month - 1, day);
+          if (!Number.isNaN(timestamp)) return timestamp;
+        }
+
+        return Date.UTC(getPaperYear(paper), 0, 1) || 0;
+      }
+
+      function formatPaperDate(paper) {
+        const date = (paper.dataset.paperDate || "").trim();
+        const dateParts = date.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+        if (!dateParts) return "";
+
+        const year = dateParts[1];
+        const month = dateParts[2].padStart(2, "0");
+        const day = dateParts[3].padStart(2, "0");
+        return `${year}.${month}.${day}`;
+      }
+
+      function getAuthorLine(paper) {
+        const clone = paper.cloneNode(true);
+        clone.querySelectorAll(".paper-title, .bibtex-actions, .paper-sort-meta").forEach(function (node) {
+          node.remove();
+        });
+
+        const firstBold = clone.querySelector("b");
+        if (firstBold) {
+          let node = firstBold.nextSibling;
+          while (node) {
+            const next = node.nextSibling;
+            node.remove();
+            node = next;
+          }
+          firstBold.remove();
+        }
+
+        return clone.textContent
+          .replace(/（导师）/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function getAuthorMeta(paper) {
+        const authorLine = getAuthorLine(paper);
+        const authors = authorLine
+          .split(";")
+          .map(function (author) {
+            return author.trim();
+          })
+          .filter(Boolean);
+        const myIndex = authors.findIndex(function (author) {
+          return /Zhixian\s+Lv|Lv,\s*Zhixian|吕志贤/i.test(author);
+        });
+        const firstAuthor = authors[0] || "";
+        const secondAuthor = authors[1] || "";
+        const isZhixianFirst = /Zhixian\s+Lv|Lv,\s*Zhixian|吕志贤/i.test(firstAuthor);
+        const isAdvisorFirst = /Yibao\s+Li|Li,\s*Yibao|李义宝/i.test(firstAuthor);
+        const isZhixianSecond = /Zhixian\s+Lv|Lv,\s*Zhixian|吕志贤/i.test(secondAuthor);
+
+        return {
+          group: isZhixianFirst ? 0 : (isAdvisorFirst && isZhixianSecond ? 1 : 2 + Math.max(myIndex, 1)),
+          myIndex: myIndex === -1 ? 99 : myIndex,
+          isAdvisorFirst: isAdvisorFirst,
+          isZhixianSecond: isZhixianSecond,
+          firstAuthor: firstAuthor,
+          authorLine: authorLine
+        };
+      }
+
+      function formatAuthorPosition(position) {
+        const names = ["一作", "二作", "三作", "四作", "五作", "六作", "七作", "八作", "九作", "十作"];
+        return names[position - 1] || `第${position}作`;
+      }
+
+      function getAuthorBadgeLabel(authorMeta) {
+        return authorMeta.isAdvisorFirst && authorMeta.isZhixianSecond
+          ? "导师一作/二作"
+          : formatAuthorPosition(authorMeta.myIndex + 1);
+      }
+
+      function sortPapers(mode) {
+        const sorted = papers.slice().sort(function (a, b) {
+          if (mode === "time") {
+            const timeDiff = timeSortDirection === "asc"
+              ? getPaperTimestamp(a) - getPaperTimestamp(b)
+              : getPaperTimestamp(b) - getPaperTimestamp(a);
+            if (timeDiff) return timeDiff;
+          }
+
+          if (mode === "author") {
+            const authorA = getAuthorMeta(a);
+            const authorB = getAuthorMeta(b);
+            const groupDiff = authorA.group - authorB.group;
+            if (groupDiff) return groupDiff;
+          }
+
+          return Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex);
+        });
+
+        paperList.replaceChildren(...sorted);
+      }
+
+      function updateAuthorBadgeNumbers() {
+        const authorSorted = papers.slice().sort(function (a, b) {
+          const authorA = getAuthorMeta(a);
+          const authorB = getAuthorMeta(b);
+          const groupDiff = authorA.group - authorB.group;
+          if (groupDiff) return groupDiff;
+          return Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex);
+        });
+        const counts = {};
+
+        authorSorted.forEach(function (paper) {
+          const authorBadge = paper.querySelector(".paper-author-badge");
+          if (!authorBadge) return;
+
+          const label = authorBadge.dataset.authorLabel;
+          counts[label] = (counts[label] || 0) + 1;
+          authorBadge.innerHTML = `${label}<span class="paper-author-count">${counts[label]}</span>`;
+        });
+      }
+
+      function getPaperMetaRow(paper) {
+        let metaRow = paper.querySelector(".paper-sort-meta");
+        if (metaRow) return metaRow;
+
+        metaRow = document.createElement("div");
+        metaRow.className = "paper-sort-meta";
+
+        const doiLink = Array.from(paper.querySelectorAll("a")).find(function (link) {
+          return /doi\.org/i.test(link.href);
+        });
+        const fallbackMeta = paper.querySelector("b");
+
+        if (doiLink) {
+          doiLink.insertAdjacentElement("afterend", metaRow);
+        } else if (fallbackMeta) {
+          fallbackMeta.insertAdjacentElement("afterend", metaRow);
+        } else {
+          paper.prepend(metaRow);
+        }
+
+        return metaRow;
+      }
+
+      papers.forEach(function (paper) {
+        const metaRow = getPaperMetaRow(paper);
+        const authorMeta = getAuthorMeta(paper);
+        if (authorMeta.myIndex < 99 && !paper.querySelector(".paper-author-badge")) {
+          const authorBadge = document.createElement("span");
+          authorBadge.className = "paper-author-badge";
+          authorBadge.dataset.authorLabel = getAuthorBadgeLabel(authorMeta);
+          authorBadge.textContent = authorBadge.dataset.authorLabel;
+          metaRow.appendChild(authorBadge);
+        }
+
+        const formattedDate = formatPaperDate(paper);
+        if (!formattedDate || paper.querySelector(".paper-date-badge")) return;
+
+        const dateBadge = document.createElement("span");
+        dateBadge.className = "paper-date-badge";
+        dateBadge.textContent = formattedDate;
+        metaRow.appendChild(dateBadge);
+      });
+
+      updateAuthorBadgeNumbers();
+
+      paperSortButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          const mode = this.dataset.paperSort || "default";
+
+          paperSortButtons.forEach(function (item) {
+            item.classList.remove("active");
+            if (item.dataset.paperSort === "time") {
+              item.textContent = "按时间排序";
+            }
+          });
+
+          if (mode === "time") {
+            timeSortDirection = currentSortMode === "time" && timeSortDirection === "asc" ? "desc" : "asc";
+            this.textContent = timeSortDirection === "asc" ? "按时间排序 ↑" : "按时间排序 ↓";
+            paperList.classList.add("show-paper-dates");
+            paperList.classList.remove("show-paper-authors");
+          } else if (mode === "author") {
+            paperList.classList.add("show-paper-authors");
+            paperList.classList.remove("show-paper-dates");
+          } else {
+            paperList.classList.remove("show-paper-dates");
+            paperList.classList.remove("show-paper-authors");
+          }
+
+          currentSortMode = mode;
+          this.classList.add("active");
+          sortPapers(mode);
+        });
+      });
+    }
   </script>
 
 
