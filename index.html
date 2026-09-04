@@ -476,6 +476,24 @@
       align-items: center;
     }
 
+    .paper-group-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0 12px;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .paper-group-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(148, 163, 184, .18);
+    }
+
     /* 论文列表自动编号 */
     #papers {
       counter-reset: publication;
@@ -2632,6 +2650,7 @@
           <button type="button" class="paper-sort-btn" data-paper-sort="time">按时间排序</button>
         </div>
       </div>
+      <h3 class="paper-group-title">Published</h3>
       <div class="paper-list" id="paperList">
       <!-- 修改每篇论文的 data-paper-date 即可调整时间排序，格式为 YYYY-MM-DD。 -->
 
@@ -3026,6 +3045,10 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
 
+
+      </div>
+      <h3 class="paper-group-title">Under Review</h3>
+      <div class="paper-list" id="paperReviewList">
 
 
 
@@ -3814,14 +3837,22 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
   <script>
-    const paperList = document.getElementById("paperList");
+    const paperLists = Array.from(document.querySelectorAll(".paper-list"));
     const paperSortButtons = document.querySelectorAll(".paper-sort-btn");
 
-    if (paperList && paperSortButtons.length) {
+    if (paperLists.length && paperSortButtons.length) {
       let currentSortMode = "default";
       let timeSortDirection = "asc";
 
-      const papers = Array.from(paperList.querySelectorAll(".paper")).map(function (paper, index) {
+      const papers = [];
+
+      paperLists.forEach(function (list) {
+        Array.from(list.querySelectorAll(".paper")).forEach(function (paper) {
+          papers.push(paper);
+        });
+      });
+
+      papers.forEach(function (paper, index) {
         paper.dataset.originalIndex = index;
         return paper;
       });
@@ -3926,25 +3957,27 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       }
 
       function sortPapers(mode) {
-        const sorted = papers.slice().sort(function (a, b) {
-          if (mode === "time") {
-            const timeDiff = timeSortDirection === "asc"
-              ? getPaperTimestamp(a) - getPaperTimestamp(b)
-              : getPaperTimestamp(b) - getPaperTimestamp(a);
-            if (timeDiff) return timeDiff;
-          }
+        paperLists.forEach(function (list) {
+          const sorted = Array.from(list.querySelectorAll(".paper")).sort(function (a, b) {
+            if (mode === "time") {
+              const timeDiff = timeSortDirection === "asc"
+                ? getPaperTimestamp(a) - getPaperTimestamp(b)
+                : getPaperTimestamp(b) - getPaperTimestamp(a);
+              if (timeDiff) return timeDiff;
+            }
 
-          if (mode === "author") {
-            const authorA = getAuthorMeta(a);
-            const authorB = getAuthorMeta(b);
-            const groupDiff = authorA.group - authorB.group;
-            if (groupDiff) return groupDiff;
-          }
+            if (mode === "author") {
+              const authorA = getAuthorMeta(a);
+              const authorB = getAuthorMeta(b);
+              const groupDiff = authorA.group - authorB.group;
+              if (groupDiff) return groupDiff;
+            }
 
-          return Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex);
+            return Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex);
+          });
+
+          list.replaceChildren(...sorted);
         });
-
-        paperList.replaceChildren(...sorted);
       }
 
       function updateAuthorBadgeNumbers() {
@@ -4026,14 +4059,20 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
           if (mode === "time") {
             timeSortDirection = currentSortMode === "time" && timeSortDirection === "asc" ? "desc" : "asc";
             this.textContent = timeSortDirection === "asc" ? "按时间排序 ↑" : "按时间排序 ↓";
-            paperList.classList.add("show-paper-dates");
-            paperList.classList.remove("show-paper-authors");
+            paperLists.forEach(function (list) {
+              list.classList.add("show-paper-dates");
+              list.classList.remove("show-paper-authors");
+            });
           } else if (mode === "author") {
-            paperList.classList.add("show-paper-authors");
-            paperList.classList.remove("show-paper-dates");
+            paperLists.forEach(function (list) {
+              list.classList.add("show-paper-authors");
+              list.classList.remove("show-paper-dates");
+            });
           } else {
-            paperList.classList.remove("show-paper-dates");
-            paperList.classList.remove("show-paper-authors");
+            paperLists.forEach(function (list) {
+              list.classList.remove("show-paper-dates");
+              list.classList.remove("show-paper-authors");
+            });
           }
 
           currentSortMode = mode;
