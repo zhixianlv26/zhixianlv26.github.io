@@ -1548,6 +1548,51 @@
       border-radius: 999px;
     }
 
+    .education-item.education-item-six-columns {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .education-item.education-item-six-columns>div,
+    .education-item.education-item-six-columns>button {
+      justify-self: center;
+      text-align: center;
+    }
+
+    .education-gallery-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 7px 12px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: 0;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(11, 118, 183, .18);
+      font: inherit;
+      font-size: .8rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .education-gallery-button::before {
+      content: "▣";
+      font-size: .9em;
+    }
+
+    .education-gallery-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 11px 24px rgba(11, 118, 183, .25);
+      filter: brightness(1.04);
+    }
+
+    .education-gallery-button:focus-visible {
+      outline: 3px solid rgba(11, 118, 183, .28);
+      outline-offset: 3px;
+    }
+
     /* 平板 */
     @media(max-width:900px) {
       .education-item {
@@ -1558,6 +1603,10 @@
       .education-position {
         grid-column: 2 / 5;
         justify-self: start;
+      }
+
+      .education-item.education-item-six-columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -1590,6 +1639,16 @@
         grid-column: auto;
         justify-self: start;
         margin-top: 5px;
+      }
+
+      .education-item.education-item-six-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .education-item.education-item-six-columns>div,
+      .education-item.education-item-six-columns>button {
+        justify-self: start;
+        text-align: left;
       }
     }
 
@@ -1662,6 +1721,83 @@
     .teaching-highlight {
       color: var(--accent);
       font-weight: 750;
+    }
+
+    .teaching-assistant-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .teaching-assistant-item {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(190px, .95fr) minmax(120px, 1fr) minmax(120px, .8fr) 72px;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 20px 16px 24px;
+      border: 1px solid rgba(14, 116, 183, .18);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .14);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .teaching-assistant-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      bottom: 13px;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    }
+
+    .teaching-assistant-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(11, 118, 183, .45);
+    }
+
+    .teaching-assistant-dates {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      color: var(--accent);
+      font-size: .88rem;
+      font-weight: 750;
+      letter-spacing: .03em;
+    }
+
+    .teaching-assistant-dates time {
+      white-space: nowrap;
+    }
+
+    .teaching-assistant-dates span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .teaching-assistant-course {
+      margin: 0;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 780;
+    }
+
+    .teaching-assistant-role {
+      color: var(--dim);
+      font-size: .94rem;
+      white-space: nowrap;
+    }
+
+    .teaching-assistant-count {
+      color: #c24141;
+      font-size: .96rem;
+      font-weight: 800;
+      white-space: nowrap;
+      text-align: right;
     }
 
 
@@ -1821,6 +1957,46 @@
     /* ==================================================
    奖励荣誉
 ================================================== */
+    .honor-education-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      padding: 12px 16px;
+      color: var(--dim);
+      font-size: .94rem;
+      border: 1px solid rgba(14, 116, 183, .18);
+      border-radius: 12px;
+      background: rgba(14, 116, 183, .045);
+    }
+
+    .honor-education-note p {
+      margin: 0;
+    }
+
+    .honor-education-link {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      color: var(--accent);
+      font-size: .88rem;
+      font-weight: 750;
+      text-decoration: none;
+      border: 1px solid rgba(14, 116, 183, .25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .3);
+      transition: color .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .honor-education-link:hover {
+      color: #075f93;
+      border-color: rgba(14, 116, 183, .5);
+      background: rgba(14, 116, 183, .09);
+    }
+
     .honor-list {
       display: flex;
       flex-direction: column;
@@ -1977,6 +2153,36 @@
 
     /* 手机适配 */
     @media(max-width:560px) {
+      .teaching-assistant-item {
+        grid-template-columns: 1fr auto;
+        gap: 8px 14px;
+      }
+
+      .teaching-assistant-dates {
+        grid-column: 1 / -1;
+      }
+
+      .teaching-assistant-course {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .teaching-assistant-role {
+        grid-column: 1;
+        grid-row: 3;
+      }
+
+      .teaching-assistant-count {
+        grid-column: 2;
+        grid-row: 2 / 4;
+      }
+
+      .honor-education-note {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
       .teaching-card {
         padding: 18px 17px 18px 21px;
       }
@@ -2184,6 +2390,79 @@
       display: block;
     }
 
+    .preview-nav,
+    .preview-status {
+      display: none;
+      position: fixed;
+      z-index: 10001;
+    }
+
+    .image-preview.active.gallery-mode .preview-nav {
+      display: flex;
+    }
+
+    .preview-nav {
+      top: 50%;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      color: #fff;
+      background: rgba(0, 0, 0, .46);
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+      font-size: 34px;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .preview-nav:hover {
+      background: rgba(11, 118, 183, .82);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .preview-nav:focus-visible {
+      outline: 3px solid rgba(255, 255, 255, .7);
+      outline-offset: 3px;
+    }
+
+    .preview-nav-prev {
+      left: 22px;
+    }
+
+    .preview-nav-next {
+      right: 22px;
+    }
+
+    .image-preview.active.gallery-mode .preview-status {
+      display: block;
+    }
+
+    .preview-status {
+      top: 22px;
+      left: 50%;
+      max-width: calc(100vw - 370px);
+      padding: 8px 14px;
+      color: #fff;
+      background: rgba(0, 0, 0, .46);
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-align: center;
+      white-space: nowrap;
+      transform: translateX(-50%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
     @media(max-width:650px) {
       .image-preview {
         padding: 64px 12px 84px;
@@ -2221,6 +2500,29 @@
       /* 手机端不显示“滚轮/Esc”等电脑端提示，避免遮挡简历内容 */
       .preview-tip {
         display: none !important;
+      }
+
+      .preview-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 30px;
+      }
+
+      .preview-nav-prev {
+        left: 8px;
+      }
+
+      .preview-nav-next {
+        right: 8px;
+      }
+
+      .preview-status {
+        top: calc(17px + env(safe-area-inset-top));
+        left: 12px;
+        max-width: calc(100vw - 82px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transform: none;
       }
     }
 
@@ -2513,8 +2815,8 @@
       <a href="#education">教育经历</a>
       <a href="#papers">科研成果</a>
       <a href="#projects">项目经历</a>
-      <a href="#student-work">学生工作</a>
       <a href="#honors">奖励荣誉</a>
+      <a href="#student-work">学生工作</a>
       <a href="#teaching">教学指导</a>
       <a href="#services">学术活动</a>
       <a href="#background">科研背景</a>
@@ -2526,8 +2828,8 @@
       <option value="#education">教育经历</option>
       <option value="#papers">科研成果</option>
       <option value="#projects">项目经历</option>
-      <option value="#student-work">学生工作</option>
       <option value="#honors">奖励荣誉</option>
+      <option value="#student-work">学生工作</option>
       <option value="#teaching">教学指导</option>
       <option value="#services">学术活动</option>
       <option value="#background">科研背景</option>
@@ -2592,7 +2894,7 @@
 
       <div class="education-list">
 
-        <div class="education-item">
+        <div class="education-item education-item-six-columns">
           <div class="education-time">2018.09–2022.06</div>
           <div class="education-school">
             <a href="https://www.csu.edu.cn/" rel="noopener noreferrer" target="_blank">中南大学</a>
@@ -2602,9 +2904,11 @@
             <a href="https://math.csu.edu.cn/" rel="noopener noreferrer" target="_blank">数学与应用数学</a>
           </div>
           <div class="education-position">团支部书记</div>
+          <button type="button" class="education-gallery-button" id="undergraduateAwardsBtn"
+            aria-haspopup="dialog" aria-controls="imagePreview">查看本科获奖信息</button>
         </div>
 
-        <div class="education-item">
+        <div class="education-item education-item-six-columns">
           <div class="education-time">2022.09–2024.03</div>
           <div class="education-school">
             <a href="https://www.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">西安交通大学</a>
@@ -2614,9 +2918,11 @@
             <a href="https://math.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">计算数学（A类学科）</a>
           </div>
           <div class="education-position">党支部书记</div>
+          <button type="button" class="education-gallery-button graduate-awards-button"
+            aria-haspopup="dialog" aria-controls="imagePreview">查看硕博获奖信息</button>
         </div>
 
-        <div class="education-item">
+        <div class="education-item education-item-six-columns">
           <div class="education-time">2024.03–至今</div>
           <div class="education-school">
             <a href="https://www.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">西安交通大学</a>
@@ -2626,6 +2932,8 @@
             <a href="https://math.xjtu.edu.cn/" rel="noopener noreferrer" target="_blank">计算数学（A类学科）</a>
           </div>
           <div class="education-position">党支部书记</div>
+          <button type="button" class="education-gallery-button graduate-awards-button"
+            aria-haspopup="dialog" aria-controls="imagePreview">查看硕博获奖信息</button>
         </div>
 
       </div>
@@ -2655,7 +2963,7 @@
       <!-- 修改每篇论文的 data-paper-date 即可调整时间排序，格式为 YYYY-MM-DD。 -->
 
 
-      <div class="paper" data-paper-date="2025-4-22"><span class="paper-title">
+      <div class="paper" data-paper-date="2025-4-22" data-representative-image="论文代表图/f1.png"><span class="paper-title">
           Data-driven reduced-order modeling of hydrogen-fueled supersonic combustion</span><br />
         <span class="my-name">Zhixian Lv</span>; Jiachen Feng; Qing Xia;
         Jiahao Huang; Xing Sun; Junseok Kim;
@@ -2686,7 +2994,7 @@
 
 
 
-      <div class="paper" data-paper-date="2026-06-26"><span class="paper-title">
+      <div class="paper" data-paper-date="2026-06-26" data-representative-image="论文代表图/f2.png"><span class="paper-title">
           Derivative neural operators with physics-guided diffusion refinement
           for predicting two-phase flow dynamics
         </span><br />
@@ -2725,7 +3033,7 @@
 
 
       
-      <div class="paper" data-paper-date="2025-11-30"><span class="paper-title">
+      <div class="paper" data-paper-date="2025-11-30" data-representative-image="论文代表图/f3.png"><span class="paper-title">
           Simulation of the coupled Navier–Stokes–Cahn–Hilliard–Heat Transfer System
           via a U-shaped Spatial-Channel Attention Neural Operator</span><br />
         <span class="my-name">Zhixian Lv</span>; Yuhong Li; Qing Xia;
@@ -2755,7 +3063,7 @@
 
 
 
-      <div class="paper" data-paper-date="2025-12-31"><span class="paper-title">
+      <div class="paper" data-paper-date="2025-12-31" data-representative-image="论文代表图/f4.png"><span class="paper-title">
           Efficient prediction of phase-field crystal dynamics via β-variational
           autoencoders and time-series transformers on coupled physical fields</span><br />
         <span class="my-name">Zhixian Lv</span>; Jiahao Huang; Chengyang Yue;
@@ -2786,7 +3094,7 @@
 
 
 
-      <div class="paper" data-paper-date="2025-01-17"><span class="paper-title">
+      <div class="paper" data-paper-date="2025-01-17" data-representative-image="论文代表图/f5.png"><span class="paper-title">
           Reduced-order prediction model for the Cahn–Hilliard equation based on deep learning</span><br />
         <span class="my-name">Zhixian Lv</span>; Xin Song; Jiachen Feng;
         Qing Xia; Bing Xia; <span class="advisor">Yibao Li（导师）</span><br />
@@ -2817,7 +3125,7 @@
 
 
       
-      <div class="paper" data-paper-date="2025-10-01"><span class="paper-title">
+      <div class="paper" data-paper-date="2025-10-01" data-representative-image="论文代表图/f6.png"><span class="paper-title">
           On the unconditionally stable phase field model of ternary components system
           considering liquid–solid phase transition</span><br />
         <span class="advisor">Yibao Li（导师）</span>;
@@ -2849,7 +3157,7 @@
 
 
 
-      <div class="paper" data-paper-date="2024-09-11"><span class="paper-title">
+      <div class="paper" data-paper-date="2024-09-11" data-representative-image="论文代表图/f7.png"><span class="paper-title">
           On the adaption of biological transport networks affected by complex domains</span><br />
         <span class="advisor">Yibao Li（导师）</span>;
         <span class="my-name">Zhixian Lv</span>; Qing Xia<br />
@@ -2880,7 +3188,7 @@
 
       
 
-    <div class="paper" data-paper-date="2026-09-03"><span class="paper-title">
+    <div class="paper" data-paper-date="2026-09-03" data-representative-image="论文代表图/f8.png"><span class="paper-title">
         GeoFusionNet: A geometry-aware fusion network for bearing surface defect detection</span><br />
              Shuai Wang; 
       <span class="my-name">Zhixian Lv</span>;
@@ -2955,7 +3263,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
 
-      <div class="paper" data-paper-date="2026-07-25"><span class="paper-title">
+      <div class="paper" data-paper-date="2026-07-25" data-representative-image="论文代表图/f10.png"><span class="paper-title">
         A latent space assimilation framework for quasicrystal growth prediction using 𝛽-VAE–Transformer and Ensemble Kalman Filter</span><br />
        Jiachen Feng; 
       <span class="my-name">Zhixian Lv</span>; Wenxuan Xie;
@@ -2989,7 +3297,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
      
 
-      <div class="paper" data-paper-date="2025-09-01"><span class="paper-title">
+      <div class="paper" data-paper-date="2025-09-01" data-representative-image="论文代表图/f11.png"><span class="paper-title">
           A dual-energy physics-informed multi-material topology optimization method
           within the phase-field framework</span><br />
         Sijing Lai; Jiachen Feng; <span class="my-name">Zhixian Lv</span>;
@@ -3017,7 +3325,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
         </div>
       </div>
 
-      <div class="paper" data-paper-date="2026-07-13"><span class="paper-title">
+      <div class="paper" data-paper-date="2026-07-13" data-representative-image="论文代表图/f12.png"><span class="paper-title">
           Microstructural evolution prediction in the phase field crystal model
           with VAE-LSTM and ensemble Kalman filtering
         </span><br />
@@ -3050,7 +3358,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       
 
       
-    <div class="paper" data-paper-date="2026-06-03"><span class="paper-title">
+    <div class="paper" data-paper-date="2026-06-03" data-representative-image="论文代表图/f13.png"><span class="paper-title">
         A third-order temporal accurate and unconditionally stable Runge-Kutta
         scalar auxiliary variable method for the modified phase field crystal model</span><br />
       Xiaochuan Hu; <span class="advisor">Yibao Li（导师）</span>; Sijing Lai;
@@ -3293,49 +3601,14 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       </div>
     </div>
 
-    <!-- 学生工作 -->
-    <div class="section" id="student-work">
-      <h2>学生工作</h2>
-
-      <div class="student-work-list">
-
-        <div class="student-work-item">
-          <div class="student-work-index"></div>
-          <div class="student-work-content">
-            <div class="student-work-title">硕2022级第一党支部</div>
-            <div class="student-work-unit">西安交通大学数学与统计学院</div>
-          </div>
-          <div class="student-work-role">支部书记</div>
-          <div class="student-work-date">2022.09–2024.03</div>
-        </div>
-
-        <div class="student-work-item">
-          <div class="student-work-index"></div>
-          <div class="student-work-content">
-            <div class="student-work-title">学生工作队伍</div>
-            <div class="student-work-unit">西安交通大学数学与统计学院</div>
-          </div>
-          <div class="student-work-role counselor">兼职辅导员</div>
-          <div class="student-work-date">2023.03–2025.03</div>
-        </div>
-
-        <div class="student-work-item">
-          <div class="student-work-index"></div>
-          <div class="student-work-content">
-            <div class="student-work-title">计算科学师生联合党支部</div>
-            <div class="student-work-unit">西安交通大学数学与统计学院</div>
-          </div>
-          <div class="student-work-role">支部副书记</div>
-          <div class="student-work-date">2025.12–至今</div>
-        </div>
-
-      </div>
-    </div>
-
-
     <!-- 奖励荣誉 -->
     <div class="section" id="honors">
       <h2>奖励荣誉</h2>
+
+      <div class="honor-education-note">
+        <p>详细获奖信息及证书图片请在“教育经历”中查看。</p>
+        <a class="honor-education-link" href="#education">前往教育经历</a>
+      </div>
 
       <div class="honor-list">
 
@@ -3409,34 +3682,46 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
           <div class="honor-date">2022.12</div>
         </div>
 
-        <div class="honor-item">
-          <div class="honor-index"></div>
-          <div class="honor-name">
-            优秀学生
-            <div class="honor-proof">
-              <a class="image-preview-link" href="2025-西安交通大学-优秀研究生.jpg" data-preview-src="2025-西安交通大学-优秀研究生.jpg"
-                data-preview-alt="西安交通大学优秀学生证书">点击查看证书</a>
-            </div>
+
+
+      </div>
+    </div>
+
+    <!-- 学生工作 -->
+    <div class="section" id="student-work">
+      <h2>学生工作</h2>
+
+      <div class="student-work-list">
+
+        <div class="student-work-item">
+          <div class="student-work-index"></div>
+          <div class="student-work-content">
+            <div class="student-work-title">硕2022级第一党支部</div>
+            <div class="student-work-unit">西安交通大学数学与统计学院</div>
           </div>
-          <div class="honor-issuer">西安交通大学</div>
-          <div class="honor-level school">校级</div>
-          <div class="honor-date">2025.12</div>
+          <div class="student-work-role">支部书记</div>
+          <div class="student-work-date">2022.09–2024.03</div>
         </div>
 
-        <div class="honor-item">
-          <div class="honor-index"></div>
-          <div class="honor-name">
-            优秀学生干部
-            <div class="honor-proof">
-              <a class="image-preview-link" href="2023-西安交通大学-优秀研究生干部.jpg" data-preview-src="2023-西安交通大学-优秀研究生干部.jpg"
-                data-preview-alt="西安交通大学优秀学生干部证书">点击查看证书</a>
-            </div>
+        <div class="student-work-item">
+          <div class="student-work-index"></div>
+          <div class="student-work-content">
+            <div class="student-work-title">学生工作队伍</div>
+            <div class="student-work-unit">西安交通大学数学与统计学院</div>
           </div>
-          <div class="honor-issuer">西安交通大学</div>
-          <div class="honor-level school">校级</div>
-          <div class="honor-date">2023.11</div>
+          <div class="student-work-role counselor">兼职辅导员</div>
+          <div class="student-work-date">2023.03–2025.03</div>
         </div>
 
+        <div class="student-work-item">
+          <div class="student-work-index"></div>
+          <div class="student-work-content">
+            <div class="student-work-title">计算科学师生联合党支部</div>
+            <div class="student-work-unit">西安交通大学数学与统计学院</div>
+          </div>
+          <div class="student-work-role">支部副书记</div>
+          <div class="student-work-date">2025.12–至今</div>
+        </div>
 
       </div>
     </div>
@@ -3444,6 +3729,28 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
     <!-- 教学指导 -->
     <div class="section" id="teaching">
       <h2>教学指导</h2>
+
+      <div class="teaching-assistant-list">
+        <div class="teaching-assistant-item">
+          <div class="teaching-assistant-dates" aria-label="任教时间：2026年3月至2026年8月">
+            <time datetime="2026-03">2026.03</time><span aria-hidden="true">–</span><time
+              datetime="2026-08">2026.08</time>
+          </div>
+          <h3 class="teaching-assistant-course">高等数学</h3>
+          <span class="teaching-assistant-role">本科生助教</span>
+          <span class="teaching-assistant-count">194人</span>
+        </div>
+
+        <div class="teaching-assistant-item">
+          <div class="teaching-assistant-dates" aria-label="任教时间：2026年9月至2027年1月">
+            <time datetime="2026-09">2026.09</time><span aria-hidden="true">–</span><time
+              datetime="2027-01">2027.01</time>
+          </div>
+          <h3 class="teaching-assistant-course">计算方法</h3>
+          <span class="teaching-assistant-role">研究生助教</span>
+          <span class="teaching-assistant-count">155人</span>
+        </div>
+      </div>
 
       <div class="teaching-card">
 
@@ -3588,13 +3895,16 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
   </div>
 
 
-  <div class="image-preview" id="imagePreview">
+  <div class="image-preview" id="imagePreview" role="dialog" aria-modal="true" aria-label="图片预览">
     <div class="preview-toolbar" aria-label="图片预览工具栏">
       <button type="button" id="zoomOutBtn" title="缩小">−</button>
       <button type="button" id="zoomResetBtn" title="还原">1:1</button>
       <button type="button" id="zoomInBtn" title="放大">+</button>
       <button type="button" id="previewCloseBtn" title="关闭">×</button>
     </div>
+    <div class="preview-status" id="previewStatus" aria-live="polite"></div>
+    <button type="button" class="preview-nav preview-nav-prev" id="previewPrevBtn" aria-label="查看上一页">‹</button>
+    <button type="button" class="preview-nav preview-nav-next" id="previewNextBtn" aria-label="查看下一页">›</button>
     <button type="button" class="preview-close-fixed" id="previewCloseFixedBtn" aria-label="关闭图片预览">×</button>
     <img id="previewImg" src="" alt="">
     <div class="preview-tip">滚轮或按钮缩放｜按住拖动｜双击还原｜点击×关闭</div>
@@ -3608,6 +3918,20 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
     const zoomResetBtn = document.getElementById("zoomResetBtn");
     const previewCloseBtn = document.getElementById("previewCloseBtn");
     const previewCloseFixedBtn = document.getElementById("previewCloseFixedBtn");
+    const previewPrevBtn = document.getElementById("previewPrevBtn");
+    const previewNextBtn = document.getElementById("previewNextBtn");
+    const previewStatus = document.getElementById("previewStatus");
+    const previewTip = imagePreview.querySelector(".preview-tip");
+    const undergraduateAwardsBtn = document.getElementById("undergraduateAwardsBtn");
+    const graduateAwardsButtons = document.querySelectorAll(".graduate-awards-button");
+    const undergraduateAwardPages = Array.from({ length: 29 }, function (_, index) {
+      const pageNumber = String(index + 1).padStart(2, "0");
+      return `assets/undergraduate-awards/page-${pageNumber}.jpg`;
+    });
+    const graduateAwardPages = Array.from({ length: 12 }, function (_, index) {
+      const pageNumber = String(index + 1).padStart(2, "0");
+      return `assets/graduate-awards/page-${pageNumber}.jpg`;
+    });
 
     let previewScale = 1;
     let translateX = 0;
@@ -3615,6 +3939,10 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
     let isDragging = false;
     let startX = 0;
     let startY = 0;
+    let previewGallery = [];
+    let previewGalleryIndex = -1;
+    let previewGalleryTitle = "";
+    let lastFocusedElement = null;
 
 
     function getViewportSize() {
@@ -3650,7 +3978,16 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       updatePreviewTransform();
     }
 
-    function openPreview(src, alt) {
+    function clearGalleryState() {
+      previewGallery = [];
+      previewGalleryIndex = -1;
+      previewGalleryTitle = "";
+      imagePreview.classList.remove("gallery-mode");
+      previewStatus.textContent = "";
+      previewTip.textContent = "滚轮或按钮缩放｜按住拖动｜双击还原｜点击×关闭";
+    }
+
+    function showPreviewImage(src, alt) {
       setPreviewFitSize();
       previewImg.src = src;
       previewImg.alt = alt || "图片预览";
@@ -3659,11 +3996,57 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       document.body.style.overflow = "hidden";
     }
 
+    function openPreview(src, alt) {
+      lastFocusedElement = document.activeElement;
+      clearGalleryState();
+      showPreviewImage(src, alt);
+    }
+
+    function showGalleryPage(index) {
+      if (!previewGallery.length) return;
+      previewGalleryIndex = (index + previewGallery.length) % previewGallery.length;
+      const humanPage = previewGalleryIndex + 1;
+      previewStatus.textContent = `${previewGalleryTitle} · ${humanPage} / ${previewGallery.length}`;
+      showPreviewImage(previewGallery[previewGalleryIndex], `${previewGalleryTitle}第 ${humanPage} 页`);
+
+      const nextIndex = (previewGalleryIndex + 1) % previewGallery.length;
+      const preloadImage = new Image();
+      preloadImage.src = previewGallery[nextIndex];
+    }
+
+    function openAwardsGallery(pages, title) {
+      lastFocusedElement = document.activeElement;
+      previewGallery = pages.slice();
+      previewGalleryIndex = 0;
+      previewGalleryTitle = title;
+      imagePreview.classList.add("gallery-mode");
+      previewTip.textContent = "← / → 切换｜滚轮缩放｜拖动查看｜Esc 关闭";
+      showGalleryPage(0);
+    }
+
+    function openUndergraduateAwards() {
+      openAwardsGallery(undergraduateAwardPages, "本科获奖信息");
+    }
+
+    function openGraduateAwards() {
+      openAwardsGallery(graduateAwardPages, "硕博获奖信息");
+    }
+
+    function navigateGallery(step) {
+      if (!previewGallery.length) return;
+      showGalleryPage(previewGalleryIndex + step);
+    }
+
     function closePreview() {
       imagePreview.classList.remove("active");
       previewImg.src = "";
       document.body.style.overflow = "";
       resetPreviewTransform();
+      clearGalleryState();
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
     }
 
     function zoomPreview(step) {
@@ -3698,11 +4081,35 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       });
     });
 
+    document.querySelectorAll(".paper[data-representative-image]").forEach(function (paper) {
+      const actions = paper.querySelector(".bibtex-actions");
+      if (!actions) return;
+
+      const paperTitle = paper.querySelector(".paper-title");
+      const figureButton = document.createElement("a");
+      figureButton.className = "paper-proof-btn image-preview-link";
+      figureButton.href = paper.dataset.representativeImage;
+      figureButton.dataset.previewSrc = paper.dataset.representativeImage;
+      figureButton.dataset.previewAlt = `${paperTitle ? paperTitle.textContent.trim() : "论文"}代表图`;
+      figureButton.textContent = "查看代表图";
+
+      const insertionPoint = actions.querySelector(".paper-proof-btn, .bibtex-copy-status");
+      actions.insertBefore(figureButton, insertionPoint);
+    });
+
     document.querySelectorAll(".image-preview-link").forEach(function (link) {
       link.addEventListener("click", function (event) {
         event.preventDefault();
         openPreview(this.dataset.previewSrc || this.href, this.dataset.previewAlt || "图片预览");
       });
+    });
+
+    if (undergraduateAwardsBtn) {
+      undergraduateAwardsBtn.addEventListener("click", openUndergraduateAwards);
+    }
+
+    graduateAwardsButtons.forEach(function (button) {
+      button.addEventListener("click", openGraduateAwards);
     });
 
     previewImg.addEventListener("click", function (event) {
@@ -3833,11 +4240,23 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
       closePreview();
     });
 
+    previewPrevBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      navigateGallery(-1);
+    });
+
+    previewNextBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      navigateGallery(1);
+    });
+
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
         closePreview();
       }
       if (!imagePreview.classList.contains("active")) return;
+      if (event.key === "ArrowLeft" && previewGallery.length) navigateGallery(-1);
+      if (event.key === "ArrowRight" && previewGallery.length) navigateGallery(1);
       if (event.key === "+" || event.key === "=") zoomPreview(0.25);
       if (event.key === "-" || event.key === "_") zoomPreview(-0.25);
       if (event.key === "0") resetPreviewTransform();
