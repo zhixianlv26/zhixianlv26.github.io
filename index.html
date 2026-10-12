@@ -388,10 +388,31 @@
       font-weight: 700;
     }
 
+    .paper-sort-slot {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+      min-height: 40px;
+    }
+
     .paper-sort-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+    }
+
+    .paper-sort-actions.is-floating {
+      position: fixed;
+      top: var(--paper-toolbar-top, 70px);
+      right: max(24px, calc((100vw - 1100px) / 2 + 24px));
+      z-index: 900;
+      padding: 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid rgba(148, 163, 184, .24);
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, .12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .paper-sort-btn {
@@ -599,14 +620,31 @@
 
       .paper-toolbar {
         align-items: stretch;
+        padding: 9px;
       }
 
-      .paper-sort-actions {
+      .paper-sort-slot {
+        flex: 0 0 100%;
         width: 100%;
       }
 
+      .paper-sort-actions {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+      }
+
+      .paper-sort-actions.is-floating {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        left: 16px;
+        right: 16px;
+      }
+
       .paper-sort-btn {
-        flex: 1 1 96px;
+        padding: 7px 4px;
+        font-size: .76rem;
+        white-space: nowrap;
       }
     }
 
@@ -2581,7 +2619,7 @@
       counter-increment: service;
       position: relative;
       display: grid;
-      grid-template-columns: 46px minmax(0, 1fr) 118px;
+      grid-template-columns: 46px minmax(0, 1fr);
       align-items: center;
       gap: 18px;
       padding: 18px 20px 18px 24px;
@@ -2643,28 +2681,6 @@
       line-height: 1.6;
     }
 
-    .service-tag {
-      justify-self: end;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 92px;
-      padding: 5px 11px;
-      color: #075f93;
-      background: rgba(11, 118, 183, .07);
-      border: 1px solid rgba(11, 118, 183, .18);
-      border-radius: 999px;
-      font-size: .82rem;
-      font-weight: 750;
-      white-space: nowrap;
-    }
-
-    .service-tag.review {
-      color: #6d28d9;
-      background: rgba(109, 40, 217, .07);
-      border-color: rgba(109, 40, 217, .20);
-    }
-
     .certificate-link {
       color: #1d4ed8;
       font-weight: 750;
@@ -2685,16 +2701,9 @@
       }
 
       .service-index {
-        grid-row: 1 / 3;
         align-self: start;
         width: 32px;
         height: 32px;
-      }
-
-      .service-tag {
-        grid-column: 2;
-        justify-self: start;
-        margin-top: 4px;
       }
     }
   
@@ -2818,7 +2827,8 @@
       <a href="#honors">奖励荣誉</a>
       <a href="#student-work">学生工作</a>
       <a href="#teaching">教学指导</a>
-      <a href="#services">学术活动</a>
+      <a href="#activities">学术活动</a>
+      <a href="#services">学术服务</a>
       <a href="#background">科研背景</a>
       <a href="#contact">联系方式</a>
     </div>
@@ -2831,7 +2841,8 @@
       <option value="#honors">奖励荣誉</option>
       <option value="#student-work">学生工作</option>
       <option value="#teaching">教学指导</option>
-      <option value="#services">学术活动</option>
+      <option value="#activities">学术活动</option>
+      <option value="#services">学术服务</option>
       <option value="#background">科研背景</option>
       <option value="#contact">联系方式</option>
     </select>
@@ -2952,10 +2963,12 @@
       </div>
       <div class="paper-toolbar" aria-label="论文排序工具">
         <span class="paper-sort-label">论文</span>
-        <div class="paper-sort-actions">
-          <button type="button" class="paper-sort-btn active" data-paper-sort="default">默认顺序</button>
-          <button type="button" class="paper-sort-btn" data-paper-sort="author">按作者顺序</button>
-          <button type="button" class="paper-sort-btn" data-paper-sort="time">按时间排序</button>
+        <div class="paper-sort-slot">
+          <div class="paper-sort-actions">
+            <button type="button" class="paper-sort-btn active" data-paper-sort="default">默认顺序</button>
+            <button type="button" class="paper-sort-btn" data-paper-sort="author">按作者顺序</button>
+            <button type="button" class="paper-sort-btn" data-paper-sort="time">按时间排序</button>
+          </div>
         </div>
       </div>
       <h3 class="paper-group-title">Published</h3>
@@ -3453,6 +3466,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
       </div>
+    </div>
     <!-- ==================================================
      项目经历
 ================================================== -->
@@ -3787,7 +3801,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
     <!-- 学术活动 -->
-    <div class="section" id="services">
+    <div class="section" id="activities">
       <h2>学术活动</h2>
 
       <div class="service-list">
@@ -3799,9 +3813,7 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
                 class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="桂林.jpg"
                 data-preview-alt="CSIAM第六届大数据与人工智能科学大会桂林活动照片">点击查看活动照片</a></div>
           </div>
-          <div class="service-tag">学术活动</div>
         </div>
-
         <div class="service-item">
           <div class="service-index"></div>
           <div class="service-content">
@@ -3810,20 +3822,99 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
                 class="certificate-link image-preview-link" href="%E6%A1%82%E6%9E%97.jpg" data-preview-src="厦门.jpg"
                 data-preview-alt="CSIAM第七届大数据与人工智能科学大会厦门活动照片">点击查看活动照片</a></div>
           </div>
-          <div class="service-tag">学术活动</div>
         </div>
+      </div>
+    </div>
+
+    <!-- 学术服务 -->
+    <div class="section" id="services">
+      <h2>学术服务</h2>
+      <div class="service-list">
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Journal of Computational Physics</em> 审稿人</div>
+          </div>
+        </div>
+
+
 
         <div class="service-item">
           <div class="service-index"></div>
           <div class="service-content">
-            <div class="service-title">受邀担任 <em>Physics of Fluids</em> 审稿人</div>
+            <div class="service-title">担任 <em>Physics of Fluids</em> 审稿人</div>
             <div class="service-meta">
               <a class="certificate-link image-preview-link" href="AIPP_Reviewer%20Certificate.jpg"
                 data-preview-src="AIPP_Reviewer Certificate.jpg" data-preview-alt="Physics of Fluids审稿证书">点击查看审稿证书</a>
             </div>
           </div>
-          <div class="service-tag review">学术服务</div>
         </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Communications in Nonlinear Science and Numerical Simulation</em> 审稿人</div>
+          </div>
+        </div>
+
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Computers &amp; Mathematics with Applications</em> 审稿人</div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Engineering Analysis with Boundary Elements</em> 审稿人</div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Advanced Engineering Informatics</em> 审稿人</div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Nonlinear Dynamics</em> 审稿人</div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Physica A: Statistical Mechanics and its Applications</em> 审稿人</div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Computer Methods in Applied Mechanics and Engineering</em> 审稿人</div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Computer Physics Communications</em> 审稿人</div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-index"></div>
+          <div class="service-content">
+            <div class="service-title">担任 <em>Chaos, Solitons &amp; Fractals</em> 审稿人</div>
+          </div>
+        </div>
+
+
       </div>
     </div>
 
@@ -4303,6 +4394,34 @@ abstract = {Accurately forecasting microstructural evolution under uncertain par
 
 
   <script>
+    const paperSection = document.getElementById("papers");
+    const paperToolbar = document.querySelector(".paper-toolbar");
+    const paperSortSlot = document.querySelector(".paper-sort-slot");
+    const paperSortActions = document.querySelector(".paper-sort-actions");
+    const siteNav = document.querySelector("nav");
+
+    if (paperSection && paperToolbar && paperSortSlot && paperSortActions && siteNav) {
+      function updatePaperSortPosition() {
+        const floatingTop = Math.ceil(siteNav.getBoundingClientRect().height) + 8;
+        const sectionBottom = paperSection.getBoundingClientRect().bottom;
+        const toolbarTop = paperToolbar.getBoundingClientRect().top;
+        const actionsHeight = paperSortSlot.getBoundingClientRect().height;
+
+        paperSortActions.style.setProperty("--paper-toolbar-top", `${floatingTop}px`);
+        paperSortActions.classList.toggle(
+          "is-floating",
+          toolbarTop < floatingTop && sectionBottom > floatingTop + actionsHeight + 12
+        );
+      }
+
+      updatePaperSortPosition();
+      window.addEventListener("scroll", updatePaperSortPosition, { passive: true });
+      window.addEventListener("resize", updatePaperSortPosition);
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(updatePaperSortPosition).observe(siteNav);
+      }
+    }
+
     const paperLists = Array.from(document.querySelectorAll(".paper-list"));
     const paperSortButtons = document.querySelectorAll(".paper-sort-btn");
 
