@@ -3087,7 +3087,7 @@
         构建<strong>数据驱动与物理模型融合的高效数值预测框架</strong>，实现了流体–固体–燃烧耦合系统的<span
           class="summary-key">稳定求解与快速预测</span>。在<strong>Journal of Computational Physics、Physics of
           Fluids</strong>等国际期刊发表 SCI 论文<span class="summary-number">16篇</span>，其中一作/学生一作<span
-          class="summary-number">8篇</span>，西安交通大学最具影响力期刊<span class="summary-number">7篇</span>，高被引论文<span
+          class="summary-number">8篇</span>，西安交通大学最具影响力期刊<span class="summary-number">14篇</span>，高被引论文<span
           class="summary-number">1篇</span>。
       </div>
       <div class="paper-toolbar" aria-label="论文排序工具">
@@ -3118,11 +3118,28 @@
       <span class="advisor">Yibao Li（导师）</span>; Zhouqin Fan
       <br />
         <b>Journal of Computational Physics (2026)</b>
+        <br /> Volume 569: 115553<br />
+        DOI:
+        <a href="https://doi.org/10.1016/j.jcp.2026.115553" rel="noopener noreferrer" target="_blank">
+          10.1016/j.jcp.2026.115553
+        </a>
         <div class="bibtex-actions">
           <button type="button" class="bibtex-copy-btn">复制 BibTeX</button>
           <span class="bibtex-copy-status" aria-live="polite"></span>
           <textarea class="bibtex-source" aria-hidden="true" tabindex="-1">
-           还没出
+           @article{LV2027115553,
+            title = {A latent space diffusion framework for multiphysics field reconstruction and generation on irregular grids},
+            journal = {Journal of Computational Physics},
+            volume = {569},
+            pages = {115553},
+            year = {2027},
+            issn = {0021-9991},
+            doi = {https://doi.org/10.1016/j.jcp.2026.115553},
+            url = {https://www.sciencedirect.com/science/article/pii/S0021999126009010},
+            author = {Zhixian Lv and Yixin Yuan and Jing Sun and Yibao Li and Zhouqin Fan},
+            keywords = {High-dimensional physical fields, Low-dimensional latent space, Reduced-order operator, Latent diffusion model},
+            abstract = {Reconstruction and generation of coupled multiphysics fields on irregular meshes remain challenging due to the high-dimensional data and incomplete observations. This study proposes a latent diffusion-based reduced-order generative method for the coupled multiphysics fields. First, a reduced-order operator is trained using the spatial coordinates and their corresponding physical fields. Spatial subsampling reduces the training cost, and the learned operator allows field reconstruction at unseen spatial coordinates. A diffusion model is then trained in the low-dimensional latent space to learn the distribution and temporal evolution of coupled multiphysics states. A unified conditional sampling method is used to handle the different types of incomplete observations. These include sparse and noisy sensor measurements, spatially damaged fields, and short observed sequences. Without observations, the model can also generate diverse physical fields through unconditional sampling. The generated latent states are decoded into physical fields at specified spatial coordinates using the reduced-order operator. The proposed framework is evaluated on two representative multiphysics benchmarks, including flow past a cylinder and hydrogen-fueled supersonic combustion. Numerical results demonstrate the accurate reconstruction from sensor observations, effective recovery of damaged fields, and both sequence-conditioned and unconditional generation on irregular grids.}
+            }
     </textarea>
         </div>
       </div>
